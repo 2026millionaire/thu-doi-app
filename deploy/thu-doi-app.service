@@ -1,0 +1,17 @@
+[Unit]
+Description=Thu Doi App - CS Thu Doi PNJ CN Hue 1305
+After=network.target
+
+[Service]
+User=root
+WorkingDirectory=/opt/thu-doi-app
+ExecStart=/opt/thu-doi-app/venv/bin/gunicorn -b 127.0.0.1:5052 -w 2 --access-logfile - --error-logfile - app:app
+Restart=always
+RestartSec=5
+Environment=PYTHONUNBUFFERED=1
+Environment=APPLICATION_ROOT=/bk/thudoi
+Environment=SECRET_KEY=CHANGE_ME_PROD_SECRET_KEY_HERE
+Environment=ADMIN_PASSWORD=xinlayEOFFICE#002
+
+[Install]
+WantedBy=multi-user.target

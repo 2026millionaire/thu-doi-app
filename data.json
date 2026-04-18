@@ -1,0 +1,2330 @@
+{
+  "meta": {
+    "title": "GIÁO ÁN CHÍNH SÁCH THU ĐỔI PNJ",
+    "updated": "17/04/2026",
+    "lsx": "LSX 03 (hiệu lực từ 01/2026)"
+  },
+  "foundation": {
+    "A1": {
+      "title": "A1. PHẠM VI ÁP DỤNG",
+      "content": "**Áp dụng** toàn hệ thống PNJ cho:\n- Trang sức / quà tặng sưu tầm chất liệu **vàng, Platin** do PNJ kinh doanh.\n- **Kim cương rời, đá màu rời, ngọc trai rời** do PNJ kinh doanh.\n- Trang sức **CAF đổi sang PNJ và ngược lại** – chỉ áp dụng tại **CH CAO SIS** (theo QĐ thu mua TS đá rời của CAF, PL A4 trong QĐ đó).\n\n**Không áp dụng:**\n- Trang sức / quà tặng chất liệu **bạc, hợp kim cao cấp**.\n- **Đồng hồ, trang sức đồng hồ, mắt kính**.\n\n> Nguồn: PL A2 – Phần \"Phạm vi áp dụng\".\n\n**Ngoài phạm vi giáo án này (khối bán lẻ):**\n- **SP của KHDN kinh doanh** (Nhóm 16 trong PL A2) → thuộc **khối Kinh doanh sỉ**, áp dụng **PL A15**. CN Huế là cửa hàng bán lẻ nên **không xử lý** trường hợp này; nếu phát sinh → đẩy về khối KD sỉ."
+    },
+    "A2": {
+      "title": "A2. ĐỊNH NGHĨA CỐT LÕI",
+      "content": "**SP NGUYÊN HIỆN TRẠNG** – thỏa **đồng thời 3 tiêu chí:**\n\n1. **Hình dáng & thiết kế:** không biến dạng, không mất chi tiết, nguyên các bộ phận như PNJ bán ra.\n2. **Chất lượng & cấu trúc:**\n    - Đúng cấp chất lượng ban đầu, không hư hỏng, không hao mòn quá mức, không bị thay thế bộ phận ngoài PNJ.\n    - **Trọng lượng chênh lệch trong dung sai ± 0,006 chỉ** so với HĐ/hệ thống.\n3. **Dấu hiệu nhận diện:** dấu đóng, logo, thông số còn nguyên vẹn, rõ ràng (theo QĐ nhận diện SP PNJ-QYĐ-PTLĐBCL-NDSP).\n\n**QUÀ TẶNG SƯU TẦM (QTST)** – SP có giá trị biểu trưng, lưu giữ, sưu tầm:\n- Vàng Mini Tiểu Lộc Đại Phát / Vàng Special Mini / Blindbox / Quà tặng / Biểu tượng / Đồng xu / Móc khóa – nhãn **PNJ Gold & Silver**.\n- Tranh / Tượng / Biểu tượng / Đồng vàng – nhãn **Arta by PNJ**.\n- Quà tặng thương hiệu / Thẻ may mắn / Biểu tượng – nhãn **Disney / Sanrio / Trendy Collections**.\n\n> **Nhận diện trên SAP:** Material Group\\_LV4 = \"ST\" (ký tự thứ 4–5 của Material Group).\n> Ví dụ: GZ0000Y001382, Material Group PG**ST**BO Z0 → QTST.\n\n**TSKC FANCY** – trang sức gắn kim cương có đá chính hình dáng **bất kỳ trừ hình tròn**.\n\n**Đá chính của trang sức** – xác định 2 bước:\n1. Căn cứ **ký tự thứ 3 & 4 của mã SP** → xác định loại đá chính.\n2. Căn cứ **ký tự thứ 1 & 2 của mã đá**:\n    - ĐK1: giống ký tự 3–4 của mã SP.\n    - ĐK2: kích thước cạnh lớn & cạnh nhỏ lớn nhất.\n\n**Nhóm hàng cũ / mới:**\n- **Cũ:** SP của KH đã từng mua tại PNJ (dùng để bán lại / đổi).\n- **Mới:** SP của PNJ đang kinh doanh, KH muốn mua."
+    },
+    "A3": {
+      "title": "A3. THUẬT NGỮ VIẾT TẮT (gộp PL A2 + QT chính)",
+      "content": "| Viết tắt | Đầy đủ | Viết tắt | Đầy đủ |\n|---|---|---|---|\n| KH | Khách hàng | HĐ | Hóa đơn |\n| P.TL&ĐBCL | Phòng Thiết lập & đảm bảo chất lượng | SP | Sản phẩm |\n| P.CT&BH | Phòng Chế tác & bảo hành | CS | Chính sách |\n| P.MH | Phòng Mua hàng | TS | Trang sức |\n| TTBHCN | Trung tâm bảo hành chi nhánh | KCR | Kim cương rời |\n| GKĐ | Giấy kiểm định | KC | Kim cương |\n| KGĐ | Không gắn đá | TL | Trọng lượng |\n| TLV | Trọng lượng vàng | NL | Nguyên liệu |\n| KĐ | Kiểm định | ĐM | Đá màu |\n| NT | Ngọc trai | H2H | Heart2Heart |\n| TVV | Tư vấn viên | TNT | Thợ nữ trang |\n| CHT | Cửa hàng trưởng | NĐUQ | Người được ủy quyền |\n| PNJL | Cty TNHH MTV Giám định PNJ | BKTMHHMVKCHĐ | Bảng kê thu mua hàng hóa mua vào không có hóa đơn |"
+    },
+    "A4": {
+      "title": "A4. NGUYÊN TẮC CHUNG",
+      "content": "1. KH có nhu cầu đổi/bán lại cần cung cấp **SP thực tế nguyên hiện trạng** + **chứng từ** (HĐ do PNJ phát hành, CS thu đổi, GGĐ đá nếu có). Nếu không đủ chứng từ nhưng **nhận diện được SP do PNJ kinh doanh** → vẫn thu đổi theo từng tình huống phát sinh, đảm bảo chất lượng đạt tiêu chuẩn PNJ.\n\n2. **Chi trả tiền mua lại** chỉ đáp ứng khi **đủ điều kiện nguồn tiền** tại chỗ/điều chuyển, tuân thủ:\n    - **NĐ 232/2025/NĐ-CP** (hiệu lực 01/4/2026) – hình thức thanh toán.\n    - **NĐ 320/2025/NĐ-CP** – thanh toán không dùng tiền mặt.\n    - **NĐ 340/2025/NĐ-CP** – quy định bổ sung.\n\n3. **Thu đổi chéo CAF ↔ PNJ** chỉ tại CH CAO SIS, áp dụng PL A4 trong QĐ thu mua TS đá rời của CAF.\n\n4. Với nhóm có CS thu đổi **theo giá NL**: PNJ mua lại theo **tỷ lệ cam kết trên HĐ** hoặc **theo giá NL và nhu cầu của PNJ** tại thời điểm."
+    },
+    "A5": {
+      "title": "A5. CÔNG THỨC TÍNH GIÁ NGUYÊN LIỆU",
+      "content": "#### Vàng\n\n| Hoạt động | Công thức |\n|---|---|\n| **THU** (mua lại) | `TLV × Giá mua vàng/vàng NT tương ứng tuổi vàng` niêm yết tại thời điểm thu đổi |\n| **ĐỔI** | `TLV × Giá bán vàng/vàng NT tương ứng tuổi vàng` niêm yết tại thời điểm thu đổi |\n\n#### Platin\n\n| Hoạt động | Công thức |\n|---|---|\n| **THU** (định giá mua lại) | `TL Platin × Đơn giá Platin chuẩn (quy 10)` = `TL × 7.000.000 × tuổi Platin` |\n| **ĐỔI** | `TL Platin × Đơn giá Platin chuẩn (quy 10)` |\n| **Platin hao hụt** | `TL hao hụt × Giá bán vàng NT 999.9 × tuổi Platin` |\n\n**Ví dụ Platin:**\n- Giá bán vàng NT 9999 = 17.000.000 VNĐ/chỉ\n- Platin 9500 hao hụt → trị giá hao hụt = 17.000.000 × 95% = **16.150.000 VNĐ/chỉ**\n- Platin 9500 mua NL → giá mua = 7.000.000 × 95% = **6.650.000 VNĐ/chỉ**\n- Platin 9000 mua NL → giá mua = 7.000.000 × 90% = **6.300.000 VNĐ/chỉ**\n\n#### Đá\n\n| Loại đá | Nguyên tắc định giá |\n|---|---|\n| **KC từ 3,5ly ↑** | Theo giá **P.MH định giá** |\n| **KC ↓ 3,5ly** | Theo **PL A8** – Bảng giá thu mua KC tấm |\n| **Đá màu, NT** (trên 3,5ly) | Theo giá **P.MH định giá** |"
+    },
+    "A6": {
+      "title": "A6. ĐIỀU KIỆN \"THU\" vs \"ĐỔI\"",
+      "content": "**Áp dụng TỶ LỆ ĐỔI** khi thỏa **đồng thời:**\n1. Nhóm hàng cũ & mới **đều nằm trong nhóm được áp dụng đổi**.\n2. **Tổng giá trị nhóm hàng mới ≥ Tổng giá trị nhóm hàng cũ**.\n3. **Mã KH trên BKTMHHMVKCHĐ & HĐ mới cùng 1 mã**.\n\n**Áp dụng TỶ LỆ THU** khi:\n- Nhóm hàng cũ & mới **không thuộc nhóm được áp dụng đổi**; HOẶC\n- Tổng giá trị nhóm hàng mới **< Tổng giá trị nhóm hàng cũ**; HOẶC\n- Bán lại SP & **không mua SP mới**."
+    },
+    "A7": {
+      "title": "A7. NHÓM HÀNG – BẢNG TỔNG",
+      "content": "*(Phân theo cột \"NHÓM HÀNG\" trong bảng tỷ lệ PL A2. Chi tiết từng dòng hàng xem Phần B.)*\n\n| Nhóm | Tên | CS thu đổi | Số dòng hàng |\n|---|---|---|---|\n| **1** | TS gắn đá / KGĐ / TS vỏ (trừ Style by PNJ) | Theo **tỷ lệ %** giá HĐ | ~15 |\n| **2** | Dòng hàng tuổi vàng cao (91,6% / 99% / 99,1-99,9% / 99,99%) | **Theo giá NL** | 2 |\n| **3** | Kim cương rời | Theo **tỷ lệ %** | 8 |\n| **4** | Đá rời (đá màu, ngọc trai, cẩm thạch) | Theo **tỷ lệ %** + ngưỡng giá trị tối thiểu | 4 |\n| **5** | Nhãn hàng Style by PNJ | Theo **tỷ lệ %** (thấp) – sau 1 năm theo NL | 1 |\n| **6** | Heart2Heart (theo PL A12) | **Theo giá NL** | 1 |\n| **7** | Vòng lắc da charm phong thủy đặc biệt (PL A11) | Theo **tỷ lệ %** | 1 |\n| **8** | Kind Heart (TB 175-2025) | **Theo giá NL** | 1 |\n| **9** | Quà tặng sưu tầm | Theo **tỷ lệ %** / theo NL (theo cách định giá bán) | 2 |\n| ~~16~~ | ~~SP KHDN~~ | 🚫 **Ngoài phạm vi** – khối KD sỉ | — |"
+    },
+    "A8": {
+      "title": "A8. CHỨNG TỪ YÊU CẦU (theo PL A1)",
+      "content": "*(Mục này mình sẽ bổ sung sau khi đọc xong PL A1 – chứng từ thu đổi.)*\n\n---"
+    }
+  },
+  "items": [
+    {
+      "id": "DH-01-01",
+      "ten": "TS kim cương trắng tròn thường (ngoài nhóm cao cấp)",
+      "nhom": "1",
+      "dac_diem": "Đá chính là KC trắng tròn thuộc 1 trong các trường hợp: (a) chất lượng **IF / FL / VVS1 / VS1** và kích thước **lớn nhất ≤ 4ly**; (b) chất lượng **VVS2 / VS2 / SI1 / SI2 / I1 / I2 / I3 / AAA (SA) / AA / A / KQT** – **mọi kích thước**; (c) **KC màu**",
+      "pham_vi": "Trừ nhãn Style by PNJ",
+      "cong_thuc": "Giá thu/đổi = Giá trị SP theo HĐ × tỷ lệ tương ứng",
+      "dieu_kien": "SP nguyên hiện trạng + đủ chứng từ (HĐ, CS thu đổi, GKĐ nếu có)",
+      "phi": "Không, trừ khi SP không nguyên hiện trạng cần mài/KĐ (xem Phần C)",
+      "tham_chieu": "PL A2 Dòng 1, bảng tỷ lệ thu đổi",
+      "ghi_chu": "**Cơ chế ĐỔI combo đặc thù:** Khi KH đổi sang combo mới (TS vỏ + KCR) có tổng giá trị ≥ nhóm hàng cũ → áp dụng tỷ lệ đổi **85%** cho phần TS có gắn đá. KH có thể chọn 1 trong 2 phương án tính (xem ví dụ)",
+      "vi_du": "KH bán: TS gắn KC trắng tròn SI 5,4ly trị giá HĐ 100tr + KCR 50tr. KH mua: TS Vỏ 80tr + KCR 200tr. **PA1:** TS cũ 100tr × 85% (tỷ lệ đổi combo) + KCR cũ 50tr × 93% (thu). **PA2:** TS cũ 100tr × 80% (thu) + KCR cũ 50tr × 95% (đổi qua KCR mới)",
+      "raw_fields": {
+        "Nhóm": "1",
+        "Đặc điểm nhận diện": "Đá chính là KC trắng tròn thuộc 1 trong các trường hợp: (a) chất lượng **IF / FL / VVS1 / VS1** và kích thước **lớn nhất ≤ 4ly**; (b) chất lượng **VVS2 / VS2 / SI1 / SI2 / I1 / I2 / I3 / AAA (SA) / AA / A / KQT** – **mọi kích thước**; (c) **KC màu**",
+        "Phạm vi": "Trừ nhãn Style by PNJ",
+        "THU trước 05/01/2026": "**80%** giá trị HĐ",
+        "ĐỔI trước 05/01/2026": "**90%** giá trị HĐ",
+        "THU từ 05/01/2026": "80% (không đổi)",
+        "ĐỔI từ 05/01/2026": "90% (không đổi)",
+        "Công thức": "Giá thu/đổi = Giá trị SP theo HĐ × tỷ lệ tương ứng",
+        "Điều kiện": "SP nguyên hiện trạng + đủ chứng từ (HĐ, CS thu đổi, GKĐ nếu có)",
+        "Phí phát sinh": "Không, trừ khi SP không nguyên hiện trạng cần mài/KĐ (xem Phần C)",
+        "Tham chiếu": "PL A2 Dòng 1, bảng tỷ lệ thu đổi",
+        "Ghi chú đặc biệt": "**Cơ chế ĐỔI combo đặc thù:** Khi KH đổi sang combo mới (TS vỏ + KCR) có tổng giá trị ≥ nhóm hàng cũ → áp dụng tỷ lệ đổi **85%** cho phần TS có gắn đá. KH có thể chọn 1 trong 2 phương án tính (xem ví dụ)",
+        "Ví dụ": "KH bán: TS gắn KC trắng tròn SI 5,4ly trị giá HĐ 100tr + KCR 50tr. KH mua: TS Vỏ 80tr + KCR 200tr. **PA1:** TS cũ 100tr × 85% (tỷ lệ đổi combo) + KCR cũ 50tr × 93% (thu). **PA2:** TS cũ 100tr × 80% (thu) + KCR cũ 50tr × 95% (đổi qua KCR mới)"
+      },
+      "rates": {
+        "thu_truoc": 0.8,
+        "doi_truoc": 0.9,
+        "thu_tu": 0.8,
+        "doi_tu": 0.9,
+        "raw": {
+          "thu_truoc": "**80%** giá trị HĐ",
+          "doi_truoc": "**90%** giá trị HĐ",
+          "thu_tu": "80% (không đổi)",
+          "doi_tu": "90% (không đổi)"
+        }
+      }
+    },
+    {
+      "id": "DH-01-02",
+      "ten": "TS kim cương trắng Fancy ≤ 3,5ly",
+      "nhom": "1",
+      "dac_diem": "TS có đá chính KC trắng **hình dáng Fancy** (hình dáng bất kỳ ngoài tròn), kích thước lớn nhất **≤ 3,5ly**",
+      "pham_vi": "Trừ Style by PNJ",
+      "cong_thuc": "Giá thu/đổi = Giá trị SP theo HĐ × tỷ lệ",
+      "dieu_kien": "SP nguyên hiện trạng + đủ chứng từ",
+      "phi": "",
+      "tham_chieu": "PL A2 Dòng 1",
+      "ghi_chu": "Cách nhận diện fancy: căn cứ ký tự hình dáng trong mã đá, ngoại trừ \"tròn\"",
+      "vi_du": "",
+      "raw_fields": {
+        "Nhóm": "1",
+        "Đặc điểm nhận diện": "TS có đá chính KC trắng **hình dáng Fancy** (hình dáng bất kỳ ngoài tròn), kích thước lớn nhất **≤ 3,5ly**",
+        "Phạm vi": "Trừ Style by PNJ",
+        "Tỷ lệ": "**THU 80% / ĐỔI 90%** (không đổi theo 2 mốc thời gian)",
+        "Công thức": "Giá thu/đổi = Giá trị SP theo HĐ × tỷ lệ",
+        "Điều kiện": "SP nguyên hiện trạng + đủ chứng từ",
+        "Tham chiếu": "PL A2 Dòng 1",
+        "Ghi chú": "Cách nhận diện fancy: căn cứ ký tự hình dáng trong mã đá, ngoại trừ \"tròn\""
+      },
+      "rates": {
+        "thu_truoc": 0.8,
+        "doi_truoc": 0.9,
+        "thu_tu": 0.8,
+        "doi_tu": 0.9,
+        "raw": {
+          "ty_le": "**THU 80% / ĐỔI 90%** (không đổi theo 2 mốc thời gian)"
+        }
+      }
+    },
+    {
+      "id": "DH-01-03",
+      "ten": "TS kim cương trắng Fancy ≥ 3,5ly",
+      "nhom": "1",
+      "dac_diem": "TS có đá chính KC trắng fancy, kích thước lớn nhất **từ 3,5ly trở lên**",
+      "pham_vi": "Trừ Style by PNJ",
+      "cong_thuc": "Giá thu/đổi = Giá trị SP theo HĐ × tỷ lệ",
+      "dieu_kien": "SP nguyên hiện trạng + đủ chứng từ",
+      "phi": "",
+      "tham_chieu": "PL A2 Dòng 1",
+      "ghi_chu": "",
+      "vi_du": "",
+      "raw_fields": {
+        "Nhóm": "1",
+        "Đặc điểm nhận diện": "TS có đá chính KC trắng fancy, kích thước lớn nhất **từ 3,5ly trở lên**",
+        "Phạm vi": "Trừ Style by PNJ",
+        "Tỷ lệ": "**THU 75% / ĐỔI 85%** (không đổi theo 2 mốc thời gian)",
+        "Công thức": "Giá thu/đổi = Giá trị SP theo HĐ × tỷ lệ",
+        "Điều kiện": "SP nguyên hiện trạng + đủ chứng từ",
+        "Tham chiếu": "PL A2 Dòng 1"
+      },
+      "rates": {
+        "thu_truoc": 0.75,
+        "doi_truoc": 0.85,
+        "thu_tu": 0.75,
+        "doi_tu": 0.85,
+        "raw": {
+          "ty_le": "**THU 75% / ĐỔI 85%** (không đổi theo 2 mốc thời gian)"
+        }
+      }
+    },
+    {
+      "id": "DH-01-04",
+      "ten": "TS kim cương trắng tròn cao cấp ≥ 4ly (tách vỏ – viên)",
+      "nhom": "1",
+      "dac_diem": "TS có đá chính KC trắng tròn chất lượng **IF / FL / VVS1 / VS1**, kích thước lớn nhất **từ 4ly trở lên**",
+      "pham_vi": "Trừ Style by PNJ. Bắt buộc có GKĐ GIA/PNJ Lab",
+      "cong_thuc": "Giá thu/đổi = (Giá vỏ theo HĐ × tỷ lệ vỏ) + (Giá viên theo HĐ × tỷ lệ KCR tương ứng theo Nhóm 3)",
+      "dieu_kien": "SP nguyên hiện trạng, đủ chứng từ, đúng giấy KĐ",
+      "phi": "",
+      "tham_chieu": "PL A2 Dòng 1 + Nhóm 3 (KCR)",
+      "ghi_chu": "",
+      "vi_du": "TS có gắn KC trắng tròn VVS1 4,5ly – HĐ 100tr (vỏ 20tr + viên 80tr). KH đổi sang SP mới thuộc nhóm được đổi, tổng giá trị mới 105tr → thỏa ĐK đổi. Giá đổi = 20tr × 85% + 80tr × 95% = **17tr + 76tr = 93tr**",
+      "raw_fields": {
+        "Nhóm": "1",
+        "Đặc điểm nhận diện": "TS có đá chính KC trắng tròn chất lượng **IF / FL / VVS1 / VS1**, kích thước lớn nhất **từ 4ly trở lên**",
+        "Phạm vi": "Trừ Style by PNJ. Bắt buộc có GKĐ GIA/PNJ Lab",
+        "THU trước 05/01/2026": "Vỏ: **80%** – Hột: theo **tỷ lệ thu KCR** (xem Nhóm 3)",
+        "ĐỔI trước 05/01/2026": "Vỏ: **80%** – Hột: theo **tỷ lệ đổi KCR**",
+        "THU từ 05/01/2026": "Vỏ: **85%** – Hột: theo tỷ lệ thu KCR",
+        "ĐỔI từ 05/01/2026": "Vỏ: **85%** – Hột: theo tỷ lệ đổi KCR",
+        "Công thức": "Giá thu/đổi = (Giá vỏ theo HĐ × tỷ lệ vỏ) + (Giá viên theo HĐ × tỷ lệ KCR tương ứng theo Nhóm 3)",
+        "Điều kiện": "SP nguyên hiện trạng, đủ chứng từ, đúng giấy KĐ",
+        "Tham chiếu": "PL A2 Dòng 1 + Nhóm 3 (KCR)",
+        "Ví dụ": "TS có gắn KC trắng tròn VVS1 4,5ly – HĐ 100tr (vỏ 20tr + viên 80tr). KH đổi sang SP mới thuộc nhóm được đổi, tổng giá trị mới 105tr → thỏa ĐK đổi. Giá đổi = 20tr × 85% + 80tr × 95% = **17tr + 76tr = 93tr**"
+      },
+      "rates": {
+        "thu_truoc": 0.8,
+        "doi_truoc": 0.8,
+        "thu_tu": 0.85,
+        "doi_tu": 0.85,
+        "raw": {
+          "thu_truoc": "Vỏ: **80%** – Hột: theo **tỷ lệ thu KCR** (xem Nhóm 3)",
+          "doi_truoc": "Vỏ: **80%** – Hột: theo **tỷ lệ đổi KCR**",
+          "thu_tu": "Vỏ: **85%** – Hột: theo tỷ lệ thu KCR",
+          "doi_tu": "Vỏ: **85%** – Hột: theo tỷ lệ đổi KCR"
+        }
+      }
+    },
+    {
+      "id": "DH-01-05",
+      "ten": "TS công nghệ Ý có đá chính kim cương",
+      "nhom": "1",
+      "dac_diem": "TS chế tác theo công nghệ Ý, có đá chính là kim cương",
+      "pham_vi": "",
+      "cong_thuc": "Giá thu/đổi = Giá trị SP theo HĐ × tỷ lệ",
+      "dieu_kien": "",
+      "phi": "",
+      "tham_chieu": "PL A2 Dòng 2",
+      "ghi_chu": "**Thu theo giá NL** khi SP không nguyên hiện trạng hoặc KH chỉ bán lại không đổi",
+      "vi_du": "",
+      "raw_fields": {
+        "Nhóm": "1",
+        "Đặc điểm nhận diện": "TS chế tác theo công nghệ Ý, có đá chính là kim cương",
+        "Tỷ lệ": "**THU 80% / ĐỔI 90%** (không đổi theo 2 mốc thời gian)",
+        "Công thức": "Giá thu/đổi = Giá trị SP theo HĐ × tỷ lệ",
+        "Ghi chú": "**Thu theo giá NL** khi SP không nguyên hiện trạng hoặc KH chỉ bán lại không đổi",
+        "Tham chiếu": "PL A2 Dòng 2"
+      },
+      "rates": {
+        "thu_truoc": 0.8,
+        "doi_truoc": 0.9,
+        "thu_tu": 0.8,
+        "doi_tu": 0.9,
+        "raw": {
+          "ty_le": "**THU 80% / ĐỔI 90%** (không đổi theo 2 mốc thời gian)"
+        }
+      }
+    },
+    {
+      "id": "DH-01-06",
+      "ten": "TS có đá chính là đá màu",
+      "nhom": "1",
+      "dac_diem": "TS có đá chính là đá màu (Ruby, Sapphire, Emerald, Tourmaline, Topaz, Citrin, Moon,…)",
+      "pham_vi": "Trừ Style by PNJ",
+      "cong_thuc": "Giá thu/đổi = Giá trị SP theo HĐ × tỷ lệ",
+      "dieu_kien": "SP nguyên hiện trạng + đủ chứng từ",
+      "phi": "Phí mài đá màu theo PL A8 (55.000 – 250.000 VNĐ/viên tùy loại đá & kích thước)",
+      "tham_chieu": "PL A2 Dòng 3; PL A8 mục II – Bảng phí mài đá màu",
+      "ghi_chu": "",
+      "vi_du": "",
+      "raw_fields": {
+        "Nhóm": "1",
+        "Đặc điểm nhận diện": "TS có đá chính là đá màu (Ruby, Sapphire, Emerald, Tourmaline, Topaz, Citrin, Moon,…)",
+        "Phạm vi": "Trừ Style by PNJ",
+        "Tỷ lệ": "**THU 75% / ĐỔI 85%** (không đổi)",
+        "Công thức": "Giá thu/đổi = Giá trị SP theo HĐ × tỷ lệ",
+        "Điều kiện": "SP nguyên hiện trạng + đủ chứng từ",
+        "Phí phát sinh": "Phí mài đá màu theo PL A8 (55.000 – 250.000 VNĐ/viên tùy loại đá & kích thước)",
+        "Tham chiếu": "PL A2 Dòng 3; PL A8 mục II – Bảng phí mài đá màu"
+      },
+      "rates": {
+        "thu_truoc": 0.75,
+        "doi_truoc": 0.85,
+        "thu_tu": 0.75,
+        "doi_tu": 0.85,
+        "raw": {
+          "ty_le": "**THU 75% / ĐỔI 85%** (không đổi)"
+        }
+      }
+    },
+    {
+      "id": "DH-01-07",
+      "ten": "TS ngọc trai nước ngọt",
+      "nhom": "1",
+      "dac_diem": "TS có đá chính là ngọc trai **nước ngọt**",
+      "pham_vi": "Trừ Style by PNJ",
+      "cong_thuc": "",
+      "dieu_kien": "",
+      "phi": "",
+      "tham_chieu": "PL A2 Dòng 4",
+      "ghi_chu": "**Khi SP không nguyên hiện trạng:** Vàng thu theo giá NL – **Ngọc trai không thu đổi**",
+      "vi_du": "",
+      "raw_fields": {
+        "Nhóm": "1",
+        "Đặc điểm nhận diện": "TS có đá chính là ngọc trai **nước ngọt**",
+        "Phạm vi": "Trừ Style by PNJ",
+        "Tỷ lệ": "**THU 50% / ĐỔI 70%** (không đổi)",
+        "Ghi chú đặc biệt": "**Khi SP không nguyên hiện trạng:** Vàng thu theo giá NL – **Ngọc trai không thu đổi**",
+        "Tham chiếu": "PL A2 Dòng 4"
+      },
+      "rates": {
+        "thu_truoc": 0.5,
+        "doi_truoc": 0.7,
+        "thu_tu": 0.5,
+        "doi_tu": 0.7,
+        "raw": {
+          "ty_le": "**THU 50% / ĐỔI 70%** (không đổi)"
+        }
+      }
+    },
+    {
+      "id": "DH-01-08",
+      "ten": "TS ngọc trai nước mặn",
+      "nhom": "1",
+      "dac_diem": "",
+      "pham_vi": "",
+      "cong_thuc": "",
+      "dieu_kien": "",
+      "phi": "",
+      "tham_chieu": "PL A2 Dòng 4",
+      "ghi_chu": "",
+      "vi_du": "",
+      "raw_fields": {
+        "Nhóm": "1",
+        "Tỷ lệ": "**THU 60% / ĐỔI 75%** (không đổi)",
+        "Tham chiếu": "PL A2 Dòng 4"
+      },
+      "rates": {
+        "thu_truoc": 0.6,
+        "doi_truoc": 0.75,
+        "thu_tu": 0.6,
+        "doi_tu": 0.75,
+        "raw": {
+          "ty_le": "**THU 60% / ĐỔI 75%** (không đổi)"
+        }
+      }
+    },
+    {
+      "id": "DH-01-09",
+      "ten": "TS ngọc trai Mother of Pearl",
+      "nhom": "1",
+      "dac_diem": "TS có đá chính là ngọc trai Mother of Pearl (vỏ ốc xà cừ)",
+      "pham_vi": "",
+      "cong_thuc": "",
+      "dieu_kien": "",
+      "phi": "",
+      "tham_chieu": "PL A2 Dòng 4",
+      "ghi_chu": "Vàng: thu theo giá NL. **Ngọc trai không thu đổi**",
+      "vi_du": "",
+      "raw_fields": {
+        "Nhóm": "1",
+        "Đặc điểm nhận diện": "TS có đá chính là ngọc trai Mother of Pearl (vỏ ốc xà cừ)",
+        "Tỷ lệ": "**Thu theo giá NL / Đổi theo giá NL**",
+        "Ghi chú": "Vàng: thu theo giá NL. **Ngọc trai không thu đổi**",
+        "Tham chiếu": "PL A2 Dòng 4"
+      },
+      "rates": {
+        "thu_truoc": "NL",
+        "doi_truoc": "NL",
+        "thu_tu": "NL",
+        "doi_tu": "NL",
+        "raw": {
+          "ty_le": "**Thu theo giá NL / Đổi theo giá NL**"
+        }
+      }
+    },
+    {
+      "id": "DH-01-10",
+      "ten": "Chuỗi đá ngọc trai gắn khóa vàng",
+      "nhom": "1",
+      "dac_diem": "Chuỗi đá ngọc trai các loại có gắn khóa vàng",
+      "pham_vi": "",
+      "cong_thuc": "",
+      "dieu_kien": "",
+      "phi": "",
+      "tham_chieu": "PL A2 Dòng 4",
+      "ghi_chu": "• HĐ xuất bán **trước 15/01/2016** áp dụng thu đổi theo **CS cam kết trên HĐ / CS trích lục theo HĐ**\n• SP không nguyên hiện trạng: **khóa vàng = TLV × giá mua vàng/vàng NT tương ứng tuổi vàng** tại thời điểm thu đổi (theo Phần A5)",
+      "vi_du": "",
+      "raw_fields": {
+        "Nhóm": "1",
+        "Đặc điểm nhận diện": "Chuỗi đá ngọc trai các loại có gắn khóa vàng",
+        "Tỷ lệ": "**THU 55% / ĐỔI 60%** (không đổi)",
+        "Ghi chú đặc biệt": "• HĐ xuất bán **trước 15/01/2016** áp dụng thu đổi theo **CS cam kết trên HĐ / CS trích lục theo HĐ**\n• SP không nguyên hiện trạng: **khóa vàng = TLV × giá mua vàng/vàng NT tương ứng tuổi vàng** tại thời điểm thu đổi (theo Phần A5)",
+        "Tham chiếu": "PL A2 Dòng 4"
+      },
+      "rates": {
+        "thu_truoc": 0.55,
+        "doi_truoc": 0.6,
+        "thu_tu": 0.55,
+        "doi_tu": 0.6,
+        "raw": {
+          "ty_le": "**THU 55% / ĐỔI 60%** (không đổi)"
+        }
+      }
+    },
+    {
+      "id": "DH-01-11",
+      "ten": "Chuỗi ngọc trai nước ngọt KHÔNG gắn khóa/chi tiết vàng",
+      "nhom": "1",
+      "dac_diem": "",
+      "pham_vi": "",
+      "cong_thuc": "",
+      "dieu_kien": "",
+      "phi": "",
+      "tham_chieu": "PL A2 Dòng 4",
+      "ghi_chu": "",
+      "vi_du": "",
+      "raw_fields": {
+        "Nhóm": "1",
+        "Tỷ lệ": "**Không thu mua**",
+        "Tham chiếu": "PL A2 Dòng 4"
+      },
+      "rates": {
+        "thu_truoc": "NONE",
+        "doi_truoc": "NONE",
+        "thu_tu": "NONE",
+        "doi_tu": "NONE",
+        "raw": {
+          "ty_le": "**Không thu mua**"
+        }
+      }
+    },
+    {
+      "id": "DH-01-12",
+      "ten": "Chuỗi ngọc trai nước mặn KHÔNG gắn khóa/chi tiết vàng",
+      "nhom": "1",
+      "dac_diem": "",
+      "pham_vi": "",
+      "cong_thuc": "",
+      "dieu_kien": "",
+      "phi": "",
+      "tham_chieu": "PL A2 Dòng 4",
+      "ghi_chu": "SP không nguyên hiện trạng / không đủ chứng từ: **không thu mua**",
+      "vi_du": "",
+      "raw_fields": {
+        "Nhóm": "1",
+        "Tỷ lệ THU": "• < 20 triệu/SP: **Không thu mua**\n• ≥ 20 triệu/SP: **50%** giá trị HĐ (không đổi theo mốc thời gian)",
+        "Tỷ lệ ĐỔI": "Không đổi",
+        "Ghi chú": "SP không nguyên hiện trạng / không đủ chứng từ: **không thu mua**",
+        "Tham chiếu": "PL A2 Dòng 4"
+      },
+      "rates": {
+        "thu_truoc": "SPECIAL",
+        "doi_truoc": null,
+        "thu_tu": "SPECIAL",
+        "doi_tu": null,
+        "raw": {
+          "ty_le_thu": "• < 20 triệu/SP: **Không thu mua**\n• ≥ 20 triệu/SP: **50%** giá trị HĐ (không đổi theo mốc thời gian)",
+          "ty_le_doi": "Không đổi"
+        }
+      }
+    },
+    {
+      "id": "DH-01-13",
+      "ten": "TS ECZ / CZ",
+      "nhom": "1",
+      "dac_diem": "TS có đá chính là **ECZ (Swarovski Zirconia)** hoặc **CZ (Cubic Zirconia)**",
+      "pham_vi": "Trừ Style by PNJ",
+      "cong_thuc": "",
+      "dieu_kien": "",
+      "phi": "",
+      "tham_chieu": "PL A2 Dòng 5",
+      "ghi_chu": "**HĐ từ 05/01/2026 – 31/03/2026:** KH **linh động chọn 1 trong 2 hình thức**:\n(1) Theo tỷ lệ – **Thu 70% / Đổi 80%**\n(2) **Thu theo giá NL & mã NL**\n\n**HĐ từ 01/04/2026 trở về sau:** chỉ áp dụng tỷ lệ (Thu 70% / Đổi 80%), **không còn lựa chọn thu theo NL**",
+      "vi_du": "",
+      "raw_fields": {
+        "Nhóm": "1",
+        "Đặc điểm nhận diện": "TS có đá chính là **ECZ (Swarovski Zirconia)** hoặc **CZ (Cubic Zirconia)**",
+        "Phạm vi": "Trừ Style by PNJ",
+        "Tỷ lệ": "**THU 70% / ĐỔI 80%** (không đổi 2 mốc)",
+        "Ghi chú ĐẶC BIỆT (quan trọng)": "**HĐ từ 05/01/2026 – 31/03/2026:** KH **linh động chọn 1 trong 2 hình thức**:\n(1) Theo tỷ lệ – **Thu 70% / Đổi 80%**\n(2) **Thu theo giá NL & mã NL**\n\n**HĐ từ 01/04/2026 trở về sau:** chỉ áp dụng tỷ lệ (Thu 70% / Đổi 80%), **không còn lựa chọn thu theo NL**",
+        "Tham chiếu": "PL A2 Dòng 5"
+      },
+      "rates": {
+        "thu_truoc": 0.7,
+        "doi_truoc": 0.8,
+        "thu_tu": 0.7,
+        "doi_tu": 0.8,
+        "raw": {
+          "ty_le": "**THU 70% / ĐỔI 80%** (không đổi 2 mốc)"
+        }
+      }
+    },
+    {
+      "id": "DH-01-14",
+      "ten": "TS KGĐ / dây chuyền các loại / TS công nghệ Ý",
+      "nhom": "1",
+      "dac_diem": "Trang sức không gắn đá, dây chuyền, TS công nghệ Ý (không KC)",
+      "pham_vi": "Trừ Style by PNJ",
+      "cong_thuc": "",
+      "dieu_kien": "",
+      "phi": "",
+      "tham_chieu": "PL A2 Dòng 6",
+      "ghi_chu": "**Thu theo giá NL** khi SP không nguyên hiện trạng",
+      "vi_du": "",
+      "raw_fields": {
+        "Nhóm": "1",
+        "Đặc điểm nhận diện": "Trang sức không gắn đá, dây chuyền, TS công nghệ Ý (không KC)",
+        "Phạm vi": "Trừ Style by PNJ",
+        "Tỷ lệ": "**THU 70% / ĐỔI 80%** (không đổi)",
+        "Ghi chú": "**Thu theo giá NL** khi SP không nguyên hiện trạng",
+        "Tham chiếu": "PL A2 Dòng 6"
+      },
+      "rates": {
+        "thu_truoc": 0.7,
+        "doi_truoc": 0.8,
+        "thu_tu": 0.7,
+        "doi_tu": 0.8,
+        "raw": {
+          "ty_le": "**THU 70% / ĐỔI 80%** (không đổi)"
+        }
+      }
+    },
+    {
+      "id": "DH-01-15",
+      "ten": "TS Vỏ (vỏ trang sức)",
+      "nhom": "1",
+      "dac_diem": "Vỏ trang sức rỗng (chưa gắn đá chính)",
+      "pham_vi": "",
+      "cong_thuc": "",
+      "dieu_kien": "",
+      "phi": "",
+      "tham_chieu": "PL A2 Dòng 7",
+      "ghi_chu": "",
+      "vi_du": "",
+      "raw_fields": {
+        "Nhóm": "1",
+        "Đặc điểm nhận diện": "Vỏ trang sức rỗng (chưa gắn đá chính)",
+        "Tỷ lệ": "**THU 80% / ĐỔI 85%** (không đổi)",
+        "Tham chiếu": "PL A2 Dòng 7"
+      },
+      "rates": {
+        "thu_truoc": 0.8,
+        "doi_truoc": 0.85,
+        "thu_tu": 0.8,
+        "doi_tu": 0.85,
+        "raw": {
+          "ty_le": "**THU 80% / ĐỔI 85%** (không đổi)"
+        }
+      }
+    },
+    {
+      "id": "DH-02-01",
+      "ten": "Dòng hàng tuổi vàng cao – Giá bán = tiền công + tiền vàng",
+      "nhom": "2",
+      "dac_diem": "SP có tuổi vàng 91,6% / 99% / 99,1-99,9% / 99,99%. Cấu trúc giá bán = **tiền công + tiền vàng** (TLV × giá bán vàng/vàng NT tuổi vàng tương ứng)",
+      "pham_vi": "",
+      "cong_thuc": "Vàng = TLV × giá mua vàng/vàng NT tương ứng tuổi vàng (THU) hoặc giá bán (ĐỔI) — xem Phần A5",
+      "dieu_kien": "",
+      "phi": "",
+      "tham_chieu": "PL A2 Dòng 8",
+      "ghi_chu": "**SP có gắn KC / đá quý / bán quý:** thu lại **50% giá trị đá**. Khi xuất bán, CH/CN cập nhật trị giá bán của đá lên hệ thống để làm cơ sở thu lại 50%. Áp dụng theo **Thông báo số 67-2023-TB-P.VHBL-HDTLNTTL-PNJ**",
+      "vi_du": "SP mới 9 chỉ, SP cũ 10 chỉ, thỏa ĐK đổi → **9 chỉ đổi theo giá NL, 1 chỉ thu theo giá NL**",
+      "raw_fields": {
+        "Nhóm": "2",
+        "Đặc điểm nhận diện": "SP có tuổi vàng 91,6% / 99% / 99,1-99,9% / 99,99%. Cấu trúc giá bán = **tiền công + tiền vàng** (TLV × giá bán vàng/vàng NT tuổi vàng tương ứng)",
+        "THU": "**Thu theo giá NL** (cả 2 mốc thời gian)",
+        "ĐỔI (HĐ trước 05/01/2026)": "• Nếu **TLV SP mới < TLV SP cũ:** phần TLV **chênh lệch** thu theo giá NL\n• Nếu **TLV SP mới ≥ TLV SP cũ:** **toàn bộ TLV SP cũ đổi theo giá NL**",
+        "ĐỔI (HĐ từ 05/01/2026)": "**Thu theo giá NL**",
+        "Công thức": "Vàng = TLV × giá mua vàng/vàng NT tương ứng tuổi vàng (THU) hoặc giá bán (ĐỔI) — xem Phần A5",
+        "Ghi chú": "**SP có gắn KC / đá quý / bán quý:** thu lại **50% giá trị đá**. Khi xuất bán, CH/CN cập nhật trị giá bán của đá lên hệ thống để làm cơ sở thu lại 50%. Áp dụng theo **Thông báo số 67-2023-TB-P.VHBL-HDTLNTTL-PNJ**",
+        "Tham chiếu": "PL A2 Dòng 8",
+        "Ví dụ 1 (TLV mới < cũ)": "SP mới 9 chỉ, SP cũ 10 chỉ, thỏa ĐK đổi → **9 chỉ đổi theo giá NL, 1 chỉ thu theo giá NL**",
+        "Ví dụ 2 (TLV mới ≥ cũ)": "SP mới 10 chỉ, SP cũ 9 chỉ, thỏa ĐK đổi → **9 chỉ SP cũ đổi theo giá NL**"
+      },
+      "rates": {
+        "thu_truoc": "NL",
+        "doi_truoc": "SPECIAL",
+        "thu_tu": "NL",
+        "doi_tu": "NL",
+        "raw": {
+          "thu_truoc": "**Thu theo giá NL** (cả 2 mốc thời gian)",
+          "doi_truoc": "• Nếu **TLV SP mới < TLV SP cũ:** phần TLV **chênh lệch** thu theo giá NL\n• Nếu **TLV SP mới ≥ TLV SP cũ:** **toàn bộ TLV SP cũ đổi theo giá NL**",
+          "thu_tu": "**Thu theo giá NL** (cả 2 mốc thời gian)",
+          "doi_tu": "**Thu theo giá NL**"
+        }
+      }
+    },
+    {
+      "id": "DH-02-02",
+      "ten": "Dòng tuổi vàng cao (91,6% / 99% / 99,1–99,9% / 99,99%) – Giá bán theo món",
+      "nhom": "2",
+      "dac_diem": "HĐ gốc **không tách** \"tiền công + tiền vàng\", chỉ có **một con số trọn gói**. Tuổi vàng trên HĐ thuộc 91,6%, 99%, 99,1–99,9% hoặc 99,99%.",
+      "pham_vi": "",
+      "cong_thuc": "",
+      "dieu_kien": "",
+      "phi": "",
+      "tham_chieu": "PL A2 Bảng tỷ lệ, STT 8 dòng con 2; PL A14 (nếu là QTST)",
+      "ghi_chu": "⚠️ Không phải tình huống thường xuyên – phần lớn SP vàng tuổi cao bán trọn gói đều là QTST nên rơi vào PL A14. Case \"không phải QTST + bán theo món\" là case hiếm, khi gặp → **treo lại và gọi P.VHBL**, không tự quyết.",
+      "vi_du": "",
+      "raw_fields": {
+        "Nhóm": "2",
+        "Đặc điểm nhận diện": "HĐ gốc **không tách** \"tiền công + tiền vàng\", chỉ có **một con số trọn gói**. Tuổi vàng trên HĐ thuộc 91,6%, 99%, 99,1–99,9% hoặc 99,99%.",
+        "Vị trí trong PL A2": "Bảng tỷ lệ – **STT 8, dòng con 2 \"Giá bán theo món\"** – ô tỷ lệ **bỏ trống** cho cả 2 mốc thời gian.",
+        "Nguyên nhân bỏ trống": "PL A13 (lịch sử sửa đổi) LSX03 không nhắc đến dòng con này → nghi vấn **lỗi sót biên soạn** của PL A2 LSX03.",
+        "Hướng phân biệt trước khi thu đổi": "**Bước 1** – Kiểm tra Material Group_LV4 của mã SP trên SAP: nếu `= \"ST\"` → **đây là QTST**, áp **DH-14-01 / DH-14-02 theo PL A14** (thu/đổi theo giá NL); ô tỷ lệ bỏ trống không ảnh hưởng.\n**Bước 2** – Nếu không phải QTST: **không tự suy** (không được lấy tỷ lệ 70%/80% của nhóm 2, cũng không được lấy theo giá NL của DH-02-01 hay DH-04). Gọi **P.VHBL** xác nhận, hoặc lấy **\"CS cam kết trên HĐ / CS trích lục theo HĐ\"** gốc làm căn cứ.",
+        "Ghi chú": "⚠️ Không phải tình huống thường xuyên – phần lớn SP vàng tuổi cao bán trọn gói đều là QTST nên rơi vào PL A14. Case \"không phải QTST + bán theo món\" là case hiếm, khi gặp → **treo lại và gọi P.VHBL**, không tự quyết.",
+        "Tham chiếu": "PL A2 Bảng tỷ lệ, STT 8 dòng con 2; PL A14 (nếu là QTST)"
+      },
+      "rates": {
+        "thu_truoc": null,
+        "doi_truoc": null,
+        "thu_tu": null,
+        "doi_tu": null,
+        "raw": {}
+      }
+    },
+    {
+      "id": "DH-03-01",
+      "ten": "KCR trắng tròn, VS1/VVS1 ↑, kích thước > 10ly",
+      "nhom": "3",
+      "dac_diem": "",
+      "pham_vi": "",
+      "cong_thuc": "",
+      "dieu_kien": "",
+      "phi": "",
+      "tham_chieu": "PL A2 Dòng 9",
+      "ghi_chu": "",
+      "vi_du": "",
+      "raw_fields": {
+        "Nhóm": "3",
+        "Tỷ lệ": "**Không thu lại** (cả 2 mốc thời gian)",
+        "Tham chiếu": "PL A2 Dòng 9"
+      },
+      "rates": {
+        "thu_truoc": "NONE",
+        "doi_truoc": "NONE",
+        "thu_tu": "NONE",
+        "doi_tu": "NONE",
+        "raw": {
+          "ty_le": "**Không thu lại** (cả 2 mốc thời gian)"
+        }
+      }
+    },
+    {
+      "id": "DH-03-02",
+      "ten": "KCR trắng tròn, VS1/VVS1 ↑, kích thước > 8,6ly – 10ly",
+      "nhom": "3",
+      "dac_diem": "",
+      "pham_vi": "",
+      "cong_thuc": "",
+      "dieu_kien": "",
+      "phi": "",
+      "tham_chieu": "PL A2 Dòng 9",
+      "ghi_chu": "HĐ xuất bán **trước 11/06/2018** áp dụng thu đổi theo CS cam kết trên HĐ / CS trích lục",
+      "vi_du": "",
+      "raw_fields": {
+        "Nhóm": "3",
+        "THU trước 05/01/2026": "• Trong vòng **1 năm: 93% ↑**\n• Sau 1 năm: **90%**",
+        "ĐỔI trước 05/01/2026": "Không đổi (— theo ô bảng)",
+        "Tỷ lệ từ 05/01/2026": "Không thay đổi",
+        "Ghi chú": "HĐ xuất bán **trước 11/06/2018** áp dụng thu đổi theo CS cam kết trên HĐ / CS trích lục",
+        "Tham chiếu": "PL A2 Dòng 9"
+      },
+      "rates": {
+        "thu_truoc": "SPECIAL",
+        "doi_truoc": null,
+        "thu_tu": "SPECIAL",
+        "doi_tu": null,
+        "raw": {
+          "thu_truoc": "• Trong vòng **1 năm: 93% ↑**\n• Sau 1 năm: **90%**",
+          "doi_truoc": "Không đổi (— theo ô bảng)",
+          "thu_tu": null,
+          "doi_tu": null,
+          "ty_le_tu": "Không thay đổi"
+        }
+      }
+    },
+    {
+      "id": "DH-03-03",
+      "ten": "KCR trắng tròn, VS1/VVS1 ↑, kích thước từ 6ly – ≤ 8,6ly",
+      "nhom": "3",
+      "dac_diem": "",
+      "pham_vi": "",
+      "cong_thuc": "",
+      "dieu_kien": "",
+      "phi": "",
+      "tham_chieu": "PL A2 Dòng 9",
+      "ghi_chu": "",
+      "vi_du": "",
+      "raw_fields": {
+        "Nhóm": "3",
+        "Tỷ lệ": "**THU 95% / ĐỔI 98%**",
+        "Tham chiếu": "PL A2 Dòng 9"
+      },
+      "rates": {
+        "thu_truoc": 0.95,
+        "doi_truoc": 0.98,
+        "thu_tu": 0.95,
+        "doi_tu": 0.98,
+        "raw": {
+          "ty_le": "**THU 95% / ĐỔI 98%**"
+        }
+      }
+    },
+    {
+      "id": "DH-03-04",
+      "ten": "KCR trắng tròn, VS1/VVS1 ↑, kích thước từ 5ly – < 6ly",
+      "nhom": "3",
+      "dac_diem": "",
+      "pham_vi": "",
+      "cong_thuc": "",
+      "dieu_kien": "",
+      "phi": "",
+      "tham_chieu": "PL A2 Dòng 9",
+      "ghi_chu": "",
+      "vi_du": "",
+      "raw_fields": {
+        "Nhóm": "3",
+        "Tỷ lệ": "**THU 93% / ĐỔI 97%**",
+        "Tham chiếu": "PL A2 Dòng 9"
+      },
+      "rates": {
+        "thu_truoc": 0.93,
+        "doi_truoc": 0.97,
+        "thu_tu": 0.93,
+        "doi_tu": 0.97,
+        "raw": {
+          "ty_le": "**THU 93% / ĐỔI 97%**"
+        }
+      }
+    },
+    {
+      "id": "DH-03-05",
+      "ten": "KCR trắng tròn, VS1/VVS1 ↑, kích thước < 5ly",
+      "nhom": "3",
+      "dac_diem": "",
+      "pham_vi": "",
+      "cong_thuc": "",
+      "dieu_kien": "",
+      "phi": "",
+      "tham_chieu": "PL A2 Dòng 9",
+      "ghi_chu": "",
+      "vi_du": "",
+      "raw_fields": {
+        "Nhóm": "3",
+        "Tỷ lệ": "**THU 93% / ĐỔI 95%**",
+        "Tham chiếu": "PL A2 Dòng 9"
+      },
+      "rates": {
+        "thu_truoc": 0.93,
+        "doi_truoc": 0.95,
+        "thu_tu": 0.93,
+        "doi_tu": 0.95,
+        "raw": {
+          "ty_le": "**THU 93% / ĐỔI 95%**"
+        }
+      }
+    },
+    {
+      "id": "DH-03-06",
+      "ten": "KCR trắng tròn, chất lượng SI, kích thước ≥ 6ly",
+      "nhom": "3",
+      "dac_diem": "",
+      "pham_vi": "",
+      "cong_thuc": "",
+      "dieu_kien": "",
+      "phi": "",
+      "tham_chieu": "PL A2 Dòng 9",
+      "ghi_chu": "",
+      "vi_du": "",
+      "raw_fields": {
+        "Nhóm": "3",
+        "Tỷ lệ": "**THU 90% / ĐỔI 95%**",
+        "Tham chiếu": "PL A2 Dòng 9"
+      },
+      "rates": {
+        "thu_truoc": 0.9,
+        "doi_truoc": 0.95,
+        "thu_tu": 0.9,
+        "doi_tu": 0.95,
+        "raw": {
+          "ty_le": "**THU 90% / ĐỔI 95%**"
+        }
+      }
+    },
+    {
+      "id": "DH-03-07",
+      "ten": "KCR trắng tròn, chất lượng SI, kích thước < 6ly",
+      "nhom": "3",
+      "dac_diem": "",
+      "pham_vi": "",
+      "cong_thuc": "",
+      "dieu_kien": "",
+      "phi": "",
+      "tham_chieu": "PL A2 Dòng 9",
+      "ghi_chu": "",
+      "vi_du": "",
+      "raw_fields": {
+        "Nhóm": "3",
+        "Tỷ lệ": "**THU 85% / ĐỔI 90%**",
+        "Tham chiếu": "PL A2 Dòng 9"
+      },
+      "rates": {
+        "thu_truoc": 0.85,
+        "doi_truoc": 0.9,
+        "thu_tu": 0.85,
+        "doi_tu": 0.9,
+        "raw": {
+          "ty_le": "**THU 85% / ĐỔI 90%**"
+        }
+      }
+    },
+    {
+      "id": "DH-03-08",
+      "ten": "KCR màu",
+      "nhom": "3",
+      "dac_diem": "",
+      "pham_vi": "",
+      "cong_thuc": "",
+      "dieu_kien": "",
+      "phi": "",
+      "tham_chieu": "PL A2 Dòng 9",
+      "ghi_chu": "Áp dụng cho SP đã bán **trước 23/07/2023** hoặc trường hợp được duyệt bán theo tờ trình",
+      "vi_du": "",
+      "raw_fields": {
+        "Nhóm": "3",
+        "Tỷ lệ": "**THU 80% / ĐỔI 90%**",
+        "Ghi chú": "Áp dụng cho SP đã bán **trước 23/07/2023** hoặc trường hợp được duyệt bán theo tờ trình",
+        "Tham chiếu": "PL A2 Dòng 9"
+      },
+      "rates": {
+        "thu_truoc": 0.8,
+        "doi_truoc": 0.9,
+        "thu_tu": 0.8,
+        "doi_tu": 0.9,
+        "raw": {
+          "ty_le": "**THU 80% / ĐỔI 90%**"
+        }
+      }
+    },
+    {
+      "id": "DH-04-01",
+      "ten": "Đá màu rời",
+      "nhom": "4",
+      "dac_diem": "Đá màu rời (Ruby, Sapphire, Emerald, Tanzanite, Morganite, Topaz, Citrin, Moon, đá màu khác)",
+      "pham_vi": "",
+      "cong_thuc": "",
+      "dieu_kien": "",
+      "phi": "Phí mài đá màu (PL A8 mục II): 55.000 – 250.000 VNĐ/viên tùy loại & size",
+      "tham_chieu": "PL A2 Dòng 10; PL A8 mục II",
+      "ghi_chu": "",
+      "vi_du": "",
+      "raw_fields": {
+        "Nhóm": "4",
+        "Đặc điểm nhận diện": "Đá màu rời (Ruby, Sapphire, Emerald, Tanzanite, Morganite, Topaz, Citrin, Moon, đá màu khác)",
+        "Tỷ lệ": "• < 2 triệu/viên: **Không thu mua**\n• ≥ 2 triệu/viên: **70% giá trị HĐ** (không đổi 2 mốc)",
+        "Phí phát sinh": "Phí mài đá màu (PL A8 mục II): 55.000 – 250.000 VNĐ/viên tùy loại & size",
+        "Tham chiếu": "PL A2 Dòng 10; PL A8 mục II"
+      },
+      "rates": {
+        "thu_truoc": "SPECIAL",
+        "doi_truoc": "SPECIAL",
+        "thu_tu": "SPECIAL",
+        "doi_tu": "SPECIAL",
+        "raw": {
+          "ty_le": "• < 2 triệu/viên: **Không thu mua**\n• ≥ 2 triệu/viên: **70% giá trị HĐ** (không đổi 2 mốc)"
+        }
+      }
+    },
+    {
+      "id": "DH-04-02",
+      "ten": "Ngọc trai rời nước ngọt / Mabe các loại",
+      "nhom": "4",
+      "dac_diem": "",
+      "pham_vi": "",
+      "cong_thuc": "",
+      "dieu_kien": "",
+      "phi": "",
+      "tham_chieu": "PL A2 Dòng 11",
+      "ghi_chu": "",
+      "vi_du": "",
+      "raw_fields": {
+        "Nhóm": "4",
+        "Tỷ lệ": "**Không thu mua**",
+        "Tham chiếu": "PL A2 Dòng 11"
+      },
+      "rates": {
+        "thu_truoc": "NONE",
+        "doi_truoc": "NONE",
+        "thu_tu": "NONE",
+        "doi_tu": "NONE",
+        "raw": {
+          "ty_le": "**Không thu mua**"
+        }
+      }
+    },
+    {
+      "id": "DH-04-03",
+      "ten": "Ngọc trai rời nước mặn",
+      "nhom": "4",
+      "dac_diem": "",
+      "pham_vi": "",
+      "cong_thuc": "",
+      "dieu_kien": "",
+      "phi": "",
+      "tham_chieu": "PL A2 Dòng 11",
+      "ghi_chu": "",
+      "vi_du": "",
+      "raw_fields": {
+        "Nhóm": "4",
+        "Tỷ lệ": "• < 3 triệu/viên: **Không thu mua**\n• ≥ 3 triệu/viên: **70% giá trị HĐ**",
+        "Tham chiếu": "PL A2 Dòng 11"
+      },
+      "rates": {
+        "thu_truoc": "SPECIAL",
+        "doi_truoc": "SPECIAL",
+        "thu_tu": "SPECIAL",
+        "doi_tu": "SPECIAL",
+        "raw": {
+          "ty_le": "• < 3 triệu/viên: **Không thu mua**\n• ≥ 3 triệu/viên: **70% giá trị HĐ**"
+        }
+      }
+    },
+    {
+      "id": "DH-04-04",
+      "ten": "Vòng cẩm thạch",
+      "nhom": "4",
+      "dac_diem": "",
+      "pham_vi": "",
+      "cong_thuc": "",
+      "dieu_kien": "",
+      "phi": "",
+      "tham_chieu": "PL A2 Dòng 12",
+      "ghi_chu": "",
+      "vi_du": "",
+      "raw_fields": {
+        "Nhóm": "4",
+        "Tỷ lệ": "• < 8 triệu/SP: **Không thu mua**\n• ≥ 8 triệu/SP: **Mua lại 50% giá trị HĐ**",
+        "Tham chiếu": "PL A2 Dòng 12"
+      },
+      "rates": {
+        "thu_truoc": "SPECIAL",
+        "doi_truoc": "SPECIAL",
+        "thu_tu": "SPECIAL",
+        "doi_tu": "SPECIAL",
+        "raw": {
+          "ty_le": "• < 8 triệu/SP: **Không thu mua**\n• ≥ 8 triệu/SP: **Mua lại 50% giá trị HĐ**"
+        }
+      }
+    },
+    {
+      "id": "DH-05-01",
+      "ten": "TS Style by PNJ (vàng gắn KC / đá màu / NT / CZ-ECZ-tổng hợp / KGĐ / dây chuyền)",
+      "nhom": "5",
+      "dac_diem": "SP thuộc nhãn hàng **Style by PNJ**, không phân biệt loại đá hay có đá/không đá",
+      "pham_vi": "",
+      "cong_thuc": "",
+      "dieu_kien": "",
+      "phi": "",
+      "tham_chieu": "PL A2 Dòng 13",
+      "ghi_chu": "**Sau 1 năm** kể từ ngày xuất bán theo HĐ: **thu theo giá NL** (không còn áp dụng tỷ lệ 50%)",
+      "vi_du": "",
+      "raw_fields": {
+        "Nhóm": "5",
+        "Đặc điểm nhận diện": "SP thuộc nhãn hàng **Style by PNJ**, không phân biệt loại đá hay có đá/không đá",
+        "Tỷ lệ": "**THU 50% / ĐỔI 60%** (không đổi 2 mốc)",
+        "Ghi chú đặc biệt": "**Sau 1 năm** kể từ ngày xuất bán theo HĐ: **thu theo giá NL** (không còn áp dụng tỷ lệ 50%)",
+        "Tham chiếu": "PL A2 Dòng 13"
+      },
+      "rates": {
+        "thu_truoc": 0.5,
+        "doi_truoc": 0.6,
+        "thu_tu": 0.5,
+        "doi_tu": 0.6,
+        "raw": {
+          "ty_le": "**THU 50% / ĐỔI 60%** (không đổi 2 mốc)"
+        }
+      }
+    },
+    {
+      "id": "DH-06-01",
+      "ten": "SP thuộc danh mục Heart2Heart",
+      "nhom": "6",
+      "dac_diem": "SP thuộc **Danh mục Heart2Heart** theo **PL A12**. Nhận diện qua mã Material (GC0000C… / GC0000W…) đối chiếu với PL A12",
+      "pham_vi": "",
+      "cong_thuc": "",
+      "dieu_kien": "",
+      "phi": "",
+      "tham_chieu": "PL A2 Dòng 14 mục a; **PL A12 – Danh mục SP Heart2Heart**",
+      "ghi_chu": "Áp dụng cho toàn bộ SP nằm trong PL A12",
+      "vi_du": "",
+      "raw_fields": {
+        "Nhóm": "6",
+        "Đặc điểm nhận diện": "SP thuộc **Danh mục Heart2Heart** theo **PL A12**. Nhận diện qua mã Material (GC0000C… / GC0000W…) đối chiếu với PL A12",
+        "Tỷ lệ": "**Thu theo giá NL / Không thay đổi**",
+        "Ghi chú": "Áp dụng cho toàn bộ SP nằm trong PL A12",
+        "Tham chiếu": "PL A2 Dòng 14 mục a; **PL A12 – Danh mục SP Heart2Heart**"
+      },
+      "rates": {
+        "thu_truoc": "NL",
+        "doi_truoc": "NL",
+        "thu_tu": "NL",
+        "doi_tu": "NL",
+        "raw": {
+          "ty_le": "**Thu theo giá NL / Không thay đổi**"
+        }
+      }
+    },
+    {
+      "id": "DH-07-01",
+      "ten": "Vòng lắc da charm phong thủy đặc biệt (theo PL A11)",
+      "nhom": "7",
+      "dac_diem": "SP thuộc **Danh mục phong thủy đặc biệt** theo **PL A11** (file Excel do Phòng CLHH cập nhật)",
+      "pham_vi": "",
+      "cong_thuc": "",
+      "dieu_kien": "",
+      "phi": "",
+      "tham_chieu": "PL A2 Dòng 14 mục b; **PL A11 – Danh mục hàng phong thủy**",
+      "ghi_chu": "**Thu theo giá NL** khi SP không nguyên hiện trạng",
+      "vi_du": "",
+      "raw_fields": {
+        "Nhóm": "7",
+        "Đặc điểm nhận diện": "SP thuộc **Danh mục phong thủy đặc biệt** theo **PL A11** (file Excel do Phòng CLHH cập nhật)",
+        "Tỷ lệ": "**THU 65% / ĐỔI 75%**",
+        "Ghi chú": "**Thu theo giá NL** khi SP không nguyên hiện trạng",
+        "Tham chiếu": "PL A2 Dòng 14 mục b; **PL A11 – Danh mục hàng phong thủy**"
+      },
+      "rates": {
+        "thu_truoc": 0.65,
+        "doi_truoc": 0.75,
+        "thu_tu": 0.65,
+        "doi_tu": 0.75,
+        "raw": {
+          "ty_le": "**THU 65% / ĐỔI 75%**"
+        }
+      }
+    },
+    {
+      "id": "DH-07-02",
+      "ten": "Bao lì xì phong thủy",
+      "nhom": "7",
+      "dac_diem": "",
+      "pham_vi": "",
+      "cong_thuc": "",
+      "dieu_kien": "",
+      "phi": "",
+      "tham_chieu": "PL A2 Dòng 14 mục c",
+      "ghi_chu": "",
+      "vi_du": "",
+      "raw_fields": {
+        "Nhóm": "7",
+        "Tỷ lệ": "**Không thu mua** (cả 2 mốc)",
+        "Tham chiếu": "PL A2 Dòng 14 mục c"
+      },
+      "rates": {
+        "thu_truoc": "NONE",
+        "doi_truoc": "NONE",
+        "thu_tu": "NONE",
+        "doi_tu": "NONE",
+        "raw": {
+          "ty_le": "**Không thu mua** (cả 2 mốc)"
+        }
+      }
+    },
+    {
+      "id": "DH-08-01",
+      "ten": "SP thuộc danh mục Kind Heart",
+      "nhom": "8",
+      "dac_diem": "SP thuộc danh mục Kind Heart theo **Thông báo số 175-2025-TB-PCLHH-TBPHMM-PNJ**",
+      "pham_vi": "",
+      "cong_thuc": "",
+      "dieu_kien": "",
+      "phi": "",
+      "tham_chieu": "PL A2 Dòng 14 mục d; TB 175-2025",
+      "ghi_chu": "HĐ xuất bán **trước 01/10/2024** áp dụng thu đổi theo **CS cam kết trên HĐ / CS trích lục**",
+      "vi_du": "",
+      "raw_fields": {
+        "Nhóm": "8",
+        "Đặc điểm nhận diện": "SP thuộc danh mục Kind Heart theo **Thông báo số 175-2025-TB-PCLHH-TBPHMM-PNJ**",
+        "Tỷ lệ": "**Thu theo giá NL / Không thay đổi**",
+        "Ghi chú đặc biệt": "HĐ xuất bán **trước 01/10/2024** áp dụng thu đổi theo **CS cam kết trên HĐ / CS trích lục**",
+        "Tham chiếu": "PL A2 Dòng 14 mục d; TB 175-2025"
+      },
+      "rates": {
+        "thu_truoc": "NL",
+        "doi_truoc": "NL",
+        "thu_tu": "NL",
+        "doi_tu": "NL",
+        "raw": {
+          "ty_le": "**Thu theo giá NL / Không thay đổi**"
+        }
+      }
+    },
+    {
+      "id": "DH-09-01",
+      "ten": "QTST – Giá bán theo món",
+      "nhom": "9",
+      "dac_diem": "SP QTST có cấu trúc **giá bán theo món** (không tách công + vàng)",
+      "pham_vi": "",
+      "cong_thuc": "",
+      "dieu_kien": "",
+      "phi": "",
+      "tham_chieu": "PL A2 Dòng 15; **PL A14**",
+      "ghi_chu": "**Thu theo giá NL** khi SP không nguyên hiện trạng hoặc không đủ chứng từ. Hướng dẫn chi tiết cách nhập mua trên hệ thống, cách tính thu đổi: **PL A14**",
+      "vi_du": "",
+      "raw_fields": {
+        "Nhóm": "9",
+        "Đặc điểm nhận diện": "SP QTST có cấu trúc **giá bán theo món** (không tách công + vàng)",
+        "Tỷ lệ": "**THU 70% / ĐỔI 80%**",
+        "Ghi chú": "**Thu theo giá NL** khi SP không nguyên hiện trạng hoặc không đủ chứng từ. Hướng dẫn chi tiết cách nhập mua trên hệ thống, cách tính thu đổi: **PL A14**",
+        "Phân nhánh nội bộ (theo PL A14)": "• **Vàng Mini Tiểu Lộc Đại Phát / Vàng Special Mini** còn seal nguyên vẹn, HĐ **trước 23:59 ngày 15/01/2026**: thu theo **giá mua Vàng Phúc Lộc Tài 999,9**\n• Từ **00h ngày 16/01/2026** trở về sau / KH không đủ chứng từ: thu theo **giá vàng Nữ Trang 999,9**",
+        "Cơ chế nhập mua SAP": "• SP ép seal nguyên vẹn, không có bao bì riêng → **thu theo mã SP** để tái kinh doanh\n• SP không ép seal / seal rách / có bao bì thiết kế riêng → **thu theo mã nguyên liệu**, trả về kho theo QT QLHTV\n• Nhãn Arta / Disney / Sanrio / Trendy: **luôn thu theo mã nguyên liệu**, không tái kinh doanh",
+        "CS đổi trả 48H (PL A14)": "**Đổi SP QTST cùng nhãn hàng:**\n• Vàng (trừ Blindbox) – đổi **≥ giá trị HĐ**: 100%; đổi **< giá trị HĐ**: 90%\n• Bạc/Thau/Hợp Kim – đổi **≥ giá trị HĐ**: 100%; **< giá trị HĐ: không áp dụng**\n• Điều kiện: đủ bao bì, hộp, thẻ bảo hành, thiệp, còn nguyên vẹn\n• **Blindbox:** chỉ đổi trả sang cùng SP Blindbox khi phát sinh **lỗi kỹ thuật**",
+        "Tham chiếu": "PL A2 Dòng 15; **PL A14**"
+      },
+      "rates": {
+        "thu_truoc": 0.7,
+        "doi_truoc": 0.8,
+        "thu_tu": 0.7,
+        "doi_tu": 0.8,
+        "raw": {
+          "ty_le": "**THU 70% / ĐỔI 80%**"
+        }
+      }
+    },
+    {
+      "id": "DH-09-02",
+      "ten": "QTST – Giá bán = tiền công + tiền vàng",
+      "nhom": "9",
+      "dac_diem": "SP QTST có cấu trúc giá bán = **tiền công + tiền vàng (TLV × giá bán vàng/vàng NT theo tuổi vàng)**",
+      "pham_vi": "",
+      "cong_thuc": "",
+      "dieu_kien": "",
+      "phi": "",
+      "tham_chieu": "PL A2 Dòng 15; PL A14",
+      "ghi_chu": "Xem PL A14 để phân nhánh nhập mua theo mã SP hay mã NL",
+      "vi_du": "",
+      "raw_fields": {
+        "Nhóm": "9",
+        "Đặc điểm nhận diện": "SP QTST có cấu trúc giá bán = **tiền công + tiền vàng (TLV × giá bán vàng/vàng NT theo tuổi vàng)**",
+        "Tỷ lệ": "**Thu theo giá NL** (cả 2 mốc)",
+        "Ghi chú": "Xem PL A14 để phân nhánh nhập mua theo mã SP hay mã NL",
+        "Tham chiếu": "PL A2 Dòng 15; PL A14"
+      },
+      "rates": {
+        "thu_truoc": "NL",
+        "doi_truoc": "NL",
+        "thu_tu": "NL",
+        "doi_tu": "NL",
+        "raw": {
+          "ty_le": "**Thu theo giá NL** (cả 2 mốc)"
+        }
+      }
+    }
+  ],
+  "cases": [
+    {
+      "id": "C1",
+      "title": "C1. SP KHÔNG NGUYÊN HIỆN TRẠNG – 7 PHƯƠNG ÁN PA1 → PA7",
+      "content": "#### C1.1. Cây quyết định phương án theo kết quả kiểm tra/kiểm định\n\n*(Thực hiện kiểm tra/kiểm định/giám định theo PL A4. Kết quả dự kiến sau mài xác định phương án áp dụng.)*\n\n| Kết quả kiểm tra/kiểm định/dự kiến sau mài | Tỷ lệ ĐỔI | Tỷ lệ THU |\n|---|---|---|\n| **1.** Không thay đổi thông số so với HĐ (không rớt size, nước, cấp chất lượng, carat) | **PA 1** | **PA 2** |\n| **2.** Không thay đổi thông số nhưng **ảnh hưởng mã số GIA** trên viên đá (nếu có) | **PA 3** | **PA 4** |\n| **3.** **Thay đổi thông số** – ảnh hưởng giá trị viên đá (rớt size hoặc nước hoặc cấp chất lượng hoặc carat với các mã đá có kích thước/carat đặc biệt thuộc nhóm 8 QĐ cấu trúc mã đá) | **PA 5** | **PA 6** |\n| **4.** **Không đạt tiêu chuẩn chất lượng kinh doanh** của PNJ | **PA 7** | **PA 7** |\n\n#### C1.2. Chi tiết 7 phương án\n\n| PA | Nội dung |\n|---|---|\n| **PA 1** | Thu đổi theo **CS đã cam kết trên HĐ / CS trích lục theo HĐ** |\n| **PA 2** | Thu đổi theo CS cam kết, **trừ phí mài** (theo PL A8) |\n| **PA 3** | Thu đổi theo CS cam kết, **trừ phí mất giấy GIA** (nếu có, theo PL A8 mục III) |\n| **PA 4** | Thu đổi theo CS cam kết, **trừ (phí mài + phí giám định + phí mất giấy GIA nếu có)** |\n| **PA 5** | **Đá rời:** = Giá đã định của viên đá<br>**TS gắn KC/Đá màu:** = [Giá trị SP theo HĐ − (Giá bán viên đá tại thời điểm thu đổi − Giá định viên đá)] × tỷ lệ cam kết trên HĐ |\n| **PA 6** | Như PA 5, **trừ thêm các phí mài + giám định** |\n| **PA 7** | **Từ chối thu mua** |\n\n> **Định giá viên đá (áp dụng trong PA5, PA6):**\n> - KC từ 3,5ly ↑, đá màu: theo giá **P.MH định giá**.\n> - KC < 3,5ly: theo **PL A8** – Bảng giá thu mua KC tấm + phí.\n>\n> **Giới hạn khi tính:** \"Giá bán của viên đá tại thời điểm thu đổi\" **tối đa = Giá trị SP theo HĐ**. Nếu giá bán viên đá > giá trị SP theo HĐ → khi áp công thức, lấy giá bán viên đá = giá trị SP theo HĐ.\n\n#### C1.3. Ma trận hiện trạng × loại sản phẩm\n\n| Hiện trạng | KCR / TS KC | Đá màu rời / TS đá màu | NT rời nước mặn / TS NT nước mặn | TS NT nước ngọt | TS ECZ / CZ / KGĐ |\n|---|---|---|---|---|---|\n| **Mất đá chính / đá lớn / đá phụ / đá nhỏ / đá tấm** | Trừ giá trị viên đá theo giá bán tại thời điểm thu đổi, sau đó thu lại theo CS cam kết trên HĐ (*) | Trừ giá trị viên đá theo giá bán tại thời điểm thu đổi, rồi thu lại theo CS cam kết | **Không** trừ giá trị viên đá bị mất – thu lại theo CS cam kết | — | — |\n| **Đá chính / đá lớn không nguyên hiện trạng** | Áp dụng PA1→PA7 (xem C1.1, C1.2) | Áp dụng PA1→PA7 | Thu lại theo CS cam kết; **ngọc trai phải còn đính trên SP** | Thu lại theo CS cam kết; ngọc trai phải còn đính trên SP | — |\n| **Đá phụ / đá tấm / đá nhỏ (< 3ly) không nguyên hiện trạng** | Công thức (\\*\\*) | — | — | — | — |\n\n(\\*) **Giới hạn** \"giá bán viên đá tại thời điểm thu đổi\" tối đa bằng giá trị SP theo HĐ – nếu lớn hơn thì lấy bằng giá trị SP theo HĐ khi áp công thức.\n\n(\\*\\*) **Công thức đá phụ/tấm/nhỏ không nguyên hiện trạng** (cho KCR/TS KC):\n```\nGiá thu đổi = (Giá trị SP theo HĐ − Giá bán viên đá tại thời điểm thu đổi) × tỷ lệ cam kết trên HĐ\n```\n\n---"
+    },
+    {
+      "id": "C2",
+      "title": "C2. MẤT CHI TIẾT LỚN / CHI TIẾT PHỤ",
+      "content": "#### C2.1. SP có ≥ 2 chi tiết lớn/chính rời **thiết kế giống nhau** + chi tiết còn lại **nguyên hiện trạng**\n\n**Giá trị thu đổi SP** = [Giá trị SP theo HĐ − (Giá trị trung bình × SL chi tiết lớn/chính bị mất)] × tỷ lệ cam kết trên HĐ\n\nTrong đó:\n- **Giá trị TB chi tiết** = Giá trị SP theo HĐ ÷ số lượng chi tiết.\n- **TL đá TB chi tiết** = TL đá theo HĐ ÷ số lượng chi tiết.\n- **TL vàng/Platin chi tiết** = TL chi tiết thực tế − TL đá TB chi tiết.\n\n**Trường hợp KH còn giữ 1 chi tiết lớn/chính nguyên hiện trạng + 1 chi tiết phụ/nhỏ của chi tiết lớn bị mất** (VD: 1 chiếc bông nguyên vẹn + chuôi bông của chiếc đã mất):\n- Chi tiết lớn/chính: áp dụng công thức ở trên.\n- **Chi tiết phụ/nhỏ** áp dụng thu theo NL:\n    - Đá: KC ≥ 3,5ly / đá màu / NT – theo P.MH định giá. KC < 3,5ly – theo PL A8.\n    - Vàng: TL × giá mua vàng/vàng NT tuổi vàng tương ứng (Phần A5).\n    - Platin: TL × đơn giá Platin chuẩn quy 10 (Phần A5).\n\n> **Lưu ý bắt buộc:** TVV phải **tư vấn rõ cho KH** về CS thu đổi chi tiết bị mất nếu sau này KH tìm lại được, và **yêu cầu KH xác nhận trên BKTMHHMVKCHĐ** rằng đã được tư vấn.\n\n#### C2.2. SP có ≥ 2 chi tiết lớn/chính rời **thiết kế giống nhau**, chi tiết còn lại **mất thêm chi tiết phụ/nhỏ**\n\n**Giá trị thu đổi** = [Giá trị SP theo HĐ − (Giá trị TB × SL chi tiết lớn/chính bị mất) − Giá trị chi tiết phụ/nhỏ bị mất] × tỷ lệ cam kết\n\n**Cách tính giá trị chi tiết phụ/nhỏ bị mất:**\n- Vàng = TL × **giá bán** vàng/vàng NT tuổi vàng tương ứng.\n- Platin = TL × đơn giá (Platin hao hụt – theo Phần A5, phần SP chênh lệch/hao hụt TL).\n- Đá (KC/ĐM/NT) = **giá bán** tại thời điểm thu đổi.\n\n#### C2.3. SP có ≥ 2 chi tiết lớn/chính **thiết kế KHÁC nhau** + chi tiết còn lại nguyên hiện trạng\n\n1. **Tính giá thu đổi** (theo giá NL, không áp tỷ lệ):\n    - Đá: KC ≥ 3,5ly / đá màu / NT – theo P.MH. KC < 3,5ly – theo PL A8.\n    - Vàng: TL × giá mua vàng/vàng NT tuổi vàng tương ứng.\n    - Platin: TL × đơn giá Platin quy 10.\n2. **Nhập mua theo:**\n    - **Mã dùng chung** (chi tiết gồm vàng/Platin + KC/đá màu/NT).\n    - **Mã nguyên liệu** (chi tiết chỉ là vàng/Platin) – theo **TB số 140-2025-TB-P.VHBL-HDTMNLDVNVML-PNJ**.\n\n---"
+    },
+    {
+      "id": "C3",
+      "title": "C3. MẤT CHI TIẾT NHỎ / CHI TIẾT PHỤ **HOẶC** HAO HỤT TL VÀNG/PLATIN (còn đủ dấu mộc, nhận diện được SP)",
+      "content": "**Công thức:**\n```\nGiá thu đổi = (Giá trị SP theo HĐ − Giá trị chi tiết bị mất/TL vàng/Platin hao hụt) × tỷ lệ cam kết trên HĐ\n```\n\n**Cách tính giá trị chi tiết bị mất / TL hao hụt:**\n- Vàng = TL × giá bán vàng/vàng NT tuổi vàng tương ứng.\n- Platin = TL × đơn giá Platin (theo Phần A5 – SP hao hụt TL).\n- Đá (KC/ĐM/NT) = giá bán tại thời điểm thu đổi.\n\n> **Lưu ý đặc thù:** TS **kiềng, vòng 22K, 23K, 24K** không còn nguyên hiện trạng có chênh lệch/hao hụt vàng → CH **gửi hình ảnh SP đến Bộ phận Quản lý đơn hàng** để xác định TL hao hụt.\n\n---"
+    },
+    {
+      "id": "C4",
+      "title": "C4. KHÔNG HAO HỤT TL, KHÔNG MẤT ĐÁ, ĐỦ DẤU ĐÓNG, NHẬN DIỆN ĐƯỢC SP",
+      "content": "→ **Thu lại theo CS cam kết trên HĐ / CS trích lục theo HĐ**. Áp dụng thẳng tỷ lệ Phần B, không trừ phí.\n\n---"
+    },
+    {
+      "id": "C5",
+      "title": "C5. TS BỊ CHIA THÀNH NHIỀU PHẦN / BIẾN DẠNG KHÔNG NHẬN DIỆN ĐƯỢC MẪU",
+      "content": "**Thực hiện kiểm tra / kiểm định / giám định chất lượng SP** (theo PL A4 + QT kiểm định NL).\n\n**Trường hợp 1: Kết quả đạt tiêu chuẩn chất lượng của PNJ kinh doanh:**\n1. Tính giá thu đổi (trừ các phí phát sinh mài/giám định nếu có):\n    - Đá: KC ≥ 3,5ly / ĐM / NT – P.MH định giá. KC < 3,5ly – PL A8.\n    - Vàng: TL × giá mua vàng/vàng NT tuổi vàng.\n    - Platin: TL × đơn giá Platin quy 10.\n2. Nhập mua theo:\n    - SP/chi tiết gồm vàng/Platin + đá: **mã dùng chung / mã SP** tương ứng kết quả kiểm định.\n    - SP/chi tiết là vàng/Platin: **mã nguyên liệu** theo TB 140-2025.\n\n**Trường hợp 2: Không đạt tiêu chuẩn chất lượng** → **Từ chối thu đổi**.\n\n---"
+    },
+    {
+      "id": "C6",
+      "title": "C6. TS KHÔNG CÓ / THIẾU DẤU MỘC, KHÔNG XÁC ĐỊNH ĐƯỢC MẪU MÃ PNJ",
+      "content": "Thực hiện kiểm tra / kiểm định / giám định:\n- **Đạt tiêu chuẩn + xác định được là SP PNJ kinh doanh** → thu đổi theo CS cam kết trên HĐ / CS trích lục.\n- **Không đạt / không xác định được** → **Từ chối thu đổi**.\n\n---"
+    },
+    {
+      "id": "C7",
+      "title": "C7. CHI TIẾT CÒN LẠI NGUYÊN HIỆN TRẠNG CỦA SP ĐÃ BÁN TRƯỚC ĐÓ CHO PNJ",
+      "content": "1. Tính giá thu đổi (trừ phí phát sinh như giám định nếu có):\n    - Đá, vàng, Platin: tính theo giá NL (Phần A5 + PL A8).\n2. Nhập mua:\n    - Chi tiết gồm vàng/Platin + đá: **mã dùng chung**.\n    - Chi tiết là vàng/Platin: **mã nguyên liệu** (TB 140-2025).\n\n---"
+    },
+    {
+      "id": "C8",
+      "title": "C8. TS ĐÁ MÀU – ĐÁ NGUYÊN VẸN NHƯNG ĐỔI MÀU / PHAI MÀU / BONG TRÓC KEO",
+      "content": "**Quy trình:** CH gửi P.TL&ĐBCL xác định hiện trạng & nguyên nhân.\n\n| Nguyên nhân | Xử lý |\n|---|---|\n| Do **quá trình sử dụng** ảnh hưởng chất lượng đá | Thu đổi theo mục **đá chính/đá lớn không nguyên hiện trạng** (C1 – áp PA1→PA7) |\n| Do **bản chất đá** hoặc **lỗi kỹ thuật SX** | Thu đổi theo **CS cam kết trên HĐ / CS trích lục** |\n\n---"
+    },
+    {
+      "id": "C9",
+      "title": "C9. VÒNG LẮC DA CHARM – MẤT/ĐỨT DÂY DA, CHARM NGUYÊN HIỆN TRẠNG",
+      "content": "→ Thu đổi theo **CS cam kết trên HĐ / CS trích lục**, đồng thời **thu/trừ phí bảo hành phần dây da** theo quy định hậu mãi bảo hành.\n\n---"
+    },
+    {
+      "id": "C10",
+      "title": "C10. TSKC CÓ ĐÍNH CHẤT LIỆU CERAMIC BỊ MẤT / BỂ / HƯ HỎNG",
+      "content": "1. Tính giá thu đổi:\n    - Đá: KC ≥ 3,5ly / đá màu / NT – P.MH định giá. KC < 3,5ly – PL A8.\n    - Vàng: TL × giá mua vàng/vàng NT tuổi vàng.\n2. Nhập mua:\n    - Chi tiết gồm vàng + KC: **mã dùng chung**.\n    - Chi tiết chỉ là vàng: **mã nguyên liệu** (TB 140-2025).\n\n---"
+    },
+    {
+      "id": "C11",
+      "title": "C11. SP CÓ CHÊNH LỆCH TL VÀNG / PLATIN / ĐÁ **DO ĐÃ SỬA CHỮA BẢO HÀNH TẠI PNJ**",
+      "content": "> Áp dụng khi SP có đúng đủ chứng từ (HĐ, CS thu đổi, GKĐ đá nếu có), chênh lệch là hệ quả của việc sửa chữa/bảo hành trong quá trình sử dụng.\n\n#### C11.1. Với nhóm hàng có CS thu đổi theo **TỶ LỆ**\n\n| Hiện trạng | Chứng từ/lịch sử GD tại PNJ có thu hồi / xuất HĐ phí thêm NL khi nhận BH-sửa chữa | Hướng dẫn tính |\n|---|---|---|\n| **Chênh lệch THIẾU** | Có | Thu đổi theo CS cam kết trên HĐ / CS trích lục |\n| **Chênh lệch THIẾU** | Không | Trừ giá trị vàng/Platin/đá chênh lệch theo **giá bán ra** tại thời điểm thu đổi, rồi thu đổi theo CS cam kết |\n| **Chênh lệch THỪA** | Có | Cộng giá trị vàng/Platin/đá chênh lệch theo **giá mua vào** hoặc **PL A8** (KC tấm), rồi thu đổi theo CS cam kết |\n| **Chênh lệch THỪA** | Không | Thu đổi theo **trị giá & CS cam kết trên HĐ / CS trích lục** (không điều chỉnh) |\n\n#### C11.2. Với nhóm hàng có CS thu đổi theo **GIÁ NGUYÊN VẬT LIỆU**\n\n- Chênh lệch **trong dung sai ± 0,006 chỉ** → thu đổi theo **TLV trên HĐ**.\n- Chênh lệch **vượt dung sai ± 0,006 chỉ** → thu đổi theo **TLV thực tế tại thời điểm thu đổi**.\n\n---"
+    },
+    {
+      "id": "C12",
+      "title": "C12. QUY ĐỊNH ÁP DỤNG TỶ LỆ ĐỔI CHO SP CŨ SANG ĐƠN ĐẶT CỌC",
+      "content": "**Nguyên tắc:**\n1. **100% giá trị BKTMHHMVKCHĐ** áp dụng tỷ lệ đổi **phải chuyển sang đơn đặt cọc**.\n2. **BKTMHHMVKCHĐ, đơn cọc, HĐ mới cùng 1 mã KH**.\n3. BKTMHHMVKCHĐ được áp tỷ lệ đổi cho HĐ món mới và/hoặc đơn cọc nếu **lập cùng thời điểm** với đơn cọc / HĐ món mới / HĐ của đơn cọc.\n4. **Tổng giá trị HĐ mới và/hoặc đơn cọc ≥ tổng giá trị các HĐ cũ** được áp dụng BKTMHHMVKCHĐ thu đổi – thỏa điều kiện thu đổi.\n\n**Quy trình thao tác khi KH đổi sang 2 SP (1 có tồn, 1 phải luân chuyển/đặt SX):**\n\nKH thanh toán 100% giá trị dự kiến → CH thực hiện theo thứ tự:\n\n| # | Thao tác |\n|---|---|\n| 1 | Xuất trước HĐ SP đã có tồn tại CH |\n| 2 | Tạo **biên nhận đặt cọc** trên hệ thống để có số chứng từ |\n| 3 | Tạo **HĐ xuất món mới** (nếu có phát sinh) để có số chứng từ |\n| 4 | Tạo **BKTMHHMVKCHĐ** thể hiện đầy đủ SP thu đổi, tỷ lệ thu đổi và thêm **số biên nhận đặt cọc / HĐ mới** |\n| 5 | **Quay lại biên nhận đặt cọc**, cập nhật thêm **số BKTMHHMVKCHĐ, ngày thu đổi, thông tin SP cũ** (mã, giá HĐ, tỷ lệ) và nội dung cam kết *\"Mua HĐ mới có tổng giá trị ≥ HĐ cũ\"*. PNJ **không giải quyết hoàn/trả tiền cọc khi KH không đúng cam kết** |\n| 6 | Tư vấn & cho KH xác nhận nội dung cam kết |\n\n**Nghiệp vụ thanh toán giữa HĐ cũ và đơn cọc mới:** theo nghiệp vụ kế toán, quy định thanh toán hiện hành của PNJ, **NĐ 232/2025-CP, NĐ 320/2025-CP, NĐ 340/2025-CP**.\n\n> **Ghi chú NĐ áp dụng:**\n> - **NĐ 232/2025-CP & NĐ 320/2025-CP**: nêu ở **Nguyên tắc chung** PL A2 – áp dụng cho **việc chi trả tiền mua lại** và **hình thức thanh toán** (hạn chế tiền mặt, thanh toán không dùng tiền mặt).\n> - **NĐ 340/2025-CP**: nêu tại mục **III.5 Đặt cọc** PL A2 – áp chủ yếu cho **thanh toán giữa HĐ cũ và đơn đặt cọc mới**.\n> - Cả 3 NĐ đều được dẫn lại ở C14 (thanh toán thẻ/ví/trả góp/CK) để bao phủ mọi hình thức thanh toán không tiền mặt.\n\n---"
+    },
+    {
+      "id": "C13",
+      "title": "C13. CỘNG GỘP NHÓM HÀNG MỚI VỚI TRANG SỨC BẠC",
+      "content": "- **Được phép** cộng gộp TS vàng/đá rời + TS bạc làm nhóm hàng mới, **miễn là phần TS vàng/đá rời mới đủ thỏa \"Điều kiện đổi\"** (tổng giá trị nhóm mới ≥ nhóm cũ, cùng mã KH, cùng nhóm áp dụng đổi).\n- **KHÔNG áp dụng đổi qua 100% trang sức bạc**.\n\n---"
+    },
+    {
+      "id": "C14",
+      "title": "C14. THU ĐỔI SP / HĐ THANH TOÁN BẰNG THẺ TÍN DỤNG / VÍ ĐIỆN TỬ / TRẢ GÓP / CHUYỂN KHOẢN",
+      "content": "- Tuân thủ **quy định thanh toán hiện hành của PNJ**.\n- Tuân thủ **NĐ 232/2025-CP; NĐ 320/2025-CP; NĐ 340/2025-CP** (các hình thức thanh toán, hạn chế tiền mặt, thanh toán không dùng tiền mặt).\n- **[Ghi chú nội bộ – không từ PL A2]** Ngưỡng báo cáo PCRT chuẩn theo PCRT QĐ_01 + PL A1 là **400 triệu VND/ngày bằng tiền mặt**. Nếu tại CN Huế có ngưỡng cảnh báo nội bộ thấp hơn → xác nhận với phòng Kế toán / Tài chính trước khi thực hiện giao dịch có giá trị lớn.\n\n---\n\n*Hết Phần C. Tiếp theo là Phần D – Phụ lục tham chiếu + Bảng tra nhanh.*\n\n---"
+    }
+  ],
+  "quick_table": {
+    "raw_md": "**Ghi chú chung toàn bảng:**\n- Cột \"Thu / Đổi\" là tỷ lệ áp dụng lên **giá trị hóa đơn** (không bao gồm phần giảm giá KM có kèm điều kiện không hoàn lại).\n- \"NL\" = theo giá nguyên liệu tại thời điểm thu đổi.\n- \"PA1–PA7\" = phương án xử lý SP không nguyên hiện trạng, xem **C1**.\n- Dấu `—` = không áp dụng cho loại hình tương ứng.\n\n**D1.1. Bảng tỷ lệ theo nhóm – HĐ trước 05/01/2026**\n\n| Nhóm | Tên dòng hàng đại diện | Thu (%) | Đổi (%) | Ghi chú nhanh |\n|---|---|---|---|---|\n| **1** | TS kim cương (trắng tròn VS1/VVS1/IF/FL size <4ly; VS2/VVS2/SI/I/AAA... các size; KC màu); TS CN Ý có gắn KC (trừ Style) | 70 | 80 | Đổi sang Combo \"vỏ + KCR\" ≥ tổng HĐ cũ → **85%** |\n| **2** | TS vàng còn lại (không thuộc nhóm 1, 3, 4, 7, 9); TS kết hợp (ECZ/CZ/KGĐ/dây chuyền/CN Ý trừ Style theo LSX03) | 70 | 80 | TS có tuổi vàng 22K/24K & giá bán = công + vàng: xem nhóm 4 |\n| **3** | Kim cương rời (KCR) | 70 | 80 | KCR đổi cùng nhóm 3 hoặc đổi sang nhóm 1 |\n| **4** | TS tính công (22K, 23K, 24K – giá = công + TLV × đơn giá tuổi vàng) | NL | NL | Thu/đổi theo giá NL vàng niêm yết; công không hoàn |\n| **5** | Đá màu rời | 70 | 80 | — |\n| **6** | Ngọc trai rời | 70 | 80 | — |\n| **7** | TS bạc (trừ Style by PNJ) | 50 | 80 | Đổi cùng nhóm 4 hoặc 7 được |\n| **8** | Nhãn hàng Style by PNJ (bạc + vàng Style) | 50 | 80 | Chính sách riêng – xem B Style |\n| **9** | Kind Heart (danh mục TB 175-2025) | 70 | 80 | Có quy định danh mục riêng |\n| **QTST** | Quà tặng sưu tầm (mini Gold, tranh, tượng, xu, móc khóa, phụ kiện, quà tặng thương hiệu, thẻ may mắn…) | NL | NL | Nhận diện: Material Group_LV4 = \"ST\". Xem **PL A14** và **C8** |\n\n> *Nhóm 16 (SP của KHDN) trong PL A2: thuộc khối KD sỉ, không áp dụng cho CN Huế → đã lược bỏ khỏi bảng này.*\n\n**D1.2. Bảng tỷ lệ theo nhóm – HĐ từ 05/01/2026 trở đi**\n\n| Nhóm | Tên dòng hàng đại diện | Thu | Đổi | Thay đổi so với trước 05/01/2026 |\n|---|---|---|---|---|\n| **1** | TS kim cương / TS CN Ý gắn KC (trừ Style) | 70% | 80% | Không đổi. Combo vỏ+KCR vẫn **85%** |\n| **2a** | TS có đá chính ECZ/CZ (trừ Style) – **HĐ 05/01 → 31/03/2026** | KH chọn: **(a)** 70% – 80% theo tỷ lệ, **(b)** theo giá NL & mã NL | KH chọn: **(a)** 70% – 80% theo tỷ lệ, **(b)** theo giá NL & mã NL | LSX03 thêm cửa sổ linh động 3 tháng |\n| **2b** | TS có đá chính ECZ/CZ (trừ Style) – **HĐ từ 01/04/2026** | 70 | 80 | Quay lại tỷ lệ %, không còn lựa chọn NL |\n| **3** | Kim cương rời | 70 | 80 | Không đổi |\n| **4** | TS tuổi vàng 91,6% / 99% / 99,1–99,9% / 99,99% (tên gọi mới thay cho 22K/23K/24K) | NL | NL | **Tên dòng hàng được chuẩn hoá theo % tuổi vàng** |\n| **5** | Đá màu rời | 70 | 80 | Không đổi |\n| **6** | Ngọc trai rời (nước ngọt, Mother of Pearl…) | 70 | 80 | Tên dòng hàng được liệt kê rõ |\n| **7** | TS bạc (trừ Style) | 50 | 80 | Không đổi |\n| **8** | Style by PNJ | 50 | 80 | Không đổi |\n| **9** | Kind Heart | 70 | 80 | Không đổi |\n| **QTST** | Quà tặng sưu tầm | NL | NL | LSX03 bổ sung làm rõ, nhập mua theo mã dùng chung / mã NL |\n\n> *Nhóm 16 (SP KHDN) trong PL A2 LSX03: ngoài phạm vi CN Huế bán lẻ → không liệt kê ở bảng này.*\n\n**D1.3. Công thức giá NL (dùng cho các nhóm theo NL, cho phần chi tiết bị mất/SP không nguyên hiện trạng)**\n\n| Thành phần | Công thức thu | Công thức đổi |\n|---|---|---|\n| Vàng | TLV × **giá mua vàng / vàng nữ trang tương ứng tuổi vàng** niêm yết tại thời điểm thu đổi | TLV × **giá bán vàng / vàng nữ trang tương ứng tuổi vàng** niêm yết tại thời điểm thu đổi |\n| Platin | TL Platin × **7.000.000 VNĐ/chỉ** × tuổi Platin (quy 10) — *LSX03: đơn giá Platin từ 3.000.000 → 7.000.000* | TL Platin × 7.000.000 × tuổi Platin (quy 10) |\n| KC ≥ 3.5ly | Theo giá **P.MH định giá** | Theo giá **P.MH định giá** |\n| KC < 3.5ly | Theo **PL A8** – bảng giá thu mua KC tấm | Theo **PL A8** – bảng giá thu mua KC tấm |\n| Đá màu / NT | Theo giá **P.MH định giá** | Theo giá **P.MH định giá** |\n\n---"
+  },
+  "glossary": [
+    {
+      "abbr": "KH",
+      "full": "Khách hàng"
+    },
+    {
+      "abbr": "HĐ",
+      "full": "Hóa đơn"
+    },
+    {
+      "abbr": "P.TL&ĐBCL",
+      "full": "Phòng Thiết lập & đảm bảo chất lượng"
+    },
+    {
+      "abbr": "SP",
+      "full": "Sản phẩm"
+    },
+    {
+      "abbr": "P.CT&BH",
+      "full": "Phòng Chế tác & bảo hành"
+    },
+    {
+      "abbr": "CS",
+      "full": "Chính sách"
+    },
+    {
+      "abbr": "P.MH",
+      "full": "Phòng Mua hàng"
+    },
+    {
+      "abbr": "TS",
+      "full": "Trang sức"
+    },
+    {
+      "abbr": "TTBHCN",
+      "full": "Trung tâm bảo hành chi nhánh"
+    },
+    {
+      "abbr": "KCR",
+      "full": "Kim cương rời"
+    },
+    {
+      "abbr": "GKĐ",
+      "full": "Giấy kiểm định"
+    },
+    {
+      "abbr": "KC",
+      "full": "Kim cương"
+    },
+    {
+      "abbr": "KGĐ",
+      "full": "Không gắn đá"
+    },
+    {
+      "abbr": "TL",
+      "full": "Trọng lượng"
+    },
+    {
+      "abbr": "TLV",
+      "full": "Trọng lượng vàng"
+    },
+    {
+      "abbr": "NL",
+      "full": "Nguyên liệu"
+    },
+    {
+      "abbr": "KĐ",
+      "full": "Kiểm định"
+    },
+    {
+      "abbr": "ĐM",
+      "full": "Đá màu"
+    },
+    {
+      "abbr": "NT",
+      "full": "Ngọc trai"
+    },
+    {
+      "abbr": "H2H",
+      "full": "Heart2Heart"
+    },
+    {
+      "abbr": "TVV",
+      "full": "Tư vấn viên"
+    },
+    {
+      "abbr": "TNT",
+      "full": "Thợ nữ trang"
+    },
+    {
+      "abbr": "CHT",
+      "full": "Cửa hàng trưởng"
+    },
+    {
+      "abbr": "NĐUQ",
+      "full": "Người được ủy quyền"
+    },
+    {
+      "abbr": "PNJL",
+      "full": "Cty TNHH MTV Giám định PNJ"
+    },
+    {
+      "abbr": "BKTMHHMVKCHĐ",
+      "full": "Bảng kê thu mua hàng hóa mua vào không có hóa đơn"
+    }
+  ],
+  "pl_a8": {
+    "nguon": "PL A8 LSX 01 – Bảng giá thu mua KC tấm, phí mài, mất giấy GIA/PNJ, giám định",
+    "phi_mai_kc": [
+      {
+        "size_min": 3.0,
+        "size_max": 3.49,
+        "phi": 200000
+      },
+      {
+        "size_min": 3.5,
+        "size_max": 3.99,
+        "phi": 250000
+      },
+      {
+        "size_min": 4.0,
+        "size_max": 4.99,
+        "phi": 300000
+      },
+      {
+        "size_min": 5.0,
+        "size_max": 5.99,
+        "phi": 400000
+      },
+      {
+        "size_min": 6.0,
+        "size_max": 6.99,
+        "phi": 700000
+      },
+      {
+        "size_min": 7.0,
+        "size_max": 7.99,
+        "phi": 900000
+      },
+      {
+        "size_min": 8.0,
+        "size_max": 8.49,
+        "phi": 1650000
+      },
+      {
+        "size_min": 8.5,
+        "size_max": 8.99,
+        "phi": 2200000
+      },
+      {
+        "size_min": 9.0,
+        "size_max": 9.49,
+        "phi": 3300000
+      },
+      {
+        "size_min": 9.5,
+        "size_max": 9.99,
+        "phi": 4400000
+      },
+      {
+        "size_min": 10.0,
+        "size_max": 99.0,
+        "phi": null,
+        "note": "Báo giá từng viên"
+      }
+    ],
+    "phi_mai_da_mau": {
+      "cao_cap": {
+        "ten_loai": [
+          "Ruby",
+          "Sapphire",
+          "Emerald",
+          "Tanzanite",
+          "Morganite"
+        ],
+        "brackets": [
+          {
+            "size_min": 3.0,
+            "size_max": 5.0,
+            "phi": 130000,
+            "note": "3mm ≤ Size ≤ 5mm"
+          },
+          {
+            "size_min": 5.01,
+            "size_max": 8.99,
+            "phi": 170000,
+            "note": "5mm < size < 9mm"
+          },
+          {
+            "size_min": 9.0,
+            "size_max": 99.0,
+            "phi": 250000,
+            "note": "Size ≥ 9mm"
+          }
+        ]
+      },
+      "thuong": {
+        "ten_loai": [
+          "Topaz",
+          "Citrin",
+          "Moon",
+          "Đá màu khác"
+        ],
+        "brackets": [
+          {
+            "size_min": 4.0,
+            "size_max": 6.0,
+            "phi": 55000,
+            "note": "4mm ≤ Size ≤ 6mm"
+          },
+          {
+            "size_min": 6.01,
+            "size_max": 8.99,
+            "phi": 70000,
+            "note": "6mm < size < 9mm"
+          },
+          {
+            "size_min": 9.0,
+            "size_max": 99.0,
+            "phi": 90000,
+            "note": "Size ≥ 9mm"
+          }
+        ]
+      }
+    },
+    "phi_mat_giay_gia": [
+      {
+        "size_min": 3.5,
+        "size_max": 3.79,
+        "phi": 1500000
+      },
+      {
+        "size_min": 3.8,
+        "size_max": 3.99,
+        "phi": 1500000
+      },
+      {
+        "size_min": 4.0,
+        "size_max": 4.49,
+        "phi": 1900000
+      },
+      {
+        "size_min": 4.5,
+        "size_max": 4.99,
+        "phi": 1900000
+      },
+      {
+        "size_min": 5.0,
+        "size_max": 5.39,
+        "phi": 2400000
+      },
+      {
+        "size_min": 5.4,
+        "size_max": 5.99,
+        "phi": 2650000
+      },
+      {
+        "size_min": 6.0,
+        "size_max": 6.49,
+        "phi": 4600000
+      },
+      {
+        "size_min": 6.5,
+        "size_max": 6.99,
+        "phi": 6100000
+      },
+      {
+        "size_min": 7.0,
+        "size_max": 7.49,
+        "phi": 8000000
+      },
+      {
+        "size_min": 7.5,
+        "size_max": 7.99,
+        "phi": 12000000
+      },
+      {
+        "size_min": 8.0,
+        "size_max": 8.29,
+        "phi": 13500000
+      },
+      {
+        "size_min": 8.3,
+        "size_max": 8.59,
+        "phi": 18200000
+      },
+      {
+        "size_min": 8.6,
+        "size_max": 8.79,
+        "phi": 25000000
+      },
+      {
+        "size_min": 8.8,
+        "size_max": 8.99,
+        "phi": 28000000
+      },
+      {
+        "size_min": 9.0,
+        "size_max": 9.29,
+        "phi": 38000000
+      },
+      {
+        "size_min": 9.3,
+        "size_max": 9.59,
+        "phi": 50000000
+      },
+      {
+        "size_min": 9.6,
+        "size_max": 9.99,
+        "phi": 65000000
+      }
+    ],
+    "gia_kc_tam": [
+      {
+        "ma": "DD1100050.0008008",
+        "hinh_dang": "tròn",
+        "chat_luong": "VS1",
+        "canh_lon": 0.8,
+        "canh_nho": 0.8,
+        "gia": 28000
+      },
+      {
+        "ma": "DD1100050.0009009",
+        "hinh_dang": "tròn",
+        "chat_luong": "VS1",
+        "canh_lon": 0.9,
+        "canh_nho": 0.9,
+        "gia": 45000
+      },
+      {
+        "ma": "DD1100050.0010010",
+        "hinh_dang": "tròn",
+        "chat_luong": "VS1",
+        "canh_lon": 1.0,
+        "canh_nho": 1.0,
+        "gia": 58000
+      },
+      {
+        "ma": "DD1100050.0011011",
+        "hinh_dang": "tròn",
+        "chat_luong": "VS1",
+        "canh_lon": 1.1,
+        "canh_nho": 1.1,
+        "gia": 75000
+      },
+      {
+        "ma": "DD1100050.0012012",
+        "hinh_dang": "tròn",
+        "chat_luong": "VS1",
+        "canh_lon": 1.2,
+        "canh_nho": 1.2,
+        "gia": 83000
+      },
+      {
+        "ma": "DD1100050.0013013",
+        "hinh_dang": "tròn",
+        "chat_luong": "VS1",
+        "canh_lon": 1.3,
+        "canh_nho": 1.3,
+        "gia": 103000
+      },
+      {
+        "ma": "DD1100050.0014014",
+        "hinh_dang": "tròn",
+        "chat_luong": "VS1",
+        "canh_lon": 1.4,
+        "canh_nho": 1.4,
+        "gia": 130000
+      },
+      {
+        "ma": "DD1100050.0015015",
+        "hinh_dang": "tròn",
+        "chat_luong": "VS1",
+        "canh_lon": 1.5,
+        "canh_nho": 1.5,
+        "gia": 155000
+      },
+      {
+        "ma": "DD1100050.0016016",
+        "hinh_dang": "tròn",
+        "chat_luong": "VS1",
+        "canh_lon": 1.6,
+        "canh_nho": 1.6,
+        "gia": 194000
+      },
+      {
+        "ma": "DD1100050.0017017",
+        "hinh_dang": "tròn",
+        "chat_luong": "VS1",
+        "canh_lon": 1.7,
+        "canh_nho": 1.7,
+        "gia": 230000
+      },
+      {
+        "ma": "DD1100050.0018018",
+        "hinh_dang": "tròn",
+        "chat_luong": "VS1",
+        "canh_lon": 1.8,
+        "canh_nho": 1.8,
+        "gia": 279000
+      },
+      {
+        "ma": "DD1100050.0019019",
+        "hinh_dang": "tròn",
+        "chat_luong": "VS1",
+        "canh_lon": 1.9,
+        "canh_nho": 1.9,
+        "gia": 329000
+      },
+      {
+        "ma": "DD1100050.0020020",
+        "hinh_dang": "tròn",
+        "chat_luong": "VS1",
+        "canh_lon": 2.0,
+        "canh_nho": 2.0,
+        "gia": 387000
+      },
+      {
+        "ma": "DD1100050.0021021",
+        "hinh_dang": "tròn",
+        "chat_luong": "VS1",
+        "canh_lon": 2.1,
+        "canh_nho": 2.1,
+        "gia": 437000
+      },
+      {
+        "ma": "DD1100050.0022022",
+        "hinh_dang": "tròn",
+        "chat_luong": "VS1",
+        "canh_lon": 2.2,
+        "canh_nho": 2.2,
+        "gia": 524000
+      },
+      {
+        "ma": "DD1100050.0023023",
+        "hinh_dang": "tròn",
+        "chat_luong": "VS1",
+        "canh_lon": 2.3,
+        "canh_nho": 2.3,
+        "gia": 594000
+      },
+      {
+        "ma": "DD1100050.0024024",
+        "hinh_dang": "tròn",
+        "chat_luong": "VS1",
+        "canh_lon": 2.4,
+        "canh_nho": 2.4,
+        "gia": 760000
+      },
+      {
+        "ma": "DD1100050.0025025",
+        "hinh_dang": "tròn",
+        "chat_luong": "VS1",
+        "canh_lon": 2.5,
+        "canh_nho": 2.5,
+        "gia": 891000
+      },
+      {
+        "ma": "DD1100050.0026026",
+        "hinh_dang": "tròn",
+        "chat_luong": "VS1",
+        "canh_lon": 2.6,
+        "canh_nho": 2.6,
+        "gia": 1012000
+      },
+      {
+        "ma": "DD1100050.0027027",
+        "hinh_dang": "tròn",
+        "chat_luong": "VS1",
+        "canh_lon": 2.7,
+        "canh_nho": 2.7,
+        "gia": 1216000
+      },
+      {
+        "ma": "DD1100050.0028028",
+        "hinh_dang": "tròn",
+        "chat_luong": "VS1",
+        "canh_lon": 2.8,
+        "canh_nho": 2.8,
+        "gia": 1472000
+      },
+      {
+        "ma": "DD1100050.0029029",
+        "hinh_dang": "tròn",
+        "chat_luong": "VS1",
+        "canh_lon": 2.9,
+        "canh_nho": 2.9,
+        "gia": 1637000
+      },
+      {
+        "ma": "DD1100050.0030030",
+        "hinh_dang": "tròn",
+        "chat_luong": "VS1",
+        "canh_lon": 3.0,
+        "canh_nho": 3.0,
+        "gia": 1913000
+      },
+      {
+        "ma": "DD1100050.0031031",
+        "hinh_dang": "tròn",
+        "chat_luong": "VS1",
+        "canh_lon": 3.1,
+        "canh_nho": 3.1,
+        "gia": 2038000
+      },
+      {
+        "ma": "DD1100050.0032032",
+        "hinh_dang": "tròn",
+        "chat_luong": "VS1",
+        "canh_lon": 3.2,
+        "canh_nho": 3.2,
+        "gia": 2138000
+      },
+      {
+        "ma": "DD1100050.0033033",
+        "hinh_dang": "tròn",
+        "chat_luong": "VS1",
+        "canh_lon": 3.3,
+        "canh_nho": 3.3,
+        "gia": 2382000
+      },
+      {
+        "ma": "DD1100050.0034034",
+        "hinh_dang": "tròn",
+        "chat_luong": "VS1",
+        "canh_lon": 3.4,
+        "canh_nho": 3.4,
+        "gia": 2819000
+      },
+      {
+        "ma": "DD1100120.0008008",
+        "hinh_dang": "tròn",
+        "chat_luong": "AAA (SA)",
+        "canh_lon": 0.8,
+        "canh_nho": 0.8,
+        "gia": 25000
+      },
+      {
+        "ma": "DD1100120.0009009",
+        "hinh_dang": "tròn",
+        "chat_luong": "AAA (SA)",
+        "canh_lon": 0.9,
+        "canh_nho": 0.9,
+        "gia": 38000
+      },
+      {
+        "ma": "DD1100120.0010010",
+        "hinh_dang": "tròn",
+        "chat_luong": "AAA (SA)",
+        "canh_lon": 1.0,
+        "canh_nho": 1.0,
+        "gia": 49000
+      },
+      {
+        "ma": "DD1100120.0011011",
+        "hinh_dang": "tròn",
+        "chat_luong": "AAA (SA)",
+        "canh_lon": 1.1,
+        "canh_nho": 1.1,
+        "gia": 63000
+      },
+      {
+        "ma": "DD1100120.0012012",
+        "hinh_dang": "tròn",
+        "chat_luong": "AAA (SA)",
+        "canh_lon": 1.2,
+        "canh_nho": 1.2,
+        "gia": 71000
+      },
+      {
+        "ma": "DD1100120.0013013",
+        "hinh_dang": "tròn",
+        "chat_luong": "AAA (SA)",
+        "canh_lon": 1.3,
+        "canh_nho": 1.3,
+        "gia": 87000
+      },
+      {
+        "ma": "DD1100120.0014014",
+        "hinh_dang": "tròn",
+        "chat_luong": "AAA (SA)",
+        "canh_lon": 1.4,
+        "canh_nho": 1.4,
+        "gia": 110000
+      },
+      {
+        "ma": "DD1100120.0015015",
+        "hinh_dang": "tròn",
+        "chat_luong": "AAA (SA)",
+        "canh_lon": 1.5,
+        "canh_nho": 1.5,
+        "gia": 132000
+      },
+      {
+        "ma": "DD1100120.0016016",
+        "hinh_dang": "tròn",
+        "chat_luong": "AAA (SA)",
+        "canh_lon": 1.6,
+        "canh_nho": 1.6,
+        "gia": 165000
+      },
+      {
+        "ma": "DD1100120.0017017",
+        "hinh_dang": "tròn",
+        "chat_luong": "AAA (SA)",
+        "canh_lon": 1.7,
+        "canh_nho": 1.7,
+        "gia": 195000
+      },
+      {
+        "ma": "DD1100120.0018018",
+        "hinh_dang": "tròn",
+        "chat_luong": "AAA (SA)",
+        "canh_lon": 1.8,
+        "canh_nho": 1.8,
+        "gia": 236000
+      },
+      {
+        "ma": "DD1100120.0019019",
+        "hinh_dang": "tròn",
+        "chat_luong": "AAA (SA)",
+        "canh_lon": 1.9,
+        "canh_nho": 1.9,
+        "gia": 279000
+      },
+      {
+        "ma": "DD1100120.0020020",
+        "hinh_dang": "tròn",
+        "chat_luong": "AAA (SA)",
+        "canh_lon": 2.0,
+        "canh_nho": 2.0,
+        "gia": 328000
+      },
+      {
+        "ma": "DD1100120.0021021",
+        "hinh_dang": "tròn",
+        "chat_luong": "AAA (SA)",
+        "canh_lon": 2.1,
+        "canh_nho": 2.1,
+        "gia": 370000
+      },
+      {
+        "ma": "DD1100120.0022022",
+        "hinh_dang": "tròn",
+        "chat_luong": "AAA (SA)",
+        "canh_lon": 2.2,
+        "canh_nho": 2.2,
+        "gia": 444000
+      },
+      {
+        "ma": "DD1100120.0023023",
+        "hinh_dang": "tròn",
+        "chat_luong": "AAA (SA)",
+        "canh_lon": 2.3,
+        "canh_nho": 2.3,
+        "gia": 518000
+      },
+      {
+        "ma": "DD1100120.0024024",
+        "hinh_dang": "tròn",
+        "chat_luong": "AAA (SA)",
+        "canh_lon": 2.4,
+        "canh_nho": 2.4,
+        "gia": 644000
+      },
+      {
+        "ma": "DD1100120.0025025",
+        "hinh_dang": "tròn",
+        "chat_luong": "AAA (SA)",
+        "canh_lon": 2.5,
+        "canh_nho": 2.5,
+        "gia": 755000
+      },
+      {
+        "ma": "DD1100120.0026026",
+        "hinh_dang": "tròn",
+        "chat_luong": "AAA (SA)",
+        "canh_lon": 2.6,
+        "canh_nho": 2.6,
+        "gia": 858000
+      },
+      {
+        "ma": "DD1100120.0027027",
+        "hinh_dang": "tròn",
+        "chat_luong": "AAA (SA)",
+        "canh_lon": 2.7,
+        "canh_nho": 2.7,
+        "gia": 1031000
+      },
+      {
+        "ma": "DD1100120.0028028",
+        "hinh_dang": "tròn",
+        "chat_luong": "AAA (SA)",
+        "canh_lon": 2.8,
+        "canh_nho": 2.8,
+        "gia": 1188000
+      },
+      {
+        "ma": "DD1100120.0029029",
+        "hinh_dang": "tròn",
+        "chat_luong": "AAA (SA)",
+        "canh_lon": 2.9,
+        "canh_nho": 2.9,
+        "gia": 1387000
+      },
+      {
+        "ma": "DD1100120.0030030",
+        "hinh_dang": "tròn",
+        "chat_luong": "AAA (SA)",
+        "canh_lon": 3.0,
+        "canh_nho": 3.0,
+        "gia": 1680000
+      },
+      {
+        "ma": "DD1100120.0031031",
+        "hinh_dang": "tròn",
+        "chat_luong": "AAA (SA)",
+        "canh_lon": 3.1,
+        "canh_nho": 3.1,
+        "gia": 1840000
+      },
+      {
+        "ma": "DD1100120.0032032",
+        "hinh_dang": "tròn",
+        "chat_luong": "AAA (SA)",
+        "canh_lon": 3.2,
+        "canh_nho": 3.2,
+        "gia": 2065000
+      },
+      {
+        "ma": "DD3100120.0010010",
+        "hinh_dang": "vuông",
+        "chat_luong": "AAA (SA)",
+        "canh_lon": 1.0,
+        "canh_nho": 1.0,
+        "gia": 87000
+      },
+      {
+        "ma": "DD3100120.0011011",
+        "hinh_dang": "vuông",
+        "chat_luong": "AAA (SA)",
+        "canh_lon": 1.1,
+        "canh_nho": 1.1,
+        "gia": 108000
+      },
+      {
+        "ma": "DD3100120.0012012",
+        "hinh_dang": "vuông",
+        "chat_luong": "AAA (SA)",
+        "canh_lon": 1.2,
+        "canh_nho": 1.2,
+        "gia": 126000
+      },
+      {
+        "ma": "DD3100120.0013013",
+        "hinh_dang": "vuông",
+        "chat_luong": "AAA (SA)",
+        "canh_lon": 1.3,
+        "canh_nho": 1.3,
+        "gia": 154000
+      },
+      {
+        "ma": "DD3100120.0014014",
+        "hinh_dang": "vuông",
+        "chat_luong": "AAA (SA)",
+        "canh_lon": 1.4,
+        "canh_nho": 1.4,
+        "gia": 190000
+      },
+      {
+        "ma": "DD3100120.0015015",
+        "hinh_dang": "vuông",
+        "chat_luong": "AAA (SA)",
+        "canh_lon": 1.5,
+        "canh_nho": 1.5,
+        "gia": 228000
+      },
+      {
+        "ma": "DD3100120.0016016",
+        "hinh_dang": "vuông",
+        "chat_luong": "AAA (SA)",
+        "canh_lon": 1.6,
+        "canh_nho": 1.6,
+        "gia": 270000
+      },
+      {
+        "ma": "DD3100120.0017017",
+        "hinh_dang": "vuông",
+        "chat_luong": "AAA (SA)",
+        "canh_lon": 1.7,
+        "canh_nho": 1.7,
+        "gia": 322000
+      },
+      {
+        "ma": "DD3100120.0018018",
+        "hinh_dang": "vuông",
+        "chat_luong": "AAA (SA)",
+        "canh_lon": 1.8,
+        "canh_nho": 1.8,
+        "gia": 391000
+      },
+      {
+        "ma": "DD3100120.0019019",
+        "hinh_dang": "vuông",
+        "chat_luong": "AAA (SA)",
+        "canh_lon": 1.9,
+        "canh_nho": 1.9,
+        "gia": 472000
+      },
+      {
+        "ma": "DD3100120.0020020",
+        "hinh_dang": "vuông",
+        "chat_luong": "AAA (SA)",
+        "canh_lon": 2.0,
+        "canh_nho": 2.0,
+        "gia": 518000
+      },
+      {
+        "ma": "DD3100120.0021021",
+        "hinh_dang": "vuông",
+        "chat_luong": "AAA (SA)",
+        "canh_lon": 2.1,
+        "canh_nho": 2.1,
+        "gia": 581000
+      },
+      {
+        "ma": "DD3100120.0022022",
+        "hinh_dang": "vuông",
+        "chat_luong": "AAA (SA)",
+        "canh_lon": 2.2,
+        "canh_nho": 2.2,
+        "gia": 661000
+      },
+      {
+        "ma": "DD3100120.0023023",
+        "hinh_dang": "vuông",
+        "chat_luong": "AAA (SA)",
+        "canh_lon": 2.3,
+        "canh_nho": 2.3,
+        "gia": 762000
+      },
+      {
+        "ma": "DD3100120.0024024",
+        "hinh_dang": "vuông",
+        "chat_luong": "AAA (SA)",
+        "canh_lon": 2.4,
+        "canh_nho": 2.4,
+        "gia": 972000
+      },
+      {
+        "ma": "DD3100120.0025025",
+        "hinh_dang": "vuông",
+        "chat_luong": "AAA (SA)",
+        "canh_lon": 2.5,
+        "canh_nho": 2.5,
+        "gia": 1193000
+      },
+      {
+        "ma": "DD3100120.0026026",
+        "hinh_dang": "vuông",
+        "chat_luong": "AAA (SA)",
+        "canh_lon": 2.6,
+        "canh_nho": 2.6,
+        "gia": 1381000
+      },
+      {
+        "ma": "DD3100120.0027027",
+        "hinh_dang": "vuông",
+        "chat_luong": "AAA (SA)",
+        "canh_lon": 2.7,
+        "canh_nho": 2.7,
+        "gia": 1474000
+      },
+      {
+        "ma": "DD3100120.0028028",
+        "hinh_dang": "vuông",
+        "chat_luong": "AAA (SA)",
+        "canh_lon": 2.8,
+        "canh_nho": 2.8,
+        "gia": 1898000
+      },
+      {
+        "ma": "DD3100120.0029029",
+        "hinh_dang": "vuông",
+        "chat_luong": "AAA (SA)",
+        "canh_lon": 2.9,
+        "canh_nho": 2.9,
+        "gia": 2917000
+      },
+      {
+        "ma": "DD3100120.0030030",
+        "hinh_dang": "vuông",
+        "chat_luong": "AAA (SA)",
+        "canh_lon": 3.0,
+        "canh_nho": 3.0,
+        "gia": 2981000
+      },
+      {
+        "ma": "DD3100120.0031031",
+        "hinh_dang": "vuông",
+        "chat_luong": "AAA (SA)",
+        "canh_lon": 3.1,
+        "canh_nho": 3.1,
+        "gia": 3226000
+      },
+      {
+        "ma": "DD3100120.0032032",
+        "hinh_dang": "vuông",
+        "chat_luong": "AAA (SA)",
+        "canh_lon": 3.2,
+        "canh_nho": 3.2,
+        "gia": 3362000
+      },
+      {
+        "ma": "DD3100120.0033033",
+        "hinh_dang": "vuông",
+        "chat_luong": "AAA (SA)",
+        "canh_lon": 3.3,
+        "canh_nho": 3.3,
+        "gia": 2625000
+      },
+      {
+        "ma": "DD3100120.0034034",
+        "hinh_dang": "vuông",
+        "chat_luong": "AAA (SA)",
+        "canh_lon": 3.4,
+        "canh_nho": 3.4,
+        "gia": 2969000
+      },
+      {
+        "ma": "DD3100140.0009009",
+        "hinh_dang": "vuông",
+        "chat_luong": "A",
+        "canh_lon": 0.9,
+        "canh_nho": 0.9,
+        "gia": 41000
+      },
+      {
+        "ma": "DD3100140.0010010",
+        "hinh_dang": "vuông",
+        "chat_luong": "A",
+        "canh_lon": 1.0,
+        "canh_nho": 1.0,
+        "gia": 49000
+      },
+      {
+        "ma": "DD3100140.0011011",
+        "hinh_dang": "vuông",
+        "chat_luong": "A",
+        "canh_lon": 1.1,
+        "canh_nho": 1.1,
+        "gia": 49000
+      },
+      {
+        "ma": "DD3100140.0012012",
+        "hinh_dang": "vuông",
+        "chat_luong": "A",
+        "canh_lon": 1.2,
+        "canh_nho": 1.2,
+        "gia": 77000
+      },
+      {
+        "ma": "DD3100140.0013013",
+        "hinh_dang": "vuông",
+        "chat_luong": "A",
+        "canh_lon": 1.3,
+        "canh_nho": 1.3,
+        "gia": 85000
+      },
+      {
+        "ma": "DD3100140.0014014",
+        "hinh_dang": "vuông",
+        "chat_luong": "A",
+        "canh_lon": 1.4,
+        "canh_nho": 1.4,
+        "gia": 134000
+      },
+      {
+        "ma": "DD3100140.0015015",
+        "hinh_dang": "vuông",
+        "chat_luong": "A",
+        "canh_lon": 1.5,
+        "canh_nho": 1.5,
+        "gia": 154000
+      },
+      {
+        "ma": "DD3100140.0016016",
+        "hinh_dang": "vuông",
+        "chat_luong": "A",
+        "canh_lon": 1.6,
+        "canh_nho": 1.6,
+        "gia": 166000
+      },
+      {
+        "ma": "DD3100140.0017017",
+        "hinh_dang": "vuông",
+        "chat_luong": "A",
+        "canh_lon": 1.7,
+        "canh_nho": 1.7,
+        "gia": 215000
+      },
+      {
+        "ma": "DD3100140.0018018",
+        "hinh_dang": "vuông",
+        "chat_luong": "A",
+        "canh_lon": 1.8,
+        "canh_nho": 1.8,
+        "gia": 275000
+      },
+      {
+        "ma": "DD3100140.0019019",
+        "hinh_dang": "vuông",
+        "chat_luong": "A",
+        "canh_lon": 1.9,
+        "canh_nho": 1.9,
+        "gia": 316000
+      },
+      {
+        "ma": "DD3100140.0020020",
+        "hinh_dang": "vuông",
+        "chat_luong": "A",
+        "canh_lon": 2.0,
+        "canh_nho": 2.0,
+        "gia": 332000
+      },
+      {
+        "ma": "DD3100140.0021021",
+        "hinh_dang": "vuông",
+        "chat_luong": "A",
+        "canh_lon": 2.1,
+        "canh_nho": 2.1,
+        "gia": 385000
+      },
+      {
+        "ma": "DD3100140.0022022",
+        "hinh_dang": "vuông",
+        "chat_luong": "A",
+        "canh_lon": 2.2,
+        "canh_nho": 2.2,
+        "gia": 442000
+      },
+      {
+        "ma": "DD3100140.0023023",
+        "hinh_dang": "vuông",
+        "chat_luong": "A",
+        "canh_lon": 2.3,
+        "canh_nho": 2.3,
+        "gia": 515000
+      },
+      {
+        "ma": "DD3100140.0024024",
+        "hinh_dang": "vuông",
+        "chat_luong": "A",
+        "canh_lon": 2.4,
+        "canh_nho": 2.4,
+        "gia": 647000
+      },
+      {
+        "ma": "DD3100140.0025025",
+        "hinh_dang": "vuông",
+        "chat_luong": "A",
+        "canh_lon": 2.5,
+        "canh_nho": 2.5,
+        "gia": 1062000
+      },
+      {
+        "ma": "DD3100140.0026026",
+        "hinh_dang": "vuông",
+        "chat_luong": "A",
+        "canh_lon": 2.6,
+        "canh_nho": 2.6,
+        "gia": 1088000
+      },
+      {
+        "ma": "DD3100140.0027027",
+        "hinh_dang": "vuông",
+        "chat_luong": "A",
+        "canh_lon": 2.7,
+        "canh_nho": 2.7,
+        "gia": 1157000
+      },
+      {
+        "ma": "DD3100140.0028028",
+        "hinh_dang": "vuông",
+        "chat_luong": "A",
+        "canh_lon": 2.8,
+        "canh_nho": 2.8,
+        "gia": 1275000
+      },
+      {
+        "ma": "DD3100140.0029029",
+        "hinh_dang": "vuông",
+        "chat_luong": "A",
+        "canh_lon": 2.9,
+        "canh_nho": 2.9,
+        "gia": 1344000
+      },
+      {
+        "ma": "DD3100140.0030030",
+        "hinh_dang": "vuông",
+        "chat_luong": "A",
+        "canh_lon": 3.0,
+        "canh_nho": 3.0,
+        "gia": 1419000
+      },
+      {
+        "ma": "DD3100140.0031031",
+        "hinh_dang": "vuông",
+        "chat_luong": "A",
+        "canh_lon": 3.1,
+        "canh_nho": 3.1,
+        "gia": 1488000
+      },
+      {
+        "ma": "DD3100140.0032032",
+        "hinh_dang": "vuông",
+        "chat_luong": "A",
+        "canh_lon": 3.2,
+        "canh_nho": 3.2,
+        "gia": 1563000
+      },
+      {
+        "ma": "DD3100140.0033033",
+        "hinh_dang": "vuông",
+        "chat_luong": "A",
+        "canh_lon": 3.3,
+        "canh_nho": 3.3,
+        "gia": 1625000
+      },
+      {
+        "ma": "DD3100140.0034034",
+        "hinh_dang": "vuông",
+        "chat_luong": "A",
+        "canh_lon": 3.4,
+        "canh_nho": 3.4,
+        "gia": 2188000
+      }
+    ],
+    "ghi_chu": [
+      "Giá mài KC áp dụng cho vết trầy/cấn mặt/tim đáy không ảnh hưởng kích thước.",
+      "Vết bể/mẻ lớn ảnh hưởng kích thước → phí mài cao hơn, đánh giá theo từng case bởi P.TL&ĐBCL.",
+      "PNJ KHÔNG làm lại giấy GIA; chỉ làm lại giấy PNJ Lab.",
+      "Phí giám định/ép seal/cấp giấy PNJ Lab: tham khảo bảng PNJL (file riêng)."
+    ]
+  }
+}

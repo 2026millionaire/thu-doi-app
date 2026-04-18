@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Đăng nhập — CS Thu Đổi PNJ</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body class="login-page">
+  <form class="login-card" method="post">
+    <h1>CS Thu Đổi PNJ</h1>
+    <p class="sub">Tra cứu & tính giá mua lại — CN Huế 1305</p>
+    {% if error %}<div class="alert">{{ error }}</div>{% endif %}
+    <label>Tài khoản<input name="username" autofocus required></label>
+    <label>Mật khẩu<input name="password" type="password" required></label>
+    <button type="submit">Đăng nhập</button>
+  </form>
+</body>
+</html>

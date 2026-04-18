@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CS Thu Đổi PNJ — Tra cứu & Tính giá mua lại</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}?v={{ cache_bust }}">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="logo">PNJ</span>
+      <span class="title">CS Thu Đổi</span>
+      <span class="sub">Tra cứu & Tính giá mua lại · CN Huế 1305</span>
+    </div>
+    <nav class="tabs" role="tablist">
+      <button data-tab="calc"     class="tab active" role="tab">💰 Tính giá</button>
+      <button data-tab="items"    class="tab" role="tab">📖 Dòng hàng</button>
+      <button data-tab="cases"    class="tab" role="tab">⚠️ Tình huống</button>
+      <button data-tab="foundation" class="tab" role="tab">📚 Nền tảng</button>
+      <button data-tab="glossary" class="tab" role="tab">🔤 Glossary</button>
+    </nav>
+    <div class="user-box">
+      <span id="user-name">{{ user }}</span>
+      <button id="theme-toggle" title="Đổi sáng/tối">🌓</button>
+      <a href="{{ url_for('logout') }}" class="btn-link">Đăng xuất</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- ============ TAB CALCULATOR ============ -->
+    <section id="tab-calc" class="tab-panel active">
+      <div class="grid-calc">
+
+        <!-- CỘT TRÁI: Panel Tỷ lệ → DH hợp lệ -->
+        <div class="card" id="card-bk-rates">
+          <div class="card-head">
+            <h2>🎯 Tỷ lệ → DH hợp lệ</h2>
+            <div class="card-actions">
+              <label class="inline-radio"><input type="radio" name="moc" value="truoc" checked> trước 05/01</label>
+              <label class="inline-radio"><input type="radio" name="moc" value="tu"> từ 05/01</label>
+            </div>
+          </div>
+          <div class="card-body" id="bk-rates-body">
+            <p class="muted">Nhập tỷ lệ Thu/Đổi ở bảng kê để xem danh sách DH thoả mãn.</p>
+          </div>
+        </div>
+
+        <!-- Bảng kê (BK) multi-row -->
+        <div class="card bk-card" id="card-bk">
+          <div class="card-head">
+            <h2>📋 Bảng kê thu đổi</h2>
+          </div>
+          <div class="card-body">
+            <div class="table-scroll">
+            <table class="bk-table">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Giá gốc HĐ (biểu thức)</th>
+                  <th class="col-rate">Thu</th>
+                  <th class="col-rate">Đổi</th>
+                  <th>Giá thu mua</th>
+                  <th class="col-small">Rớt đá</th>
+                  <th class="col-small">Phí khác</th>
+                  <th>Cuối</th>
+                  <th class="col-tl hidden">TL gốc</th>
+                  <th class="col-tl hidden">TL sau</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody id="bk-rows"></tbody>
+              <tfoot>
+                <tr>
+                  <td colspan="7">
+                    <button id="btn-add-row" class="btn-soft">+ Thêm SP</button>
+                    <button id="btn-reset-all" class="btn-soft" title="Xóa toàn bộ và reset 5 dòng mặc định">⟳ Reset toàn bảng</button>
+                  </td>
+                  <td class="num-col" id="bk-total">—</td>
+                  <td class="col-tl hidden"></td>
+                  <td class="col-tl hidden"></td>
+                  <td></td>
+                </tr>
+              </tfoot>
+            </table>
+            </div>
+            <p class="hint">
+              <b>Giá gốc:</b>
+              <code>a*b</code> mua NL (giá MUA) · <code>− a*b</code> hao hụt (giá BÁN) · <code>+ a*b</code> thừa TL bảo hành (giá MUA) ·
+              keyword: <code>nl750</code>, <code>nl585</code>, <code>nl416</code>, <code>nl9999</code>
+              <br><b>Thu / Đổi:</b> <code>0.7</code> hoặc <code>70</code> hoặc <code>70%</code> đều = 70%. Nhập 1 trong 2 cột. Để trống = 100% (không giảm).
+              <br><b>TL gốc / TL sau</b> tự hiện khi giá gốc có <code>+</code> hoặc <code>-</code> (có thay đổi TL so HĐ).
+            </p>
+            <div class="fee-presets">
+              Preset phí:
+              <select id="preset-mai-kc"><option value="">+ Phí mài KC…</option></select>
+              <select id="preset-mat-gia"><option value="">+ Phí mất giấy GIA…</option></select>
+              <select id="preset-mai-da"><option value="">+ Phí mài đá màu…</option></select>
+              <small class="muted">(Click để append vào ô Phí khác của dòng đang focus)</small>
+            </div>
+          </div>
+        </div>
+
+        <!-- CỘT PHẢI: Bảng giá vàng (compact) -->
+        <div class="card" id="card-gia-vang">
+          <div class="card-head">
+            <h2>💰 Giá vàng</h2>
+            <div class="card-actions">
+              <button id="btn-refresh-gv" title="Cập nhật giá">↻</button>
+            </div>
+          </div>
+          <div class="card-body">
+            <div id="gv-updated" class="muted gv-updated-line">—</div>
+            <label class="row gv-loc-row">
+              <span>KV vàng miếng:</span>
+              <select id="gv-location"></select>
+            </label>
+            <div id="gv-groups"></div>
+            <p class="hint">VNĐ/phân · 1 chỉ = 10 phân</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============ TAB ITEMS ============ -->
+    <section id="tab-items" class="tab-panel">
+      <div class="toolbar">
+        <input id="items-search" placeholder="🔍 Tìm dòng hàng...">
+        <select id="items-filter-nhom">
+          <option value="">Tất cả nhóm</option>
+        </select>
+      </div>
+      <div class="two-col">
+        <div id="items-list" class="list"></div>
+        <div id="items-detail" class="detail">
+          <p class="muted">Chọn 1 dòng hàng bên trái để xem chi tiết.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ TAB CASES ============ -->
+    <section id="tab-cases" class="tab-panel">
+      <div class="toolbar">
+        <input id="cases-search" placeholder="🔍 Tìm tình huống...">
+      </div>
+      <div class="two-col">
+        <div id="cases-list" class="list"></div>
+        <div id="cases-detail" class="detail">
+          <p class="muted">Chọn 1 tình huống.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ TAB FOUNDATION ============ -->
+    <section id="tab-foundation" class="tab-panel">
+      <div id="foundation-body"></div>
+      <hr>
+      <h2>PL A8 — Bảng giá & Phí phát sinh</h2>
+      <div id="pla8-body"></div>
+    </section>
+
+    <!-- ============ TAB GLOSSARY ============ -->
+    <section id="tab-glossary" class="tab-panel">
+      <div class="toolbar">
+        <input id="gloss-search" placeholder="🔍 Tìm thuật ngữ...">
+      </div>
+      <div id="gloss-body"></div>
+      <hr>
+      <h2>Bảng tra nhanh D1</h2>
+      <div id="quick-table-body"></div>
+    </section>
+  </main>
+
+  <script src="{{ url_for('static', filename='app.js') }}?v={{ cache_bust }}"></script>
+</body>
+</html>
