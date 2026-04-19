@@ -7,6 +7,26 @@
   <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}?v={{ cache_bust }}">
 </head>
 <body>
+  <!-- Sidebar ẩn — hover mép trái để hiện. Cho cảm giác cùng 1 app với /bk/ -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <div class="side-wrap" id="side-wrap">
+    <nav class="side-menu">
+      <div class="side-brand">
+        <h5>PNJ 1305</h5>
+        <small>Phiếu xác nhận CK</small>
+      </div>
+      <ul class="side-nav">
+        <li><a href="/bk/"><i class="bi bi-plus-circle"></i> Tạo phiếu</a></li>
+        <li><a href="/bk/history"><i class="bi bi-clock-history"></i> Lịch sử</a></li>
+        <li><a href="/bk/eoffice"><i class="bi bi-clipboard-data"></i> eOffice QT82</a></li>
+        <li><a href="/bk/bieu-mau"><i class="bi bi-file-earmark-text"></i> Biểu Mẫu</a></li>
+        <li><a href="/bk/thudoi/" class="active"><i class="bi bi-arrow-left-right"></i> Chế độ thu đổi</a></li>
+        <li><a href="/bk/settings"><i class="bi bi-gear"></i> Cài đặt</a></li>
+      </ul>
+      <div class="side-footer">PNJ 1305 — CS Thu Đổi</div>
+    </nav>
+  </div>
+
   <header class="topbar">
     <div class="brand">
       <span class="logo">PNJ</span>

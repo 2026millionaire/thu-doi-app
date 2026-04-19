@@ -1,3 +1,42 @@
+/* ===== SIDEBAR HOVER (clone style phieu-ck, ẩn mặc định) ===== */
+.side-wrap {
+  position: fixed; left: 0; top: 0;
+  width: 10px; height: 100vh;
+  z-index: 3000;
+  transition: width 0s;
+}
+.side-wrap:hover { width: 240px; }
+.side-menu {
+  position: absolute; left: 0; top: 0;
+  width: 240px; height: 100vh;
+  background: #1e293b; color: #e2e8f0;
+  transform: translateX(-100%);
+  transition: transform 0.22s ease;
+  display: flex; flex-direction: column;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+  box-shadow: 2px 0 10px rgba(0,0,0,.15);
+}
+.side-wrap:hover .side-menu { transform: translateX(0); }
+.side-brand {
+  padding: 1.25rem 1rem; border-bottom: 1px solid #334155; text-align: center;
+}
+.side-brand h5 { margin: 0; font-weight: 700; color: #f1f5f9; font-size: 1rem; }
+.side-brand small { color: #94a3b8; font-size: 0.75rem; }
+.side-nav { flex: 1; list-style: none; margin: 0; padding: 0.75rem 0; }
+.side-nav li { margin: 2px 8px; }
+.side-nav a {
+  color: #cbd5e1; padding: 0.6rem 1rem; border-radius: 6px;
+  display: flex; align-items: center; gap: 0.6rem;
+  font-size: 0.9rem; text-decoration: none; transition: all 0.15s;
+}
+.side-nav a:hover { background: #334155; color: #f1f5f9; }
+.side-nav a.active { background: #0ea5e9; color: #fff; font-weight: 600; }
+.side-nav a i { font-size: 1.1rem; width: 1.3rem; text-align: center; }
+.side-footer {
+  padding: 1rem; border-top: 1px solid #334155; text-align: center;
+  font-size: 0.7rem; color: #64748b;
+}
+
 /* ===== CS Thu Đổi PNJ — mobile-first ===== */
 :root {
   --bg: #f7f8fa;
