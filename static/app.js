@@ -12,7 +12,13 @@ const state = {
   gvExpanded: localStorage.getItem('gvExpanded') === '1',
   picked: null,    // DH item picked for calculator
   theme: localStorage.getItem('theme') || 'light',
+  thuongHieu: localStorage.getItem('thuongHieu') || 'PNJ',  // 'PNJ' | 'CAO'
 };
+
+// Lọc items theo thương hiệu đang chọn. Item không có field coi như PNJ.
+function itemsForBrand() {
+  return (state.data?.items || []).filter(it => (it.thuong_hieu || 'PNJ') === state.thuongHieu);
+}
 
 // 5 loại vàng thường dùng khi kiểm tra tại CH Huế 1305.
 const GV_DEFAULT_GOLDS = [
@@ -94,7 +100,32 @@ async function boot() {
   await loadGiaVang(false);
   // Populate fee presets sau khi data & giá vàng đã sẵn
   setupFeePresets();
+  setupBrandToggle();
   recalcCalc();
+}
+
+// ===== BRAND TOGGLE (PNJ/CAO) =====
+function setupBrandToggle() {
+  const btns = document.querySelectorAll('.brand-btn');
+  const applyState = () => {
+    btns.forEach(b => b.classList.toggle('active', b.dataset.brand === state.thuongHieu));
+    // CAO chỉ 1 mốc HĐ → ẩn radio mốc, force 'truoc'
+    const mocBox = document.querySelector('#card-bk-rates .card-actions');
+    if (mocBox) mocBox.style.display = state.thuongHieu === 'CAO' ? 'none' : '';
+    if (state.thuongHieu === 'CAO') {
+      const truoc = document.querySelector('input[name="moc"][value="truoc"]');
+      if (truoc) truoc.checked = true;
+    }
+    // Re-render list tab items + bk rates
+    if (typeof _itemsRenderFn === 'function') _itemsRenderFn();
+    if (typeof recalcBKRates === 'function') recalcBKRates();
+  };
+  btns.forEach(b => b.addEventListener('click', () => {
+    state.thuongHieu = b.dataset.brand;
+    localStorage.setItem('thuongHieu', state.thuongHieu);
+    applyState();
+  }));
+  applyState();
 }
 
 async function loadData() {
@@ -557,7 +588,7 @@ function recalcBKRates() {
   const groups = [...seen.values()];
   el.innerHTML = groups.map(g => {
     const key = g.mode + '_' + moc;
-    const hits = state.data.items.filter(it => it.rates?.[key] === g.rate);
+    const hits = itemsForBrand().filter(it => it.rates?.[key] === g.rate);
     const label = `${g.mode === 'thu' ? 'THU' : 'ĐỔI'} ${(g.rate * 100).toFixed(0)}%`;
     if (!hits.length) {
       return `<div class="rate-group"><h4>${label}</h4><p class="diag-warn">⚠️ Không có DH nào khớp (mốc HĐ ${moc === 'truoc' ? 'trước' : 'từ'} 05/01/2026).</p></div>`;
@@ -651,14 +682,21 @@ function recalcCalc() {
 }
 
 // ===== TAB ITEMS =====
+let _itemsRenderFn = null;
 function setupItems() {
   const nhomSel = $('#items-filter-nhom');
-  const nhoms = [...new Set(state.data.items.map(i => i.nhom))].filter(Boolean).sort();
-  nhomSel.innerHTML = '<option value="">Tất cả nhóm</option>' + nhoms.map(n => `<option value="${n}">Nhóm ${n}</option>`).join('');
+  const populateNhoms = () => {
+    const prev = nhomSel.value;
+    const nhoms = [...new Set(itemsForBrand().map(i => i.nhom))].filter(Boolean).sort();
+    nhomSel.innerHTML = '<option value="">Tất cả nhóm</option>' + nhoms.map(n => `<option value="${n}">Nhóm ${n}</option>`).join('');
+    if (nhoms.includes(prev)) nhomSel.value = prev;
+  };
+  populateNhoms();
   const render = () => {
+    populateNhoms();
     const q = $('#items-search').value.trim().toLowerCase();
     const nhom = nhomSel.value;
-    const hits = state.data.items.filter(it =>
+    const hits = itemsForBrand().filter(it =>
       (!nhom || it.nhom === nhom) &&
       (!q || it.id.toLowerCase().includes(q) || it.ten.toLowerCase().includes(q) || (it.dac_diem || '').toLowerCase().includes(q))
     );
@@ -680,6 +718,7 @@ function setupItems() {
   };
   $('#items-search').addEventListener('input', render);
   nhomSel.addEventListener('change', render);
+  _itemsRenderFn = render;
   render();
   // Auto-pick 1 dòng hàng ngẫu nhiên để user thấy tab này có gì
   const items = document.querySelectorAll('#items-list .li');
@@ -706,10 +745,12 @@ function renderItemDetail(id) {
     ${f('pham_vi', 'Phạm vi')}
     <div class="field"><span class="lbl">Tỷ lệ</span>
       <table class="rate-table"><tbody>
-        ${rateRow('thu_truoc', 'THU trước 05/01/2026')}
-        ${rateRow('doi_truoc', 'ĐỔI trước 05/01/2026')}
-        ${rateRow('thu_tu', 'THU từ 05/01/2026')}
-        ${rateRow('doi_tu', 'ĐỔI từ 05/01/2026')}
+        ${it.thuong_hieu === 'CAO'
+          ? rateRow('thu_truoc', 'THU') + rateRow('doi_truoc', 'ĐỔI')
+          : rateRow('thu_truoc', 'THU trước 05/01/2026')
+            + rateRow('doi_truoc', 'ĐỔI trước 05/01/2026')
+            + rateRow('thu_tu', 'THU từ 05/01/2026')
+            + rateRow('doi_tu', 'ĐỔI từ 05/01/2026')}
       </tbody></table>
     </div>
     ${f('cong_thuc', 'Công thức')}

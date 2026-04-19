@@ -2,7 +2,11 @@
   "meta": {
     "title": "GIÁO ÁN CHÍNH SÁCH THU ĐỔI PNJ",
     "updated": "17/04/2026",
-    "lsx": "LSX 03 (hiệu lực từ 01/2026)"
+    "lsx": "LSX 03 (hiệu lực từ 01/2026)",
+    "thuong_hieu_available": [
+      "PNJ",
+      "CAO"
+    ]
   },
   "foundation": {
     "A1": {
@@ -77,7 +81,8 @@
           "thu_tu": "80% (không đổi)",
           "doi_tu": "90% (không đổi)"
         }
-      }
+      },
+      "thuong_hieu": "PNJ"
     },
     {
       "id": "DH-01-02",
@@ -109,7 +114,8 @@
         "raw": {
           "ty_le": "**THU 80% / ĐỔI 90%** (không đổi theo 2 mốc thời gian)"
         }
-      }
+      },
+      "thuong_hieu": "PNJ"
     },
     {
       "id": "DH-01-03",
@@ -140,7 +146,8 @@
         "raw": {
           "ty_le": "**THU 75% / ĐỔI 85%** (không đổi theo 2 mốc thời gian)"
         }
-      }
+      },
+      "thuong_hieu": "PNJ"
     },
     {
       "id": "DH-01-04",
@@ -178,7 +185,8 @@
           "thu_tu": "Vỏ: **85%** – Hột: theo tỷ lệ thu KCR",
           "doi_tu": "Vỏ: **85%** – Hột: theo tỷ lệ đổi KCR"
         }
-      }
+      },
+      "thuong_hieu": "PNJ"
     },
     {
       "id": "DH-01-05",
@@ -208,7 +216,8 @@
         "raw": {
           "ty_le": "**THU 80% / ĐỔI 90%** (không đổi theo 2 mốc thời gian)"
         }
-      }
+      },
+      "thuong_hieu": "PNJ"
     },
     {
       "id": "DH-01-06",
@@ -240,7 +249,8 @@
         "raw": {
           "ty_le": "**THU 75% / ĐỔI 85%** (không đổi)"
         }
-      }
+      },
+      "thuong_hieu": "PNJ"
     },
     {
       "id": "DH-01-07",
@@ -270,7 +280,8 @@
         "raw": {
           "ty_le": "**THU 50% / ĐỔI 70%** (không đổi)"
         }
-      }
+      },
+      "thuong_hieu": "PNJ"
     },
     {
       "id": "DH-01-08",
@@ -297,7 +308,8 @@
         "raw": {
           "ty_le": "**THU 60% / ĐỔI 75%** (không đổi)"
         }
-      }
+      },
+      "thuong_hieu": "PNJ"
     },
     {
       "id": "DH-01-09",
@@ -326,7 +338,8 @@
         "raw": {
           "ty_le": "**Thu theo giá NL / Đổi theo giá NL**"
         }
-      }
+      },
+      "thuong_hieu": "PNJ"
     },
     {
       "id": "DH-01-10",
@@ -355,7 +368,8 @@
         "raw": {
           "ty_le": "**THU 55% / ĐỔI 60%** (không đổi)"
         }
-      }
+      },
+      "thuong_hieu": "PNJ"
     },
     {
       "id": "DH-01-11",
@@ -382,7 +396,8 @@
         "raw": {
           "ty_le": "**Không thu mua**"
         }
-      }
+      },
+      "thuong_hieu": "PNJ"
     },
     {
       "id": "DH-01-12",
@@ -412,7 +427,8 @@
           "ty_le_thu": "• < 20 triệu/SP: **Không thu mua**\n• ≥ 20 triệu/SP: **50%** giá trị HĐ (không đổi theo mốc thời gian)",
           "ty_le_doi": "Không đổi"
         }
-      }
+      },
+      "thuong_hieu": "PNJ"
     },
     {
       "id": "DH-01-13",
@@ -442,7 +458,8 @@
         "raw": {
           "ty_le": "**THU 70% / ĐỔI 80%** (không đổi 2 mốc)"
         }
-      }
+      },
+      "thuong_hieu": "PNJ"
     },
     {
       "id": "DH-01-14",
@@ -472,7 +489,8 @@
         "raw": {
           "ty_le": "**THU 70% / ĐỔI 80%** (không đổi)"
         }
-      }
+      },
+      "thuong_hieu": "PNJ"
     },
     {
       "id": "DH-01-15",
@@ -500,7 +518,8 @@
         "raw": {
           "ty_le": "**THU 80% / ĐỔI 85%** (không đổi)"
         }
-      }
+      },
+      "thuong_hieu": "PNJ"
     },
     {
       "id": "DH-02-01",
@@ -537,7 +556,8 @@
           "thu_tu": "**Thu theo giá NL** (cả 2 mốc thời gian)",
           "doi_tu": "**Thu theo giá NL**"
         }
-      }
+      },
+      "thuong_hieu": "PNJ"
     },
     {
       "id": "DH-02-02",
@@ -566,7 +586,8 @@
         "thu_tu": null,
         "doi_tu": null,
         "raw": {}
-      }
+      },
+      "thuong_hieu": "PNJ"
     },
     {
       "id": "DH-03-01",
@@ -593,7 +614,8 @@
         "raw": {
           "ty_le": "**Không thu lại** (cả 2 mốc thời gian)"
         }
-      }
+      },
+      "thuong_hieu": "PNJ"
     },
     {
       "id": "DH-03-02",
@@ -627,7 +649,8 @@
           "doi_tu": null,
           "ty_le_tu": "Không thay đổi"
         }
-      }
+      },
+      "thuong_hieu": "PNJ"
     },
     {
       "id": "DH-03-03",
@@ -654,7 +677,8 @@
         "raw": {
           "ty_le": "**THU 95% / ĐỔI 98%**"
         }
-      }
+      },
+      "thuong_hieu": "PNJ"
     },
     {
       "id": "DH-03-04",
@@ -681,7 +705,8 @@
         "raw": {
           "ty_le": "**THU 93% / ĐỔI 97%**"
         }
-      }
+      },
+      "thuong_hieu": "PNJ"
     },
     {
       "id": "DH-03-05",
@@ -708,7 +733,8 @@
         "raw": {
           "ty_le": "**THU 93% / ĐỔI 95%**"
         }
-      }
+      },
+      "thuong_hieu": "PNJ"
     },
     {
       "id": "DH-03-06",
@@ -735,7 +761,8 @@
         "raw": {
           "ty_le": "**THU 90% / ĐỔI 95%**"
         }
-      }
+      },
+      "thuong_hieu": "PNJ"
     },
     {
       "id": "DH-03-07",
@@ -762,7 +789,8 @@
         "raw": {
           "ty_le": "**THU 85% / ĐỔI 90%**"
         }
-      }
+      },
+      "thuong_hieu": "PNJ"
     },
     {
       "id": "DH-03-08",
@@ -790,7 +818,8 @@
         "raw": {
           "ty_le": "**THU 80% / ĐỔI 90%**"
         }
-      }
+      },
+      "thuong_hieu": "PNJ"
     },
     {
       "id": "DH-04-01",
@@ -819,7 +848,8 @@
         "raw": {
           "ty_le": "• < 2 triệu/viên: **Không thu mua**\n• ≥ 2 triệu/viên: **70% giá trị HĐ** (không đổi 2 mốc)"
         }
-      }
+      },
+      "thuong_hieu": "PNJ"
     },
     {
       "id": "DH-04-02",
@@ -846,7 +876,8 @@
         "raw": {
           "ty_le": "**Không thu mua**"
         }
-      }
+      },
+      "thuong_hieu": "PNJ"
     },
     {
       "id": "DH-04-03",
@@ -873,7 +904,8 @@
         "raw": {
           "ty_le": "• < 3 triệu/viên: **Không thu mua**\n• ≥ 3 triệu/viên: **70% giá trị HĐ**"
         }
-      }
+      },
+      "thuong_hieu": "PNJ"
     },
     {
       "id": "DH-04-04",
@@ -900,7 +932,8 @@
         "raw": {
           "ty_le": "• < 8 triệu/SP: **Không thu mua**\n• ≥ 8 triệu/SP: **Mua lại 50% giá trị HĐ**"
         }
-      }
+      },
+      "thuong_hieu": "PNJ"
     },
     {
       "id": "DH-05-01",
@@ -929,7 +962,8 @@
         "raw": {
           "ty_le": "**THU 50% / ĐỔI 60%** (không đổi 2 mốc)"
         }
-      }
+      },
+      "thuong_hieu": "PNJ"
     },
     {
       "id": "DH-06-01",
@@ -958,7 +992,8 @@
         "raw": {
           "ty_le": "**Thu theo giá NL / Không thay đổi**"
         }
-      }
+      },
+      "thuong_hieu": "PNJ"
     },
     {
       "id": "DH-07-01",
@@ -987,7 +1022,8 @@
         "raw": {
           "ty_le": "**THU 65% / ĐỔI 75%**"
         }
-      }
+      },
+      "thuong_hieu": "PNJ"
     },
     {
       "id": "DH-07-02",
@@ -1014,7 +1050,8 @@
         "raw": {
           "ty_le": "**Không thu mua** (cả 2 mốc)"
         }
-      }
+      },
+      "thuong_hieu": "PNJ"
     },
     {
       "id": "DH-08-01",
@@ -1043,7 +1080,8 @@
         "raw": {
           "ty_le": "**Thu theo giá NL / Không thay đổi**"
         }
-      }
+      },
+      "thuong_hieu": "PNJ"
     },
     {
       "id": "DH-09-01",
@@ -1075,7 +1113,8 @@
         "raw": {
           "ty_le": "**THU 70% / ĐỔI 80%**"
         }
-      }
+      },
+      "thuong_hieu": "PNJ"
     },
     {
       "id": "DH-09-02",
@@ -1103,6 +1142,813 @@
         "doi_tu": "NL",
         "raw": {
           "ty_le": "**Thu theo giá NL** (cả 2 mốc)"
+        }
+      },
+      "thuong_hieu": "PNJ"
+    },
+    {
+      "id": "DH-CAO-01",
+      "ten": "Hàng Ý / Trang sức trơn / Nhẫn cưới trơn",
+      "nhom": "1",
+      "thuong_hieu": "CAO",
+      "dac_diem": "Hàng Ý các loại nhập ngoại, trang sức trơn không gắn đá (bao gồm nhẫn cưới trơn, nữ trang trơn, dây Ý ngoại nhập)",
+      "pham_vi": "",
+      "cong_thuc": "Giá thu/đổi = Giá trị HĐ × tỷ lệ",
+      "dieu_kien": "Nguyên vẹn, có HĐ hoặc trích lục HĐ",
+      "phi": "",
+      "tham_chieu": "QT chính — Bảng chi tiết áp dụng thu đổi, dòng 1",
+      "ghi_chu": "Nếu HĐ cũ có cam kết khác → ưu tiên cam kết HĐ",
+      "vi_du": "",
+      "rates": {
+        "thu_truoc": 0.5,
+        "doi_truoc": 0.6,
+        "thu_tu": 0.5,
+        "doi_tu": 0.6,
+        "raw": {
+          "thu_truoc": "**50%** giá trị HĐ",
+          "doi_truoc": "**60%** giá trị HĐ",
+          "thu_tu": "**50%** giá trị HĐ",
+          "doi_tu": "**60%** giá trị HĐ"
+        }
+      }
+    },
+    {
+      "id": "DH-CAO-02",
+      "ten": "Mề đay kiếng ngoại nhập",
+      "nhom": "1",
+      "thuong_hieu": "CAO",
+      "dac_diem": "Mề đay kiếng ngoại nhập, không trầy nứt bể",
+      "pham_vi": "",
+      "cong_thuc": "",
+      "dieu_kien": "Không trầy/nứt/bể; không nhận bảo hành; chỉ mua lại (bao gồm SP đã mua trước đây)",
+      "phi": "",
+      "tham_chieu": "QT chính — Bảng chi tiết, dòng 2",
+      "ghi_chu": "⚠️ Duy nhất dòng Nhóm 1 không có tỷ lệ đổi",
+      "vi_du": "",
+      "rates": {
+        "thu_truoc": 0.6,
+        "doi_truoc": "NONE",
+        "thu_tu": 0.6,
+        "doi_tu": "NONE",
+        "raw": {
+          "thu_truoc": "**60%** giá trị HĐ",
+          "doi_truoc": "Không đổi",
+          "thu_tu": "**60%** giá trị HĐ",
+          "doi_tu": "Không đổi"
+        }
+      }
+    },
+    {
+      "id": "DH-CAO-03",
+      "ten": "Vỏ trang sức",
+      "nhom": "1",
+      "thuong_hieu": "CAO",
+      "dac_diem": "Vỏ nữ trang các loại (không gắn đá chính, hoặc vỏ đã tách đá)",
+      "pham_vi": "",
+      "cong_thuc": "",
+      "dieu_kien": "Nguyên vẹn, có HĐ hoặc trích lục",
+      "phi": "",
+      "tham_chieu": "QT chính — Bảng chi tiết, dòng 3",
+      "ghi_chu": "Vỏ Platinum áp dụng theo tỷ lệ vỏ",
+      "vi_du": "",
+      "rates": {
+        "thu_truoc": 0.7,
+        "doi_truoc": 0.8,
+        "thu_tu": 0.7,
+        "doi_tu": 0.8,
+        "raw": {
+          "thu_truoc": "**70%** giá trị HĐ",
+          "doi_truoc": "**80%** giá trị HĐ",
+          "thu_tu": "**70%** giá trị HĐ",
+          "doi_tu": "**80%** giá trị HĐ"
+        }
+      }
+    },
+    {
+      "id": "DH-CAO-04",
+      "ten": "Nữ trang đá màu / CZ / ECZ",
+      "nhom": "1",
+      "thuong_hieu": "CAO",
+      "dac_diem": "Nữ trang đá màu các loại (Ruby, Sapphire, Emerald gắn trên NT), NT CZ, NT ECZ",
+      "pham_vi": "",
+      "cong_thuc": "",
+      "dieu_kien": "Nguyên vẹn; đá chính không trầy/nứt/mẻ/mài mòn",
+      "phi": "Mài đá (PL A1) nếu có",
+      "tham_chieu": "QT chính — Bảng chi tiết, dòng 4",
+      "ghi_chu": "Nếu mất đá chính/phụ → trừ giá bán viên đá trước khi tính %",
+      "vi_du": "",
+      "rates": {
+        "thu_truoc": 0.7,
+        "doi_truoc": 0.8,
+        "thu_tu": 0.7,
+        "doi_tu": 0.8,
+        "raw": {
+          "thu_truoc": "**70%** giá trị HĐ",
+          "doi_truoc": "**80%** giá trị HĐ",
+          "thu_tu": "**70%** giá trị HĐ",
+          "doi_tu": "**80%** giá trị HĐ"
+        }
+      }
+    },
+    {
+      "id": "DH-CAO-05",
+      "ten": "NTKC Fancy / NTKC màu",
+      "nhom": "1",
+      "thuong_hieu": "CAO",
+      "dac_diem": "Nữ trang kim cương Fancy (giọt, marquise, princess, emerald cut, oval...) hoặc NTKC màu (colored diamond)",
+      "pham_vi": "",
+      "cong_thuc": "",
+      "dieu_kien": "Nguyên vẹn, có HĐ + GKĐ",
+      "phi": "",
+      "tham_chieu": "QT chính — Bảng chi tiết, dòng 5",
+      "ghi_chu": "",
+      "vi_du": "",
+      "rates": {
+        "thu_truoc": 0.75,
+        "doi_truoc": 0.85,
+        "thu_tu": 0.75,
+        "doi_tu": 0.85,
+        "raw": {
+          "thu_truoc": "**75%** giá trị HĐ",
+          "doi_truoc": "**85%** giá trị HĐ",
+          "thu_tu": "**75%** giá trị HĐ",
+          "doi_tu": "**85%** giá trị HĐ"
+        }
+      }
+    },
+    {
+      "id": "DH-CAO-06",
+      "ten": "NTKC trắng VS/VVS <5.4ly + NTKC SI + Look like big",
+      "nhom": "1",
+      "thuong_hieu": "CAO",
+      "dac_diem": "NTKC trắng clarity VS/VVS dưới 5.4ly; NTKC clarity SI mọi size; dòng 'Look like big'",
+      "pham_vi": "",
+      "cong_thuc": "",
+      "dieu_kien": "Nguyên vẹn, có HĐ + GKĐ",
+      "phi": "",
+      "tham_chieu": "QT chính — Bảng chi tiết, dòng 6",
+      "ghi_chu": "**Cơ chế ĐỔI combo:** Nếu KH đổi sang vỏ rời + KCR (2 món mới):\n- Tổng 2 món mới ≥ món cũ → áp tỷ lệ **đổi 85%** món cũ\n- Tổng 2 món mới < món cũ → áp tỷ lệ **mua 75%** món cũ",
+      "vi_du": "",
+      "rates": {
+        "thu_truoc": 0.75,
+        "doi_truoc": 0.85,
+        "thu_tu": 0.75,
+        "doi_tu": 0.85,
+        "raw": {
+          "thu_truoc": "**75%** giá trị HĐ",
+          "doi_truoc": "**85%** giá trị HĐ",
+          "thu_tu": "**75%** giá trị HĐ",
+          "doi_tu": "**85%** giá trị HĐ"
+        }
+      }
+    },
+    {
+      "id": "DH-CAO-07a",
+      "ten": "NTKC trắng VS/VVS ≥5.4ly — phần ĐÁ (tách)",
+      "nhom": "1",
+      "thuong_hieu": "CAO",
+      "dac_diem": "NTKC trắng clarity VS/VVS, đá chính ≥ 5.4ly — **phần giá trị đá** sau khi tách",
+      "pham_vi": "",
+      "cong_thuc": "Tách giá trị bán đá tại thời điểm công ty xuất bán (sau trừ CK). Phần đá: Mua 95% / Đổi 98%. Phần vỏ: DH-CAO-07b",
+      "dieu_kien": "Nguyên vẹn, có HĐ + GKĐ; đá ≥ 5.4ly",
+      "phi": "",
+      "tham_chieu": "QT chính — Bảng chi tiết, dòng 7",
+      "ghi_chu": "**Chỉ dùng khi tách đá-vỏ từ HĐ cũ.** Tỷ lệ áp dụng riêng cho phần đá",
+      "vi_du": "HĐ cũ NTKC 6.3ly: 200tr (đá 170tr + vỏ 30tr). Mua = 170M×95% + 30M×75%=184M. Đổi = 170M×98% + 30M×85%=192.1M",
+      "rates": {
+        "thu_truoc": 0.95,
+        "doi_truoc": 0.98,
+        "thu_tu": 0.95,
+        "doi_tu": 0.98,
+        "raw": {
+          "thu_truoc": "**95%** giá bán đá tại HĐ",
+          "doi_truoc": "**98%** giá bán đá tại HĐ",
+          "thu_tu": "**95%** giá bán đá tại HĐ",
+          "doi_tu": "**98%** giá bán đá tại HĐ"
+        }
+      }
+    },
+    {
+      "id": "DH-CAO-07b",
+      "ten": "NTKC trắng VS/VVS ≥5.4ly — phần VỎ (tách)",
+      "nhom": "1",
+      "thuong_hieu": "CAO",
+      "dac_diem": "NTKC trắng clarity VS/VVS, đá chính ≥ 5.4ly — **phần giá trị vỏ** sau khi tách",
+      "pham_vi": "",
+      "cong_thuc": "Giá trị còn lại sau khi tách giá đá = phần vỏ. Áp tỷ lệ vỏ riêng",
+      "dieu_kien": "Như DH-CAO-07a",
+      "phi": "",
+      "tham_chieu": "QT chính — Bảng chi tiết, dòng 7",
+      "ghi_chu": "SP chỉ có 1 mã gốc (vỏ đã gắn hột nhưng chưa chuyển mã) → được đổi sang nhóm KCR + vỏ theo trị giá tách",
+      "vi_du": "",
+      "rates": {
+        "thu_truoc": 0.75,
+        "doi_truoc": 0.85,
+        "thu_tu": 0.75,
+        "doi_tu": 0.85,
+        "raw": {
+          "thu_truoc": "**75%** giá vỏ",
+          "doi_truoc": "**85%** giá vỏ",
+          "thu_tu": "**75%** giá vỏ",
+          "doi_tu": "**85%** giá vỏ"
+        }
+      }
+    },
+    {
+      "id": "DH-CAO-08",
+      "ten": "NT gắn ngọc trai nước ngọt",
+      "nhom": "1",
+      "thuong_hieu": "CAO",
+      "dac_diem": "Fresh water Pearl gắn vào nữ trang",
+      "pham_vi": "",
+      "cong_thuc": "",
+      "dieu_kien": "NT không biến dạng, không trầy, không bong xà cừ, không mài mòn",
+      "phi": "",
+      "tham_chieu": "QT chính — Bảng ngọc trai, dòng 1",
+      "ghi_chu": "",
+      "vi_du": "",
+      "rates": {
+        "thu_truoc": 0.5,
+        "doi_truoc": 0.6,
+        "thu_tu": 0.5,
+        "doi_tu": 0.6,
+        "raw": {
+          "thu_truoc": "**50%** giá trị HĐ",
+          "doi_truoc": "**60%** giá trị HĐ",
+          "thu_tu": "**50%** giá trị HĐ",
+          "doi_tu": "**60%** giá trị HĐ"
+        }
+      }
+    },
+    {
+      "id": "DH-CAO-09",
+      "ten": "NT ngọc trai nước mặn (Akoya, South Sea, Tahiti)",
+      "nhom": "1",
+      "thuong_hieu": "CAO",
+      "dac_diem": "Nữ trang Akoya / South Sea / Tahiti (bao gồm chuỗi Pearl có họa tiết gắn ECZ hoặc vàng)",
+      "pham_vi": "",
+      "cong_thuc": "",
+      "dieu_kien": "NT nguyên vẹn như DH-CAO-08",
+      "phi": "",
+      "tham_chieu": "QT chính — Bảng ngọc trai, dòng 2",
+      "ghi_chu": "",
+      "vi_du": "",
+      "rates": {
+        "thu_truoc": 0.5,
+        "doi_truoc": 0.6,
+        "thu_tu": 0.5,
+        "doi_tu": 0.6,
+        "raw": {
+          "thu_truoc": "**50%** giá trị HĐ",
+          "doi_truoc": "**60%** giá trị HĐ",
+          "thu_tu": "**50%** giá trị HĐ",
+          "doi_tu": "**60%** giá trị HĐ"
+        }
+      }
+    },
+    {
+      "id": "DH-CAO-10",
+      "ten": "Chuỗi Pearl gắn khóa vàng",
+      "nhom": "1",
+      "thuong_hieu": "CAO",
+      "dac_diem": "Chuỗi Pearl có khóa vàng (không phải chuỗi lắc trơn)",
+      "pham_vi": "",
+      "cong_thuc": "",
+      "dieu_kien": "",
+      "phi": "",
+      "tham_chieu": "QT chính — Bảng ngọc trai, dòng 3",
+      "ghi_chu": "",
+      "vi_du": "",
+      "rates": {
+        "thu_truoc": 0.5,
+        "doi_truoc": 0.6,
+        "thu_tu": 0.5,
+        "doi_tu": 0.6,
+        "raw": {
+          "thu_truoc": "**50%** giá trị HĐ",
+          "doi_truoc": "**60%** giá trị HĐ",
+          "thu_tu": "**50%** giá trị HĐ",
+          "doi_tu": "**60%** giá trị HĐ"
+        }
+      }
+    },
+    {
+      "id": "DH-CAO-11",
+      "ten": "Chuỗi / lắc ngọc trai nước ngọt",
+      "nhom": "1",
+      "thuong_hieu": "CAO",
+      "dac_diem": "Chuỗi hoặc lắc Fresh water Pearl (không khóa vàng)",
+      "pham_vi": "",
+      "cong_thuc": "",
+      "dieu_kien": "",
+      "phi": "",
+      "tham_chieu": "QT chính — Bảng ngọc trai, dòng 4",
+      "ghi_chu": "⚠️ CAO **không** thu mua dòng này",
+      "vi_du": "",
+      "rates": {
+        "thu_truoc": "NONE",
+        "doi_truoc": "NONE",
+        "thu_tu": "NONE",
+        "doi_tu": "NONE",
+        "raw": {
+          "thu_truoc": "Không mua lại",
+          "doi_truoc": "Không đổi",
+          "thu_tu": "Không mua lại",
+          "doi_tu": "Không đổi"
+        }
+      }
+    },
+    {
+      "id": "DH-CAO-12",
+      "ten": "Chuỗi ngọc trai nước mặn (Akoya / SS / Tahiti)",
+      "nhom": "1",
+      "thuong_hieu": "CAO",
+      "dac_diem": "Chuỗi ngọc trai nước mặn — giá trị quyết định có mua lại hay không",
+      "pham_vi": "",
+      "cong_thuc": "",
+      "dieu_kien": "Phải có HĐ; mất HĐ + không trích lục được → không mua lại",
+      "phi": "",
+      "tham_chieu": "QT chính — Bảng ngọc trai, dòng 5",
+      "ghi_chu": "⚠️ Ngưỡng giá trị 20.000.000đ/SP quyết định có mua hay không",
+      "vi_du": "",
+      "rates": {
+        "thu_truoc": "SPECIAL",
+        "doi_truoc": "SPECIAL",
+        "thu_tu": "SPECIAL",
+        "doi_tu": "SPECIAL",
+        "raw": {
+          "thu_truoc": "< 20tr: Không mua · ≥ 20tr: **50%**",
+          "doi_truoc": "Không áp riêng — mua lại 50% nếu ≥20tr",
+          "thu_tu": "< 20tr: Không mua · ≥ 20tr: **50%**",
+          "doi_tu": "Không áp riêng — mua lại 50% nếu ≥20tr"
+        }
+      }
+    },
+    {
+      "id": "DH-CAO-13a",
+      "ten": "KCR tròn trắng VVS1/VS1 > 10ly",
+      "nhom": "3",
+      "thuong_hieu": "CAO",
+      "dac_diem": "KC rời tròn, trắng, clarity VVS1 hoặc VS1, size > 10.0 ly",
+      "pham_vi": "",
+      "cong_thuc": "",
+      "dieu_kien": "",
+      "phi": "",
+      "tham_chieu": "QT chính — Bảng KCR, mục a",
+      "ghi_chu": "Áp dụng từ ngày tài liệu hiệu lực; KCR đã bán trước đó → theo cam kết HĐ cũ",
+      "vi_du": "",
+      "rates": {
+        "thu_truoc": "NONE",
+        "doi_truoc": "NONE",
+        "thu_tu": "NONE",
+        "doi_tu": "NONE",
+        "raw": {
+          "thu_truoc": "Không thu lại",
+          "doi_truoc": "Không thu lại",
+          "thu_tu": "Không thu lại",
+          "doi_tu": "Không thu lại"
+        }
+      }
+    },
+    {
+      "id": "DH-CAO-13b",
+      "ten": "KCR tròn trắng VVS1/VS1 >8.6ly đến ≤10ly — mua ≤1 năm",
+      "nhom": "3",
+      "thuong_hieu": "CAO",
+      "dac_diem": "KC rời tròn trắng VVS1/VS1, size > 8.6 → ≤ 10 ly, trong vòng 1 năm kể từ mua",
+      "pham_vi": "",
+      "cong_thuc": "",
+      "dieu_kien": "",
+      "phi": "",
+      "tham_chieu": "QT chính — Bảng KCR, mục a",
+      "ghi_chu": "",
+      "vi_du": "",
+      "rates": {
+        "thu_truoc": 0.93,
+        "doi_truoc": 0.93,
+        "thu_tu": 0.93,
+        "doi_tu": 0.93,
+        "raw": {
+          "thu_truoc": "**93%** (trong 1 năm)",
+          "doi_truoc": "**93%** (trong 1 năm)",
+          "thu_tu": "**93%** (trong 1 năm)",
+          "doi_tu": "**93%** (trong 1 năm)"
+        }
+      }
+    },
+    {
+      "id": "DH-CAO-13c",
+      "ten": "KCR tròn trắng VVS1/VS1 >8.6ly đến ≤10ly — mua >1 năm",
+      "nhom": "3",
+      "thuong_hieu": "CAO",
+      "dac_diem": "KC rời tròn trắng VVS1/VS1, size > 8.6 → ≤ 10 ly, trên 1 năm kể từ mua",
+      "pham_vi": "",
+      "cong_thuc": "",
+      "dieu_kien": "",
+      "phi": "",
+      "tham_chieu": "QT chính — Bảng KCR, mục a",
+      "ghi_chu": "",
+      "vi_du": "",
+      "rates": {
+        "thu_truoc": 0.9,
+        "doi_truoc": 0.9,
+        "thu_tu": 0.9,
+        "doi_tu": 0.9,
+        "raw": {
+          "thu_truoc": "**90%** (trên 1 năm)",
+          "doi_truoc": "**90%** (trên 1 năm)",
+          "thu_tu": "**90%** (trên 1 năm)",
+          "doi_tu": "**90%** (trên 1 năm)"
+        }
+      }
+    },
+    {
+      "id": "DH-CAO-13d",
+      "ten": "KCR tròn trắng VVS1/VS1 6.0 đến ≤8.6ly",
+      "nhom": "3",
+      "thuong_hieu": "CAO",
+      "dac_diem": "KC rời tròn trắng VVS1/VS1, size 6.0 → ≤ 8.6 ly",
+      "pham_vi": "",
+      "cong_thuc": "",
+      "dieu_kien": "",
+      "phi": "",
+      "tham_chieu": "QT chính — Bảng KCR, mục a",
+      "ghi_chu": "",
+      "vi_du": "",
+      "rates": {
+        "thu_truoc": 0.95,
+        "doi_truoc": 0.98,
+        "thu_tu": 0.95,
+        "doi_tu": 0.98,
+        "raw": {
+          "thu_truoc": "**95%**",
+          "doi_truoc": "**98%**",
+          "thu_tu": "**95%**",
+          "doi_tu": "**98%**"
+        }
+      }
+    },
+    {
+      "id": "DH-CAO-13e",
+      "ten": "KCR tròn trắng VVS1/VS1 5.0 đến <6.0ly",
+      "nhom": "3",
+      "thuong_hieu": "CAO",
+      "dac_diem": "KC rời tròn trắng VVS1/VS1, size 5.0 → <6.0 ly",
+      "pham_vi": "",
+      "cong_thuc": "",
+      "dieu_kien": "",
+      "phi": "",
+      "tham_chieu": "QT chính — Bảng KCR, mục a",
+      "ghi_chu": "",
+      "vi_du": "",
+      "rates": {
+        "thu_truoc": 0.93,
+        "doi_truoc": 0.97,
+        "thu_tu": 0.93,
+        "doi_tu": 0.97,
+        "raw": {
+          "thu_truoc": "**93%**",
+          "doi_truoc": "**97%**",
+          "thu_tu": "**93%**",
+          "doi_tu": "**97%**"
+        }
+      }
+    },
+    {
+      "id": "DH-CAO-13f",
+      "ten": "KCR tròn trắng VVS1/VS1 <5.0ly",
+      "nhom": "3",
+      "thuong_hieu": "CAO",
+      "dac_diem": "KC rời tròn trắng VVS1/VS1, size <5.0 ly",
+      "pham_vi": "",
+      "cong_thuc": "",
+      "dieu_kien": "",
+      "phi": "",
+      "tham_chieu": "QT chính — Bảng KCR, mục a",
+      "ghi_chu": "KC 'đầu yếu' (biên size): áp như size cao liền kề (VD 5.98-6.02ly → như 6.0ly)",
+      "vi_du": "",
+      "rates": {
+        "thu_truoc": 0.93,
+        "doi_truoc": 0.95,
+        "thu_tu": 0.93,
+        "doi_tu": 0.95,
+        "raw": {
+          "thu_truoc": "**93%**",
+          "doi_truoc": "**95%**",
+          "thu_tu": "**93%**",
+          "doi_tu": "**95%**"
+        }
+      }
+    },
+    {
+      "id": "DH-CAO-14a",
+      "ten": "KCR tròn trắng SI1 ≥6.0ly",
+      "nhom": "3",
+      "thuong_hieu": "CAO",
+      "dac_diem": "KC rời tròn trắng clarity SI1, size ≥6.0 ly",
+      "pham_vi": "",
+      "cong_thuc": "",
+      "dieu_kien": "",
+      "phi": "",
+      "tham_chieu": "QT chính — Bảng KCR, mục b",
+      "ghi_chu": "",
+      "vi_du": "",
+      "rates": {
+        "thu_truoc": 0.9,
+        "doi_truoc": 0.95,
+        "thu_tu": 0.9,
+        "doi_tu": 0.95,
+        "raw": {
+          "thu_truoc": "**90%**",
+          "doi_truoc": "**95%**",
+          "thu_tu": "**90%**",
+          "doi_tu": "**95%**"
+        }
+      }
+    },
+    {
+      "id": "DH-CAO-14b",
+      "ten": "KCR tròn trắng SI1 3.0 đến <6.0ly",
+      "nhom": "3",
+      "thuong_hieu": "CAO",
+      "dac_diem": "KC rời tròn trắng clarity SI1, size 3.0 → <6.0 ly",
+      "pham_vi": "",
+      "cong_thuc": "",
+      "dieu_kien": "",
+      "phi": "",
+      "tham_chieu": "QT chính — Bảng KCR, mục b",
+      "ghi_chu": "",
+      "vi_du": "",
+      "rates": {
+        "thu_truoc": 0.85,
+        "doi_truoc": 0.9,
+        "thu_tu": 0.85,
+        "doi_tu": 0.9,
+        "raw": {
+          "thu_truoc": "**85%**",
+          "doi_truoc": "**90%**",
+          "thu_tu": "**85%**",
+          "doi_tu": "**90%**"
+        }
+      }
+    },
+    {
+      "id": "DH-CAO-15",
+      "ten": "KCR tròn trắng <2.5ly Mix Clarity",
+      "nhom": "3",
+      "thuong_hieu": "CAO",
+      "dac_diem": "KC rời tròn trắng size < 2.5 ly, clarity hỗn hợp (Mix)",
+      "pham_vi": "",
+      "cong_thuc": "",
+      "dieu_kien": "",
+      "phi": "",
+      "tham_chieu": "QT chính — Bảng KCR, mục c",
+      "ghi_chu": "⚠️ KCR < 2.5 ly không được đổi",
+      "vi_du": "",
+      "rates": {
+        "thu_truoc": 0.7,
+        "doi_truoc": "NONE",
+        "thu_tu": 0.7,
+        "doi_tu": "NONE",
+        "raw": {
+          "thu_truoc": "**70%**",
+          "doi_truoc": "Không đổi",
+          "thu_tu": "**70%**",
+          "doi_tu": "Không đổi"
+        }
+      }
+    },
+    {
+      "id": "DH-CAO-16a",
+      "ten": "KC Fancy shape — Clarity < VS",
+      "nhom": "3",
+      "thuong_hieu": "CAO",
+      "dac_diem": "KC rời hình Fancy (giọt, marquise, princess, emerald cut, oval, heart), clarity thấp hơn VS (SI, I...)",
+      "pham_vi": "",
+      "cong_thuc": "",
+      "dieu_kien": "",
+      "phi": "",
+      "tham_chieu": "QT chính — Bảng KCR, mục d",
+      "ghi_chu": "",
+      "vi_du": "",
+      "rates": {
+        "thu_truoc": 0.75,
+        "doi_truoc": 0.8,
+        "thu_tu": 0.75,
+        "doi_tu": 0.8,
+        "raw": {
+          "thu_truoc": "**75%**",
+          "doi_truoc": "**80%**",
+          "thu_tu": "**75%**",
+          "doi_tu": "**80%**"
+        }
+      }
+    },
+    {
+      "id": "DH-CAO-16b",
+      "ten": "KC Fancy shape — Clarity ≥ VS",
+      "nhom": "3",
+      "thuong_hieu": "CAO",
+      "dac_diem": "KC rời hình Fancy, clarity VS1/VS2/VVS1/VVS2/IF trở lên",
+      "pham_vi": "",
+      "cong_thuc": "",
+      "dieu_kien": "",
+      "phi": "",
+      "tham_chieu": "QT chính — Bảng KCR, mục d",
+      "ghi_chu": "",
+      "vi_du": "",
+      "rates": {
+        "thu_truoc": 0.8,
+        "doi_truoc": 0.9,
+        "thu_tu": 0.8,
+        "doi_tu": 0.9,
+        "raw": {
+          "thu_truoc": "**80%**",
+          "doi_truoc": "**90%**",
+          "thu_tu": "**80%**",
+          "doi_tu": "**90%**"
+        }
+      }
+    },
+    {
+      "id": "DH-CAO-17",
+      "ten": "KC màu (Colored Diamond)",
+      "nhom": "3",
+      "thuong_hieu": "CAO",
+      "dac_diem": "Kim cương rời có màu (vàng, hồng, xanh, nâu...) — Fancy color",
+      "pham_vi": "",
+      "cong_thuc": "",
+      "dieu_kien": "",
+      "phi": "",
+      "tham_chieu": "QT chính — Bảng KCR, mục e",
+      "ghi_chu": "Chuyển đổi chủng loại KC: đổi từ trắng → màu (giá cao hơn) → áp tỷ lệ KC trắng (theo HĐ cũ)",
+      "vi_du": "",
+      "rates": {
+        "thu_truoc": 0.8,
+        "doi_truoc": 0.9,
+        "thu_tu": 0.8,
+        "doi_tu": 0.9,
+        "raw": {
+          "thu_truoc": "**80%**",
+          "doi_truoc": "**90%**",
+          "thu_tu": "**80%**",
+          "doi_tu": "**90%**"
+        }
+      }
+    },
+    {
+      "id": "DH-CAO-18",
+      "ten": "Đá quý & đá bán quý rời ≥ 30tr (TB 11/2025)",
+      "nhom": "3",
+      "thuong_hieu": "CAO",
+      "dac_diem": "Đá quý (Ruby, Sapphire, Emerald) và đá bán quý **rời** (không gắn SP) — giá trị ≥ 30tr",
+      "pham_vi": "",
+      "cong_thuc": "",
+      "dieu_kien": "Giá trị SP ≥ 30.000.000đ. Nếu <30tr: không mua không đổi (thực tế CAO không bán dưới ngưỡng này)",
+      "phi": "",
+      "tham_chieu": "TB 346.11/2025/TB-CAF-KD ngày 13/11/2025, hiệu lực 14/11/2025",
+      "ghi_chu": "❌ Không áp dụng Đổi 48h",
+      "vi_du": "",
+      "rates": {
+        "thu_truoc": 0.7,
+        "doi_truoc": 0.7,
+        "thu_tu": 0.7,
+        "doi_tu": 0.7,
+        "raw": {
+          "thu_truoc": "**70%** (≥30tr)",
+          "doi_truoc": "**70%** (≥30tr)",
+          "thu_tu": "**70%** (≥30tr)",
+          "doi_tu": "**70%** (≥30tr)"
+        }
+      }
+    },
+    {
+      "id": "DH-CAO-19",
+      "ten": "Trang sức vàng 22K / 24K",
+      "nhom": "2",
+      "thuong_hieu": "CAO",
+      "dac_diem": "Nữ trang trọng lượng 22K hoặc 24K (kiềng, vòng tay, dây chuyền 22K/24K...)",
+      "pham_vi": "",
+      "cong_thuc": "- TL mới ≥ TL cũ: toàn bộ theo giá **bán ra** vàng tại thời điểm\n- TL mới < TL cũ: phần TL bằng TL mới theo giá **bán ra**; phần TL dư theo giá **mua vào**",
+      "dieu_kien": "",
+      "phi": "",
+      "tham_chieu": "QT chính — 'Trường hợp mua/đổi với NT trọng lượng 22K-24K'",
+      "ghi_chu": "Nhóm 2 chỉ đổi trong Nhóm 2; sang Nhóm 1/3 chỉ tỷ lệ mua",
+      "vi_du": "KH mang kiềng 24K 3.0 chỉ đổi vòng 24K 2.0 chỉ: 2.0 chỉ theo giá bán ra + 1.0 chỉ theo giá mua vào",
+      "rates": {
+        "thu_truoc": "NL",
+        "doi_truoc": "NL",
+        "thu_tu": "NL",
+        "doi_tu": "NL",
+        "raw": {
+          "thu_truoc": "Theo giá vàng bán ra/mua vào",
+          "doi_truoc": "Theo giá vàng",
+          "thu_tu": "Theo giá vàng bán ra/mua vào",
+          "doi_tu": "Theo giá vàng"
+        }
+      }
+    },
+    {
+      "id": "DH-CAO-20a",
+      "ten": "TKR — Vỏ gắn KC tròn trắng / TSKC tròn trắng",
+      "nhom": "4",
+      "thuong_hieu": "CAO",
+      "dac_diem": "Hàng Thiết Kế Riêng (May Đo): TS kim cương tròn trắng / Vỏ gắn KC tròn trắng",
+      "pham_vi": "",
+      "cong_thuc": "",
+      "dieu_kien": "SP mới cùng MC 'MAY ĐO', giá HĐ ≥ HĐ cũ",
+      "phi": "",
+      "tham_chieu": "QT chính — Bảng TKR, STT 1",
+      "ghi_chu": "⚠️ **Không thu lại**; chỉ đổi sang SP May Đo khác",
+      "vi_du": "",
+      "rates": {
+        "thu_truoc": "NONE",
+        "doi_truoc": 0.5,
+        "thu_tu": "NONE",
+        "doi_tu": 0.5,
+        "raw": {
+          "thu_truoc": "Không thu lại",
+          "doi_truoc": "**50%**",
+          "thu_tu": "Không thu lại",
+          "doi_tu": "**50%**"
+        }
+      }
+    },
+    {
+      "id": "DH-CAO-20b",
+      "ten": "TKR — KC màu/Fancy shape / TS đá quý / NT mặn có đính KC",
+      "nhom": "4",
+      "thuong_hieu": "CAO",
+      "dac_diem": "TKR: TSKC màu, Fancy shape; TS đá quý (Ruby, Sapphire, Emerald); TS ngọc trai nước mặn có đính KC",
+      "pham_vi": "",
+      "cong_thuc": "",
+      "dieu_kien": "SP mới cùng MC 'MAY ĐO', giá HĐ ≥ HĐ cũ",
+      "phi": "",
+      "tham_chieu": "QT chính — Bảng TKR, STT 2",
+      "ghi_chu": "⚠️ Không thu lại",
+      "vi_du": "",
+      "rates": {
+        "thu_truoc": "NONE",
+        "doi_truoc": 0.45,
+        "thu_tu": "NONE",
+        "doi_tu": 0.45,
+        "raw": {
+          "thu_truoc": "Không thu lại",
+          "doi_truoc": "**45%**",
+          "thu_tu": "Không thu lại",
+          "doi_tu": "**45%**"
+        }
+      }
+    },
+    {
+      "id": "DH-CAO-20c",
+      "ten": "TKR — NT đính đá khác / Fancy / Mother of Pearl / Đá bán quý / Trơn / Vỏ không gắn đá / 22K-24K / Chuỗi NT có khóa vàng",
+      "nhom": "4",
+      "thuong_hieu": "CAO",
+      "dac_diem": "TKR: NT nước mặn/nước ngọt đính đá khác (không phải KC); Fancy shape, Mother of Pearl; đá bán quý (Topaz, Citrine, Moon); trang sức trơn, vỏ không gắn đá; 22K-24K; chuỗi/lắc NT gắn khóa vàng",
+      "pham_vi": "",
+      "cong_thuc": "Đổi vàng NL: quy về TL vàng × giá vàng mua vào tại thời điểm; **CÓ trừ đá (theo giá bán ra)**",
+      "dieu_kien": "SP mới cùng MC 'MAY ĐO', giá HĐ ≥ HĐ cũ",
+      "phi": "",
+      "tham_chieu": "QT chính — Bảng TKR, STT 3",
+      "ghi_chu": "⚠️ Không thu lại; đổi vàng NL có trừ đá",
+      "vi_du": "",
+      "rates": {
+        "thu_truoc": "NONE",
+        "doi_truoc": "NL",
+        "thu_tu": "NONE",
+        "doi_tu": "NL",
+        "raw": {
+          "thu_truoc": "Không thu lại",
+          "doi_truoc": "Đổi vàng NL theo giá mua vào",
+          "thu_tu": "Không thu lại",
+          "doi_tu": "Đổi vàng NL theo giá mua vào"
+        }
+      }
+    },
+    {
+      "id": "DH-CAO-20d",
+      "ten": "TKR — Chuỗi / lắc ngọc trai (nước ngọt hoặc nước mặn)",
+      "nhom": "4",
+      "thuong_hieu": "CAO",
+      "dac_diem": "TKR: Chuỗi/lắc ngọc trai nước ngọt hoặc nước mặn (không khóa vàng)",
+      "pham_vi": "",
+      "cong_thuc": "",
+      "dieu_kien": "",
+      "phi": "",
+      "tham_chieu": "QT chính — Bảng TKR, STT 4",
+      "ghi_chu": "⚠️ Không thu lại, không đổi",
+      "vi_du": "",
+      "rates": {
+        "thu_truoc": "NONE",
+        "doi_truoc": "NONE",
+        "thu_tu": "NONE",
+        "doi_tu": "NONE",
+        "raw": {
+          "thu_truoc": "Không thu lại",
+          "doi_truoc": "Không đổi",
+          "thu_tu": "Không thu lại",
+          "doi_tu": "Không đổi"
         }
       }
     }

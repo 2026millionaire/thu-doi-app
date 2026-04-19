@@ -66,6 +66,13 @@ hr { border: 0; border-top: 1px solid var(--border); margin: 1.5em 0; }
   border-radius: var(--radius); color: var(--text); font-size: 13px; white-space: nowrap; }
 .tab:hover { background: var(--chip); }
 .tab.active { background: var(--accent); color: white; }
+.brand-toggle { display: inline-flex; border: 2px solid #e53935; border-radius: 6px; overflow: hidden; }
+.brand-btn { background: transparent; border: 0; padding: .35em .9em; cursor: pointer;
+  color: #e53935; font-weight: 700; font-size: 13px; letter-spacing: .5px;
+  border-right: 1px solid #e53935; }
+.brand-btn:last-child { border-right: 0; }
+.brand-btn.active { background: #e53935; color: white; }
+.brand-btn:hover:not(.active) { background: rgba(229,57,53,.1); }
 .user-box { display: flex; align-items: center; gap: .6em; font-size: 13px; color: var(--muted); }
 .user-box button, .user-box .btn-link {
   background: transparent; border: 1px solid var(--border); padding: .35em .6em;
