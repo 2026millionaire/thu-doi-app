@@ -109,6 +109,8 @@ function setupBrandToggle() {
   const btns = document.querySelectorAll('.brand-btn');
   const applyState = () => {
     btns.forEach(b => b.classList.toggle('active', b.dataset.brand === state.thuongHieu));
+    // Đánh dấu brand lên <html> để CSS đổi màu header theo mode
+    document.documentElement.setAttribute('data-brand', state.thuongHieu);
     // CAO chỉ 1 mốc HĐ → ẩn radio mốc, force 'truoc'
     const mocBox = document.querySelector('#card-bk-rates .card-actions');
     if (mocBox) mocBox.style.display = state.thuongHieu === 'CAO' ? 'none' : '';

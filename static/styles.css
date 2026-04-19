@@ -197,6 +197,9 @@ main { padding: 1em; max-width: 1200px; margin: 0 auto; }
   display: flex; align-items: center; justify-content: space-between;
   padding: .7em 1em; background: var(--accent); color: white;
 }
+/* Chế độ CAO: header các card đổi sang màu xanh lá đậm để dễ phân biệt */
+html[data-brand="CAO"] .card-head { background: #0e7c5e; }
+html[data-brand="CAO"] .tab.active { background: #0e7c5e; }
 .card-head h2 { font-size: 14px; margin: 0; }
 .card-head .muted { color: rgba(255,255,255,.75); }
 .card-actions { display: flex; align-items: center; gap: .5em; }
