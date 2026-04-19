@@ -249,26 +249,35 @@ const NL_ALIASES = {
   '9999': 'Vàng nữ trang 999.9',
 };
 
-// Resolve alias `nl<số>` → giá MUA. Trả về {resolved, map}.
+// Resolve alias `nl<số>`:
+//   - Term có dấu `-` (hao hụt)  → giá BÁN
+//   - Term lead hoặc dấu `+`     → giá MUA
+// Tách biểu thức theo ± rồi replace trong từng term để biết sign context.
 function resolveAliases(expr) {
   if (!expr) return { resolved: '', map: {} };
   const map = {};
-  let out = String(expr);
-  for (const [num, goldName] of Object.entries(NL_ALIASES)) {
-    const re = new RegExp(`\\bnl${num}\\b`, 'gi');
-    if (re.test(out)) {
+  const aliasPattern = Object.keys(NL_ALIASES).join('|');
+  const aliasRe = new RegExp(`\\bnl(${aliasPattern})\\b`, 'gi');
+
+  const resolved = String(expr).replace(/([+\-]?)([^+\-]+)/g, (_m, sign, body) => {
+    const isMinus = sign === '-';
+    const newBody = body.replace(aliasRe, (tok, num) => {
+      const goldName = NL_ALIASES[num];
+      if (!goldName) return tok;
       const loc = state.gv?.locations?.find(l =>
         l.gold_type.some(g => g.name === goldName)
       );
       const g = loc?.gold_type?.find(x => x.name === goldName);
-      if (g) {
-        const price = apiToPerPhan(g.gia_mua);
-        out = out.replace(re, String(price));
-        map[`nl${num}`] = { goldName, price };
-      }
-    }
-  }
-  return { resolved: out, map };
+      if (!g) return tok;
+      const price = isMinus ? apiToPerPhan(g.gia_ban) : apiToPerPhan(g.gia_mua);
+      if (!price) return tok;
+      map[`nl${num}`] = { goldName, price, side: isMinus ? 'ban' : 'mua' };
+      return String(price);
+    });
+    return sign + newBody;
+  });
+
+  return { resolved, map };
 }
 
 // safeEval với alias resolve
@@ -363,6 +372,9 @@ function renderRowDiag(rowId, exprRes, ratesCtx) {
       parts.push(`<span class="diag-ok">✓ ${kindLabel} <b>${t.phan}</b>p × ${fmt(t.unitPrice)} = <b>${escapeHtml(hit.gName)}</b> (${sideLabel})</span>`);
     } else {
       parts.push(`<span class="diag-warn">⚠️ ${kindLabel} <b>${t.phan}</b>p × ${fmt(t.unitPrice)} — không khớp giá ${sideLabel}</span>`);
+    }
+    if (t.kind === 'haoHut' && t.phan <= 0.06) {
+      parts.push(`<span class="diag-warn">⚠️ HAO HỤT CHO PHÉP 0.06 phân</span>`);
     }
   });
 
