@@ -7,7 +7,6 @@ Chạy local:
 Production (VPS):
     gunicorn -w 2 -b 127.0.0.1:5052 app:app
 """
-import hashlib
 import json
 import os
 import time
@@ -27,6 +26,7 @@ from flask import (
 from werkzeug.middleware.proxy_fix import ProxyFix
 
 import config
+import shared_auth
 
 HERE = Path(__file__).parent
 DATA_PATH = HERE / "data.json"
@@ -72,10 +72,6 @@ DATA = json.loads(DATA_PATH.read_text(encoding="utf-8"))
 _gold_cache = {"data": None, "ts": 0.0, "via_proxy": False}
 
 
-def _sha(pw: str) -> str:
-    return hashlib.sha256(pw.encode()).hexdigest()
-
-
 def login_required(f):
     @wraps(f)
     def wrap(*args, **kwargs):
@@ -106,8 +102,10 @@ def login():
     if request.method == "POST":
         u = (request.form.get("username") or "").strip()
         p = request.form.get("password") or ""
-        if u in config.USERS and config.USERS[u] == _sha(p):
-            session["user"] = u
+        user = shared_auth.authenticate(u, p)
+        if user:
+            session["user"] = user["username"]
+            session["role"] = user["role"]
             nxt = request.args.get("next") or url_for("index")
             return redirect(nxt)
         error = "Sai tài khoản hoặc mật khẩu"

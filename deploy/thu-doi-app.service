@@ -11,7 +11,7 @@ RestartSec=5
 Environment=PYTHONUNBUFFERED=1
 Environment=APPLICATION_ROOT=/bk/thudoi
 Environment=SECRET_KEY=CHANGE_ME_PROD_SECRET_KEY_HERE
-Environment=ADMIN_PASSWORD=xinlayEOFFICE#002
+Environment=PNJ_AUTH_DB_PATH=/opt/pnj-shared/pnj-auth.db
 
 [Install]
 WantedBy=multi-user.target

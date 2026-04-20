@@ -1,20 +1,10 @@
 """Copy thành config.py và chỉnh theo môi trường."""
-import hashlib
 import os
 
 SECRET_KEY = os.environ.get("SECRET_KEY", "change-me-in-production-" + os.urandom(8).hex())
 
-
-def _h(pw: str) -> str:
-    return hashlib.sha256(pw.encode()).hexdigest()
-
-
-# Danh sách user. Key = username, Value = sha256 hash của password.
-# Đổi password trước khi deploy!
-USERS = {
-    "admin": _h("admin123"),
-    "khoa": _h("huepnj1305"),
-}
+# Users giờ được quản lý trong shared DB /opt/pnj-shared/pnj-auth.db (module shared_auth).
+# Tạo user qua: python /opt/pnj-shared/init_shared_db.py hoặc shared_auth.create_user().
 
 # Cache giá vàng (giây)
 GIA_VANG_CACHE_TTL = 300
