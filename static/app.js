@@ -7,7 +7,10 @@ const $$ = (sel) => Array.from(document.querySelectorAll(sel));
 
 const state = {
   data: null,
-  gv: null,        // gold data cached
+  gv: null,        // gold data đang áp dụng cho calculator
+  gvCurrent: null, // gold data hiện tại
+  gvMode: 'current',
+  gvSnapshotMeta: null,
   gvLoc: null,     // selected location name
   gvExpanded: localStorage.getItem('gvExpanded') === '1',
   picked: null,    // DH item picked for calculator
@@ -94,9 +97,11 @@ async function boot() {
   await loadData();
   renderAllStatic();
   setupCalc();
+  setupSplitDiamondCalc();
   setupItems();
   setupCases();
   setupGlossary();
+  setupGoldSnapshotControls();
   await loadGiaVang(false);
   // Populate fee presets sau khi data & giá vàng đã sẵn
   setupFeePresets();
@@ -177,22 +182,123 @@ async function loadGiaVang(force) {
       $('#gv-updated').textContent = 'Lỗi: ' + j.error;
       return;
     }
-    state.gv = j.data;
-    // Dropdown chỉ chứa các khu vực vàng miếng (6 location đầu)
-    const regionals = (j.data.locations || []).filter(isRegionalLoc);
-    const sel = $('#gv-location');
-    const prev = state.gvLoc || localStorage.getItem('gvLoc') || 'Đà Nẵng';
-    sel.innerHTML = regionals.map(l => `<option value="${l.name}"${l.name === prev ? ' selected' : ''}>${l.name}</option>`).join('');
-    state.gvLoc = sel.value || (regionals[0]?.name);
-    sel.onchange = () => { state.gvLoc = sel.value; localStorage.setItem('gvLoc', sel.value); renderGiaVang(); fillLoaiVang(); };
+    state.gvCurrent = j.data;
     const ago = j.age_sec != null ? ` (${j.source}, ${j.age_sec}s trước)` : '';
-    $('#gv-updated').textContent = (j.data.updated_text || '') + ago;
-    renderGiaVang();
-    fillLoaiVang();
+    if (state.gvMode !== 'history') {
+      applyGoldDataset(j.data, 'current', { updatedText: (j.data.updated_text || '') + ago });
+    }
   } catch (e) {
     $('#gv-updated').textContent = 'Lỗi fetch';
   } finally {
     btn.disabled = false; btn.textContent = '↻';
+  }
+}
+
+function optionalFillLoaiVang() {
+  if (typeof fillLoaiVang === 'function') fillLoaiVang();
+}
+
+function applyGoldDataset(data, mode, meta = {}) {
+  state.gv = data;
+  state.gvMode = mode;
+  state.gvSnapshotMeta = meta;
+
+  const regionals = (data.locations || []).filter(isRegionalLoc);
+  const sel = $('#gv-location');
+  const prev = state.gvLoc || localStorage.getItem('gvLoc') || 'Đà Nẵng';
+  sel.innerHTML = regionals.map(l => `<option value="${l.name}"${l.name === prev ? ' selected' : ''}>${l.name}</option>`).join('');
+  state.gvLoc = sel.value || (regionals[0]?.name);
+  sel.onchange = () => {
+    state.gvLoc = sel.value;
+    localStorage.setItem('gvLoc', sel.value);
+    renderGiaVang();
+    optionalFillLoaiVang();
+  };
+
+  $('#gv-updated').textContent = meta.updatedText || data.updated_text || '—';
+  renderSnapshotStatus();
+  renderGiaVang();
+  optionalFillLoaiVang();
+  if (state.rows) recalcCalc();
+}
+
+function fmtDateTimeLabel(s) {
+  if (!s) return '—';
+  const d = new Date(String(s).replace(' ', 'T'));
+  if (isNaN(d.getTime())) return s;
+  const pad = (n) => String(n).padStart(2, '0');
+  return `${pad(d.getDate())}/${pad(d.getMonth() + 1)}/${d.getFullYear()} ${pad(d.getHours())}:${pad(d.getMinutes())}`;
+}
+
+function parseVnDateTimeInput(value) {
+  const raw = String(value || '').trim();
+  const m = raw.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})(?:\s+(\d{1,2})(?::(\d{1,2}))?)?$/);
+  if (!m) return null;
+  const day = Number(m[1]);
+  const month = Number(m[2]);
+  const year = Number(m[3]);
+  const hour = Number(m[4] || 0);
+  const minute = Number(m[5] || 0);
+  const d = new Date(year, month - 1, day, hour, minute);
+  if (
+    d.getFullYear() !== year ||
+    d.getMonth() !== month - 1 ||
+    d.getDate() !== day ||
+    d.getHours() !== hour ||
+    d.getMinutes() !== minute
+  ) return null;
+  const pad = (n) => String(n).padStart(2, '0');
+  return `${year}-${pad(month)}-${pad(day)}T${pad(hour)}:${pad(minute)}`;
+}
+
+function renderSnapshotStatus(message) {
+  const el = $('#gv-snapshot-status');
+  if (!el) return;
+  if (message) {
+    el.textContent = message;
+    return;
+  }
+  if (state.gvMode !== 'history') {
+    el.textContent = 'Đang dùng giá hiện tại.';
+    return;
+  }
+  const m = state.gvSnapshotMeta || {};
+  el.textContent = `Áp dụng ${fmtDateTimeLabel(m.valid_from)} - ${fmtDateTimeLabel(m.valid_to)}.`;
+}
+
+function setupGoldSnapshotControls() {
+  $('#btn-load-gv-snapshot')?.addEventListener('click', loadGiaVangSnapshot);
+  $('#btn-gv-current')?.addEventListener('click', () => {
+    if (!state.gvCurrent) return;
+    applyGoldDataset(state.gvCurrent, 'current', { updatedText: state.gvCurrent.updated_text || '' });
+  });
+}
+
+async function loadGiaVangSnapshot() {
+  const inp = $('#gv-snapshot-at');
+  const btn = $('#btn-load-gv-snapshot');
+  const at = parseVnDateTimeInput(inp?.value);
+  if (!at) {
+    renderSnapshotStatus('Nhập thời điểm dạng dd/mm/yyyy hh:mm.');
+    return;
+  }
+  btn.disabled = true;
+  renderSnapshotStatus('Đang tải giá lịch sử…');
+  try {
+    const res = await fetch('api/gia-vang-snapshot?at=' + encodeURIComponent(at));
+    const j = await res.json();
+    if (!res.ok || j.error) {
+      renderSnapshotStatus('Lỗi tải lịch sử: ' + (j.error || res.status));
+      return;
+    }
+    applyGoldDataset(j.data, 'history', {
+      ...j,
+      updatedText: (j.data.updated_text || '') + ' (lịch sử)',
+    });
+  } catch (e) {
+    renderSnapshotStatus('Lỗi fetch lịch sử');
+  } finally {
+    btn.disabled = false;
   }
 }
 function findLocation() {
@@ -274,37 +380,86 @@ $('#btn-refresh-gv')?.addEventListener('click', () => loadGiaVang(true));
 
 // ===== CALCULATOR (expression-based, multi-row BK) =====
 
-// Alias keyword cho giá MUA nguyên liệu (nl/vl đều valid)
-const NL_ALIASES = {
+// Alias fallback cho các mã đang dùng thường xuyên; alias chính sẽ được sinh từ dataset đang áp dụng.
+const PREFERRED_NL_ALIASES = {
   '750':  'Vàng 750 (18K)',
   '585':  'Vàng 585 (14K)',
   '416':  'Vàng 416 (10K)',
   '9999': 'Vàng nữ trang 999.9',
 };
 
-// Resolve alias `nl<số>`:
+function aliasDigitsFromGoldName(name) {
+  const s = String(name || '').trim();
+  const m = s.match(/^Vàng(?:\s+nữ\s+trang)?\s+(\d+(?:[.,]\d+)?)/i);
+  if (!m) return null;
+  return m[1].replace(/[^\d]/g, '');
+}
+
+function aliasPriority(locName, goldName) {
+  const loc = String(locName || '').toLowerCase();
+  const name = String(goldName || '').toLowerCase();
+  if (name.startsWith('vàng nữ trang')) return 100;
+  if (name.startsWith('vàng ')) return 90;
+  if (loc.includes('nữ trang')) return 80;
+  return 10;
+}
+
+function buildGoldAliasIndex() {
+  const out = {};
+  if (!state.gv) return out;
+
+  for (const loc of state.gv.locations || []) {
+    for (const g of loc.gold_type || []) {
+      const digits = aliasDigitsFromGoldName(g.name);
+      if (!digits) continue;
+      const priority = aliasPriority(loc.name, g.name);
+      for (const prefix of ['nl', 'vl']) {
+        const key = prefix + digits;
+        if (!out[key] || priority > out[key].priority) {
+          out[key] = { gold: g, locName: loc.name, priority };
+        }
+      }
+    }
+  }
+
+  for (const [digits, goldName] of Object.entries(PREFERRED_NL_ALIASES)) {
+    const loc = state.gv?.locations?.find(l =>
+      (l.gold_type || []).some(g => g.name === goldName)
+    );
+    const gold = loc?.gold_type?.find(g => g.name === goldName);
+    if (!gold) continue;
+    for (const prefix of ['nl', 'vl']) {
+      out[prefix + digits] = { gold, locName: loc.name, priority: 200 };
+    }
+  }
+
+  return out;
+}
+
+// Resolve alias `nl<số>` / `vl<số>`:
 //   - Term có dấu `-` (hao hụt)  → giá BÁN
 //   - Term lead hoặc dấu `+`     → giá MUA
 // Tách biểu thức theo ± rồi replace trong từng term để biết sign context.
 function resolveAliases(expr) {
   if (!expr) return { resolved: '', map: {} };
   const map = {};
-  const aliasPattern = Object.keys(NL_ALIASES).join('|');
-  const aliasRe = new RegExp(`\\bnl(${aliasPattern})\\b`, 'gi');
+  const aliasIndex = buildGoldAliasIndex();
+  const aliasRe = /\b(?:nl|vl)(\d+)\b/gi;
 
   const resolved = String(expr).replace(/([+\-]?)([^+\-]+)/g, (_m, sign, body) => {
     const isMinus = sign === '-';
-    const newBody = body.replace(aliasRe, (tok, num) => {
-      const goldName = NL_ALIASES[num];
-      if (!goldName) return tok;
-      const loc = state.gv?.locations?.find(l =>
-        l.gold_type.some(g => g.name === goldName)
-      );
-      const g = loc?.gold_type?.find(x => x.name === goldName);
+    const newBody = body.replace(aliasRe, (tok) => {
+      const hit = aliasIndex[tok.toLowerCase()];
+      const g = hit?.gold;
       if (!g) return tok;
       const price = isMinus ? apiToPerPhan(g.gia_ban) : apiToPerPhan(g.gia_mua);
       if (!price) return tok;
-      map[`nl${num}`] = { goldName, price, side: isMinus ? 'ban' : 'mua' };
+      map[tok.toLowerCase()] = {
+        goldName: g.name,
+        locName: hit.locName,
+        price,
+        side: isMinus ? 'ban' : 'mua',
+      };
       return String(price);
     });
     return sign + newBody;
@@ -321,7 +476,7 @@ function safeEval(expr) {
   const { resolved, map } = resolveAliases(raw);
   const strict = resolved.replace(/^=+/, '').replace(/,/g, '').replace(/\s+/g, '');
   if (!/^[\d.+\-*/()]+$/.test(strict)) {
-    return { val: NaN, ok: false, clean: strict, raw, err: 'Chỉ số + − × / hoặc nl750/nl585/nl416/nl9999', aliasMap: map };
+    return { val: NaN, ok: false, clean: strict, raw, err: 'Chỉ số + − × / hoặc alias nl/vl theo tuổi vàng', aliasMap: map };
   }
   try {
     const v = new Function('return (' + strict + ')')();
@@ -379,10 +534,14 @@ function findGoldByPrice(unitPrice, side) {
   return idx.find(g => g.side === side && g.perPhan === unitPrice) || null;
 }
 
-function renderRowDiag(rowId, exprRes, ratesCtx) {
+function renderRowDiag(rowId, exprRes, ratesCtx, flags = {}) {
   const el = document.querySelector(`#diag-${rowId} .row-diag`);
   if (!el) return;
   const parts = [];
+
+  if (flags.needTlGoc) {
+    parts.push(`<span class="diag-err"><b>Nhập TL gốc</b> để kiểm tra TL sau khi hao hụt/thêm NL.</span>`);
+  }
 
   if (ratesCtx && ratesCtx.tyThu != null && ratesCtx.tyDoi != null) {
     parts.push(`<span class="diag-warn">⚠️ Nhập cả THU & ĐỔI — ưu tiên ĐỔI</span>`);
@@ -441,6 +600,102 @@ function parseRateSimple(s) {
   if (!isFinite(v) || v <= 0 || v > 100) return null;
   if (v > 1) return v / 100;
   return v;
+}
+
+function parseDiscountFlexible(s) {
+  const raw = String(s || '').trim();
+  if (!raw) return { kind: 'percent', raw: 0, rate: 0, amount: 0, ok: true };
+  const isPercent = raw.includes('%');
+  const clean = raw.replace('%', '').replace(',', '.').trim();
+  const looksThousand = /[.,]\d{3}($|[.,])/.test(raw);
+  const n = Number(clean);
+  if (isPercent || (!looksThousand && isFinite(n) && n >= 0 && n <= 100)) {
+    return { kind: 'percent', raw: n, rate: n / 100, amount: 0, ok: isFinite(n) };
+  }
+  const amount = parseMoney(raw);
+  return { kind: 'amount', raw: amount, rate: 0, amount, ok: amount >= 0 };
+}
+
+function applyDiscount(base, discount) {
+  if (!base) return 0;
+  if (discount.kind === 'amount') return base - discount.amount;
+  return base * (1 - discount.rate);
+}
+
+function reverseDiscount(finalValue, discount) {
+  if (discount.kind === 'amount') return finalValue + discount.amount;
+  if (discount.rate >= 1) return NaN;
+  return finalValue / (1 - discount.rate);
+}
+
+function setText(sel, value, suffix = '') {
+  const el = $(sel);
+  if (!el) return;
+  el.textContent = value == null || !isFinite(value) ? '—' : fmt(value) + suffix;
+}
+
+function calcSplitDiamond() {
+  const vienGoc = parseMoney($('#split-vien-goc')?.value);
+  const totalFinal = parseMoney($('#split-total-final')?.value);
+  const voDisc = parseDiscountFlexible($('#split-vo-discount')?.value);
+  const vienDisc = parseDiscountFlexible($('#split-vien-discount')?.value);
+
+  const vienFinal = applyDiscount(vienGoc, vienDisc);
+  const voFinal = totalFinal - vienFinal;
+  const voGoc = reverseDiscount(voFinal, voDisc);
+  const totalGoc = voGoc + vienGoc;
+  const totalDiscValue = totalGoc - totalFinal;
+
+  const voRate = parseRateSimple($('#split-vo-doi')?.value) ?? parseRateSimple($('#split-vo-thu')?.value) ?? 1;
+  const vienRate = parseRateSimple($('#split-vien-doi')?.value) ?? parseRateSimple($('#split-vien-thu')?.value) ?? 1;
+  const voBk = voFinal * voRate;
+  const vienBk = vienFinal * vienRate;
+
+  setText('.out-split-vo-goc', voGoc);
+  setText('.out-split-vien-final', vienFinal);
+  setText('.out-split-vo-final', voFinal);
+  setText('.out-split-vo-bk', voBk);
+  setText('.out-split-vien-bk', vienBk);
+  setText('.out-split-total-goc', totalGoc);
+  setText('.out-split-total-bk', voBk + vienBk);
+
+  const totalDiscEl = $('.out-split-total-discount');
+  if (totalDiscEl) {
+    if (isFinite(totalDiscValue) && totalGoc > 0) {
+      totalDiscEl.textContent = `${fmt(totalDiscValue)} (${(totalDiscValue / totalGoc * 100).toFixed(2)}%)`;
+    } else {
+      totalDiscEl.textContent = '—';
+    }
+  }
+
+  const warnings = [];
+  if (voFinal < 0) warnings.push('Giá sau giảm của vỏ đang âm. Kiểm tra lại giá gốc viên, giảm giá viên hoặc tổng sau giảm.');
+  if (!voDisc.ok || !vienDisc.ok) warnings.push('Giảm giá không hợp lệ.');
+  if (!isFinite(voGoc)) warnings.push('Không thể tính ngược giá gốc vỏ khi giảm giá vỏ từ 100% trở lên.');
+  $('#split-diag').innerHTML = warnings.map(w => `<span class="diag-err">${escapeHtml(w)}</span>`).join(' · ');
+}
+
+function setupSplitDiamondCalc() {
+  const ids = [
+    '#split-vien-goc', '#split-total-final', '#split-vo-discount', '#split-vien-discount',
+    '#split-vo-thu', '#split-vo-doi', '#split-vien-thu', '#split-vien-doi',
+  ];
+  ids.forEach(sel => $(sel)?.addEventListener('input', calcSplitDiamond));
+  [
+    ['#split-vo-thu', '#split-vo-doi'],
+    ['#split-vien-thu', '#split-vien-doi'],
+  ].forEach(([thuSel, doiSel]) => {
+    const thu = $(thuSel), doi = $(doiSel);
+    thu?.addEventListener('input', () => {
+      if (thu.value.trim() && doi) doi.value = '';
+      calcSplitDiamond();
+    });
+    doi?.addEventListener('input', () => {
+      if (doi.value.trim() && thu) thu.value = '';
+      calcSplitDiamond();
+    });
+  });
+  calcSplitDiamond();
 }
 
 // ====== BK multi-row state & rendering ======
@@ -555,6 +810,10 @@ function recalcRow(rowId) {
   const thuaSumPhan = terms.filter(t => t.kind === 'thuaTL').reduce((s, t) => s + t.phan, 0);
   const tlGoc = parseFloat(String(r.tlGoc).replace(',', '.'));
   const tlGocOK = isFinite(tlGoc) && tlGoc > 0;
+  const needTlGoc = terms.length > 0 && !tlGocOK;
+  const diagEl = document.querySelector(`#diag-${r.id}`);
+  rowEl.classList.toggle('needs-tl-goc', needTlGoc);
+  diagEl?.classList.toggle('needs-tl-goc', needTlGoc);
   if (tlGocOK) {
     const tlSau = tlGoc - hhSumPhan + thuaSumPhan;
     rowEl.querySelector('.out-tlSau').textContent = tlSau.toFixed(3) + ' p';
@@ -562,7 +821,7 @@ function recalcRow(rowId) {
     rowEl.querySelector('.out-tlSau').textContent = '—';
   }
 
-  renderRowDiag(r.id, g, { tyThu, tyDoi });
+  renderRowDiag(r.id, g, { tyThu, tyDoi }, { needTlGoc });
   r._computed = { gocMua, giaTM, cuoi: g.clean ? cuoi : 0, rate, hhSumPhan, thuaSumPhan };
   recalcBKTotal();
   toggleTlColsVisibility();
@@ -613,6 +872,30 @@ function recalcBKRates() {
 
 const BK_DEFAULT_ROWS = 5;
 
+const PNJ_LAB_FEES = {
+  seal_lai: [
+    { label: 'Seal lại 2.50-3.49mm', phi: 60000 },
+    { label: 'Seal lại 3.50-4.99mm', phi: 80000 },
+    { label: 'Seal lại 5.00-5.39mm', phi: 120000 },
+    { label: 'Seal lại 5.40-8.09mm', phi: 140000 },
+    { label: 'Seal lại từ 8.10mm', phi: 290000 },
+    { label: 'In lại giấy kiểm định', phi: 90000 },
+  ],
+  dich_vu: [
+    { size: '3.5-3.79', seal: 80000, seal48: 120000, seal3h: 140000, kd: 160000, kd48: 240000, kd3h: 290000, msc: 25000 },
+    { size: '3.8-3.9',  seal: 80000, seal48: 120000, seal3h: 140000, kd: 190000, kd48: 290000, kd3h: 340000, msc: 25000 },
+    { size: '4.0-4.49', seal: 80000, seal48: 120000, seal3h: 140000, kd: 300000, kd48: 450000, kd3h: 540000, msc: 25000 },
+    { size: '4.5-4.99', seal: 80000, seal48: 120000, seal3h: 140000, kd: 420000, kd48: 630000, kd3h: 760000, msc: 30000 },
+    { size: '5.0-5.39', seal: 120000, seal48: 180000, seal3h: 220000, kd: 500000, kd48: 750000, kd3h: 900000, msc: 40000 },
+    { size: '5.4-5.99', seal: 140000, seal48: 210000, seal3h: 250000, kd: 720000, kd48: 1080000, kd3h: 1300000, msc: 50000 },
+    { size: '6.0-6.49', seal: 140000, seal48: 210000, seal3h: 250000, kd: 1080000, kd48: 1620000, kd3h: 1940000, msc: 60000 },
+    { size: '6.5-6.99', seal: 140000, seal48: 210000, seal3h: 250000, kd: 1220000, kd48: 1830000, kd3h: 2200000, msc: 80000 },
+    { size: '7.0-7.49', seal: 140000, seal48: 210000, seal3h: 250000, kd: 1440000, kd48: 2160000, kd3h: 2590000, msc: 110000 },
+    { size: '7.5-7.99', seal: 140000, seal48: 210000, seal3h: 250000, kd: 2090000, kd48: 3140000, kd3h: 3760000, msc: 130000 },
+    { size: '8.0-8.29', seal: 290000, seal48: 440000, seal3h: 520000, kd: 1590000, kd48: 3890000, kd3h: 4660000, msc: 160000 },
+  ],
+};
+
 function setupCalc() {
   state.rows = Array.from({ length: BK_DEFAULT_ROWS }, () => newRow());
   state.focusRowId = null;
@@ -660,7 +943,33 @@ function setupFeePresets() {
   }
   sel3.innerHTML = '<option value="">+ Phí mài đá màu…</option>' + opts.join('');
 
-  [sel1, sel2, sel3].forEach(sel => {
+  const sel4 = $('#preset-pnj-lab');
+  const labOptions = [];
+  labOptions.push('<optgroup label="Seal lại / in giấy">');
+  for (const r of PNJ_LAB_FEES.seal_lai) {
+    labOptions.push(`<option value="${r.phi}">${escapeHtml(r.label)} → ${fmt(r.phi)}</option>`);
+  }
+  labOptions.push('</optgroup>');
+  const serviceLabels = [
+    ['seal', 'Ép seal thường'],
+    ['seal48', 'Ép seal 48h'],
+    ['seal3h', 'Ép seal 3h'],
+    ['kd', 'Kiểm định thường'],
+    ['kd48', 'Kiểm định 48h'],
+    ['kd3h', 'Kiểm định 3h'],
+    ['msc', 'Khác MSC'],
+  ];
+  labOptions.push('<optgroup label="Bảng giá dịch vụ PNJ Lab">');
+  for (const row of PNJ_LAB_FEES.dich_vu) {
+    for (const [key, label] of serviceLabels) {
+      labOptions.push(`<option value="${row[key]}">${escapeHtml(label)} ${escapeHtml(row.size)}mm → ${fmt(row[key])}</option>`);
+    }
+  }
+  labOptions.push('<option value="90000">In GKĐ → 90.000/tờ</option>');
+  labOptions.push('</optgroup>');
+  sel4.innerHTML = '<option value="">+ Phí PNJ Lab…</option>' + labOptions.join('');
+
+  [sel1, sel2, sel3, sel4].forEach(sel => {
     sel.addEventListener('change', () => {
       if (!sel.value) return;
       // append vào ô phí khác của row đang focus; nếu không có → row đầu tiên
@@ -815,6 +1124,29 @@ function renderAllStatic() {
   renderPlA8();
   renderQuickTable();
 }
+
+function renderPnjLabFees() {
+  const serviceRows = PNJ_LAB_FEES.dich_vu.map(r => `
+    <tr>
+      <td>${escapeHtml(r.size)}</td>
+      <td>${fmt(r.seal)}</td><td>${fmt(r.seal48)}</td><td>${fmt(r.seal3h)}</td>
+      <td>${fmt(r.kd)}</td><td>${fmt(r.kd48)}</td><td>${fmt(r.kd3h)}</td>
+      <td>${fmt(r.msc)}</td><td>90.000/tờ</td>
+    </tr>
+  `).join('');
+  return `<div class="sec"><h3>IV. Bảng phí PNJ Lab</h3>
+    <h4>Seal lại và in lại giấy kiểm định</h4>
+    <table><thead><tr><th>Hạng mục</th><th>Phí</th></tr></thead><tbody>
+      ${PNJ_LAB_FEES.seal_lai.map(r => `<tr><td>${escapeHtml(r.label)}</td><td>${fmt(r.phi)}</td></tr>`).join('')}
+    </tbody></table>
+    <h4>Bảng giá dịch vụ PNJ Lab</h4>
+    <table><thead><tr>
+      <th>Kích thước</th><th>Ép seal thường</th><th>Ép seal 48h</th><th>Ép seal 3h</th>
+      <th>Kiểm định thường</th><th>Kiểm định 48h</th><th>Kiểm định 3h</th><th>Khác MSC</th><th>In GKĐ</th>
+    </tr></thead><tbody>${serviceRows}</tbody></table>
+  </div>`;
+}
+
 function renderPlA8() {
   const a8 = state.data.pl_a8;
   if (!a8) return;
@@ -836,6 +1168,8 @@ function renderPlA8() {
     <table><thead><tr><th>Size (mm)</th><th>Phí (VNĐ/viên)</th></tr></thead><tbody>
     ${a8.phi_mat_giay_gia.map(r => `<tr><td>${r.size_min} – ${r.size_max}</td><td>${fmt(r.phi)}</td></tr>`).join('')}
     </tbody></table></div>`;
+
+  html += renderPnjLabFees();
 
   html += `<div class="sec"><h3>V. Bảng giá mua lại KC tấm (${a8.gia_kc_tam.length} mã)</h3>
     <div class="toolbar"><input id="kct-search" placeholder="🔍 Lọc theo mã, chất lượng, hình dáng, size..."></div>

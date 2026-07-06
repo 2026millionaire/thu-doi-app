@@ -11,7 +11,10 @@ GIA_VANG_CACHE_TTL = 300
 
 # API PNJ
 API_DIRECT = "https://edge-cf-api.pnj.io/ecom-frontend/v3/get-gold-price"
+API_HISTORY = "https://edge-cf-api.pnj.io/ecom-frontend/v1/get-gold-price-history"
 API_PROXY = "https://api.codetabs.com/v1/proxy/?quest=" + API_DIRECT
+GOLD_HISTORY_DB_PATH = os.environ.get("GOLD_HISTORY_DB_PATH", "gold_history.db")
+GOLD_HISTORY_LOOKBACK_DAYS = 14
 LOCATION_NAMES = [
     "TPHCM", "Hà Nội", "Đà Nẵng", "Miền Tây", "Tây Nguyên", "Đông Nam Bộ",
     "Giá vàng nữ trang", "Giá vàng nguyên liệu mua ngoài",

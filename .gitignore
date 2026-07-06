@@ -5,7 +5,21 @@ __pycache__/
 .DS_Store
 .env
 *.log
+gold_history.db
+gold_history.db-*
 
 # Deploy secrets
 deploy/.vps_password
 config.py
+
+# Local policy/source documents copied from private drives.
+# Keep raw source files local unless the user explicitly asks to publish them.
+knowledge/raw/**
+!knowledge/raw/
+!knowledge/raw/README.md
+!knowledge/raw/.gitkeep
+
+knowledge/private/**
+!knowledge/private/
+!knowledge/private/README.md
+!knowledge/private/.gitkeep

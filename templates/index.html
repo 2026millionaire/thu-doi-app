@@ -38,6 +38,7 @@
       <button type="button" data-brand="CAO" class="brand-btn">CAO</button>
     </div>
     <nav class="tabs" role="tablist">
+      <a href="{{ bieu_mau_url }}" class="tab tab-link" role="button">📄 Biểu mẫu</a>
       <button data-tab="calc"     class="tab active" role="tab">💰 Tính giá</button>
       <button data-tab="items"    class="tab" role="tab">📖 Dòng hàng</button>
       <button data-tab="cases"    class="tab" role="tab">⚠️ Tình huống</button>
@@ -120,7 +121,72 @@
               <select id="preset-mai-kc"><option value="">+ Phí mài KC…</option></select>
               <select id="preset-mat-gia"><option value="">+ Phí mất giấy GIA…</option></select>
               <select id="preset-mai-da"><option value="">+ Phí mài đá màu…</option></select>
+              <select id="preset-pnj-lab"><option value="">+ Phí PNJ Lab…</option></select>
               <small class="muted">(Click để append vào ô Phí khác của dòng đang focus)</small>
+            </div>
+
+            <div class="split-tool">
+              <div class="split-head">
+                <h3>Tách vỏ / viên kim cương</h3>
+                <span class="muted">Dùng cho nhẫn KC VVS1 trở lên, size từ 4.0mm.</span>
+              </div>
+              <div class="table-scroll">
+                <table class="split-table">
+                  <colgroup>
+                    <col class="split-col-label">
+                    <col class="split-col-money">
+                    <col class="split-col-discount">
+                    <col class="split-col-final">
+                    <col class="split-col-rate">
+                    <col class="split-col-rate">
+                    <col class="split-col-money">
+                  </colgroup>
+                  <thead>
+                    <tr>
+                      <th>Nội dung</th>
+                      <th>Giá gốc</th>
+                      <th>Giảm giá</th>
+                      <th>Giá tính thu đổi</th>
+                      <th>Thu</th>
+                      <th>Đổi</th>
+                      <th>Giá bảng kê</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th>Vỏ</th>
+                      <td class="num-col out-split-vo-goc">—</td>
+                      <td><input id="split-vo-discount" class="num-col split-inp split-source" placeholder="% hoặc tiền"></td>
+                      <td class="num-col out-split-vo-final">—</td>
+                      <td class="col-rate"><input id="split-vo-thu" class="num-col split-inp" placeholder="%"></td>
+                      <td class="col-rate"><input id="split-vo-doi" class="num-col split-inp" placeholder=""></td>
+                      <td class="num-col out-split-vo-bk">—</td>
+                    </tr>
+                    <tr>
+                      <th>Viên</th>
+                      <td><input id="split-vien-goc" class="num-col split-inp split-source" placeholder="50.500.000"></td>
+                      <td><input id="split-vien-discount" class="num-col split-inp split-source" placeholder="% hoặc tiền"></td>
+                      <td class="num-col out-split-vien-final">—</td>
+                      <td class="col-rate"><input id="split-vien-thu" class="num-col split-inp" placeholder="%"></td>
+                      <td class="col-rate"><input id="split-vien-doi" class="num-col split-inp" placeholder=""></td>
+                      <td class="num-col out-split-vien-bk">—</td>
+                    </tr>
+                    <tr class="split-total-row">
+                      <th>Tổng</th>
+                      <td class="num-col out-split-total-goc">—</td>
+                      <td class="num-col out-split-total-discount">—</td>
+                      <td><input id="split-total-final" class="num-col split-inp split-source" placeholder="100.000.000"></td>
+                      <td></td>
+                      <td></td>
+                      <td class="num-col out-split-total-bk">—</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <p class="hint">
+                Giảm giá: nhập <code>%</code> hoặc <code>$</code>. Thu/Đổi nhận giống bảng kê: <code>0.93</code>, <code>93</code>, <code>93%</code>.
+              </p>
+              <div id="split-diag" class="row-diag"></div>
             </div>
           </div>
         </div>
@@ -133,12 +199,23 @@
               <button id="btn-refresh-gv" title="Cập nhật giá">↻</button>
             </div>
           </div>
-          <div class="card-body">
-            <div id="gv-updated" class="muted gv-updated-line">—</div>
-            <label class="row gv-loc-row">
-              <span>KV vàng miếng:</span>
-              <select id="gv-location"></select>
-            </label>
+            <div class="card-body">
+              <div id="gv-updated" class="muted gv-updated-line">—</div>
+              <div class="gv-snapshot-box">
+                <label class="row gv-snapshot-row">
+                  <span>Thời điểm:</span>
+                  <input id="gv-snapshot-at" type="text" inputmode="numeric" placeholder="dd/mm/yyyy hh:mm">
+                </label>
+                <div class="gv-snapshot-actions">
+                  <button id="btn-load-gv-snapshot" type="button">Áp dụng</button>
+                  <button id="btn-gv-current" type="button">Hiện tại</button>
+                </div>
+                <div id="gv-snapshot-status" class="muted gv-snapshot-status">Đang dùng giá hiện tại.</div>
+              </div>
+              <label class="row gv-loc-row">
+                <span>KV vàng miếng:</span>
+                <select id="gv-location"></select>
+              </label>
             <div id="gv-groups"></div>
             <p class="hint">VNĐ/phân · 1 chỉ = 10 phân</p>
           </div>
