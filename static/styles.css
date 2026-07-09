@@ -202,7 +202,6 @@ main { padding: 1em; max-width: 1200px; margin: 0 auto; }
 }
 .bk-table input.num-col { text-align: right; font-variant-numeric: tabular-nums; }
 .bk-table .num-col { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
-.bk-table .out-giaTM { color: var(--muted); }
 .bk-table .out-cuoi { font-weight: 600; color: var(--good); }
 .bk-table tr.needs-tl-goc td {
   background: #fff0f0;

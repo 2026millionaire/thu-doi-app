@@ -232,6 +232,8 @@ function fmtDateTimeLabel(s) {
 
 function parseVnDateTimeInput(value) {
   const raw = String(value || '').trim();
+  const iso = raw.match(/^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2})$/);
+  if (iso) return raw;
   const m = raw.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})(?:\s+(\d{1,2})(?::(\d{1,2}))?)?$/);
   if (!m) return null;
   const day = Number(m[1]);
@@ -267,6 +269,14 @@ function renderSnapshotStatus(message) {
 }
 
 function setupGoldSnapshotControls() {
+  const snapshotInput = $('#gv-snapshot-at');
+  const openPicker = () => {
+    if (snapshotInput?.showPicker) {
+      try { snapshotInput.showPicker(); } catch (_) {}
+    }
+  };
+  snapshotInput?.addEventListener('focus', openPicker);
+  snapshotInput?.addEventListener('click', openPicker);
   $('#btn-load-gv-snapshot')?.addEventListener('click', loadGiaVangSnapshot);
   $('#btn-gv-current')?.addEventListener('click', () => {
     if (!state.gvCurrent) return;
@@ -716,7 +726,6 @@ function renderBkTable() {
       <td><input class="inp-giaGoc" value="${escapeHtml(r.giaGoc)}" placeholder="VD: 52290000 - 0.089*1275000"></td>
       <td class="col-rate"><input class="inp-tyLeThu" value="${escapeHtml(r.tyLeThu)}" placeholder="0.7"></td>
       <td class="col-rate"><input class="inp-tyLeDoi" value="${escapeHtml(r.tyLeDoi)}" placeholder="0.85"></td>
-      <td class="num-col out-giaTM">—</td>
       <td class="col-small"><input class="inp-rotDa num-col" value="${escapeHtml(r.rotDa)}" placeholder="0"></td>
       <td class="col-small"><input class="inp-phiKhac num-col" value="${escapeHtml(r.phiKhac)}" placeholder="0"></td>
       <td class="num-col out-cuoi">—</td>
@@ -724,7 +733,7 @@ function renderBkTable() {
       <td class="col-tl hidden num-col out-tlSau">—</td>
       <td><button class="btn-del" title="Xóa dòng (giữ ô trống)">⟲</button></td>
     </tr>
-    <tr id="diag-${r.id}" class="row-diag-tr"><td></td><td colspan="10" class="row-diag"></td></tr>
+    <tr id="diag-${r.id}" class="row-diag-tr"><td></td><td colspan="9" class="row-diag"></td></tr>
   `).join('');
 
   // Bind events
@@ -805,7 +814,6 @@ function recalcRow(rowId) {
   const giaTM = rate ? gocMua * rate.rate : gocMua;
   const cuoi = giaTM - p.val;
 
-  rowEl.querySelector('.out-giaTM').textContent = g.clean ? fmt(giaTM) : '—';
   rowEl.querySelector('.out-cuoi').textContent = g.clean ? fmt(cuoi) : '—';
 
   // TL: nhận diện ± từ biểu thức

@@ -85,7 +85,6 @@
                   <th>Giá gốc HĐ (biểu thức)</th>
                   <th class="col-rate">Thu</th>
                   <th class="col-rate">Đổi</th>
-                  <th>Giá thu mua</th>
                   <th class="col-small">Rớt đá</th>
                   <th class="col-small">Phí khác</th>
                   <th>Cuối</th>
@@ -97,7 +96,7 @@
               <tbody id="bk-rows"></tbody>
               <tfoot>
                 <tr>
-                  <td colspan="7">
+                  <td colspan="6">
                     <button id="btn-add-row" class="btn-soft">+ Thêm SP</button>
                     <button id="btn-reset-all" class="btn-soft" title="Xóa toàn bộ và reset 5 dòng mặc định">⟳ Reset toàn bảng</button>
                   </td>
@@ -204,7 +203,7 @@
               <div class="gv-snapshot-box">
                 <label class="row gv-snapshot-row">
                   <span>Thời điểm:</span>
-                  <input id="gv-snapshot-at" type="text" inputmode="numeric" placeholder="dd/mm/yyyy hh:mm">
+                  <input id="gv-snapshot-at" type="datetime-local" step="60">
                 </label>
                 <div class="gv-snapshot-actions">
                   <button id="btn-load-gv-snapshot" type="button">Áp dụng</button>
