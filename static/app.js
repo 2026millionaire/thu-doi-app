@@ -529,6 +529,10 @@ function detectGiaGocTerms(strict) {
   return out;
 }
 
+function hasWeightDeltaTerms(terms) {
+  return terms.some(t => t.kind === 'haoHut' || t.kind === 'thuaTL');
+}
+
 function findGoldByPrice(unitPrice, side) {
   const idx = goldPriceIndex();
   return idx.find(g => g.side === side && g.perPhan === unitPrice) || null;
@@ -774,7 +778,7 @@ function renderBkTable() {
 function anyRowHasDeltaTL() {
   return state.rows.some(r => {
     const terms = detectGiaGocTerms(safeEval(r.giaGoc).clean);
-    return terms.some(t => t.kind === 'haoHut' || t.kind === 'thuaTL');
+    return hasWeightDeltaTerms(terms);
   });
 }
 function toggleTlColsVisibility() {
@@ -810,7 +814,8 @@ function recalcRow(rowId) {
   const thuaSumPhan = terms.filter(t => t.kind === 'thuaTL').reduce((s, t) => s + t.phan, 0);
   const tlGoc = parseFloat(String(r.tlGoc).replace(',', '.'));
   const tlGocOK = isFinite(tlGoc) && tlGoc > 0;
-  const needTlGoc = terms.length > 0 && !tlGocOK;
+  const hasWeightDelta = hasWeightDeltaTerms(terms);
+  const needTlGoc = hasWeightDelta && !tlGocOK;
   const diagEl = document.querySelector(`#diag-${r.id}`);
   rowEl.classList.toggle('needs-tl-goc', needTlGoc);
   diagEl?.classList.toggle('needs-tl-goc', needTlGoc);
