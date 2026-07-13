@@ -349,6 +349,47 @@ html[data-brand="CAO"] .list .li.active { background: #0e7c5e; }
 .suggest .sg-item:last-child { border-bottom: 0; }
 .suggest .sg-meta { color: var(--muted); font-size: 11px; }
 
+.nl-suggest {
+  position: fixed;
+  z-index: 3000;
+  display: none;
+  max-height: 240px;
+  overflow-y: auto;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: 0 10px 24px rgba(15, 23, 42, .18);
+}
+.nl-suggest.show { display: block; }
+.nl-suggest button {
+  display: grid;
+  grid-template-columns: 74px minmax(0, 1fr) auto;
+  gap: .55em;
+  align-items: center;
+  width: 100%;
+  padding: .55em .75em;
+  border: 0;
+  border-bottom: 1px solid var(--border);
+  background: transparent;
+  color: var(--text);
+  cursor: pointer;
+  text-align: left;
+}
+.nl-suggest button:hover { background: var(--chip); }
+.nl-suggest button:last-child { border-bottom: 0; }
+.nl-suggest .nl-code { font-weight: 700; color: var(--accent); }
+.nl-suggest .nl-name {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.nl-suggest .nl-price {
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
 .picked {
   padding: .8em; background: var(--hl); border-radius: var(--radius); margin-bottom: .8em;
   display: flex; justify-content: space-between; align-items: center; font-size: 13px;

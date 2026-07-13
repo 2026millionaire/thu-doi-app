@@ -450,6 +450,124 @@ function buildGoldAliasIndex() {
 //   - Term có dấu `-` (hao hụt)  → giá BÁN
 //   - Term lead hoặc dấu `+`     → giá MUA
 // Tách biểu thức theo ± rồi replace trong từng term để biết sign context.
+function nlSuggestionItems() {
+  const aliasIndex = buildGoldAliasIndex();
+  const preferredOrder = ['nl750', 'nl585', 'nl416', 'nl9999'];
+  const entries = Object.entries(aliasIndex);
+
+  if (!entries.length) {
+    return preferredOrder.map(alias => ({
+      alias,
+      goldName: PREFERRED_NL_ALIASES[alias.replace(/^nl/, '')] || '',
+      price: null,
+    }));
+  }
+
+  return entries
+    .filter(([alias]) => alias.startsWith('nl'))
+    .sort((a, b) => {
+      const ia = preferredOrder.indexOf(a[0]);
+      const ib = preferredOrder.indexOf(b[0]);
+      if (ia !== -1 || ib !== -1) return (ia === -1 ? 999 : ia) - (ib === -1 ? 999 : ib);
+      const pa = a[1].priority || 0;
+      const pb = b[1].priority || 0;
+      if (pb !== pa) return pb - pa;
+      return a[0].localeCompare(b[0], 'vi');
+    })
+    .map(([alias, hit]) => ({
+      alias,
+      goldName: hit.gold?.name || '',
+      price: apiToPerPhan(hit.gold?.gia_mua),
+    }));
+}
+
+function currentNlToken(input) {
+  const pos = input.selectionStart ?? input.value.length;
+  const before = input.value.slice(0, pos);
+  const m = before.match(/\*([a-zA-Z]{0,2}\d*)$/);
+  if (!m) return null;
+  const tokenStart = pos - m[1].length;
+  return { start: tokenStart, end: pos, token: m[1].toLowerCase() };
+}
+
+function hideNlSuggest() {
+  const box = $('#nl-suggest');
+  if (box) box.classList.remove('show');
+}
+
+function showNlSuggest(input, row, filter = 'nl') {
+  let box = $('#nl-suggest');
+  if (!box) {
+    box = document.createElement('div');
+    box.id = 'nl-suggest';
+    box.className = 'nl-suggest';
+    document.body.appendChild(box);
+  }
+
+  const q = String(filter || 'nl').toLowerCase();
+  const items = nlSuggestionItems()
+    .filter(it => it.alias.startsWith(q))
+    .slice(0, 12);
+  if (!items.length) {
+    hideNlSuggest();
+    return;
+  }
+
+  box.innerHTML = items.map(it => `
+    <button type="button" data-alias="${escapeHtml(it.alias)}">
+      <span class="nl-code">${escapeHtml(it.alias)}</span>
+      <span class="nl-name">${escapeHtml(it.goldName)}</span>
+      <span class="nl-price">${fmt(it.price)}</span>
+    </button>
+  `).join('');
+
+  const rect = input.getBoundingClientRect();
+  box.style.left = `${rect.left}px`;
+  box.style.top = `${rect.bottom + 4}px`;
+  box.style.minWidth = `${Math.max(rect.width, 220)}px`;
+  box.classList.add('show');
+
+  box.querySelectorAll('button[data-alias]').forEach(btn => {
+    btn.addEventListener('mousedown', e => {
+      e.preventDefault();
+      const tok = currentNlToken(input);
+      if (!tok) return;
+      input.setRangeText(btn.dataset.alias, tok.start, tok.end, 'end');
+      row.giaGoc = input.value;
+      recalcRow(row.id);
+      recalcBKRates();
+      hideNlSuggest();
+    });
+  });
+}
+
+function setupGiaGocNlAssist(input, row) {
+  input.addEventListener('keydown', e => {
+    if (e.key !== '*') return;
+    e.preventDefault();
+    const start = input.selectionStart ?? input.value.length;
+    const end = input.selectionEnd ?? start;
+    input.setRangeText('*nl', start, end, 'end');
+    row.giaGoc = input.value;
+    recalcRow(row.id);
+    recalcBKRates();
+    showNlSuggest(input, row, 'nl');
+  });
+
+  input.addEventListener('input', () => {
+    const tok = currentNlToken(input);
+    if (tok && tok.token.startsWith('nl')) showNlSuggest(input, row, tok.token || 'nl');
+    else hideNlSuggest();
+  });
+
+  input.addEventListener('keyup', () => {
+    const tok = currentNlToken(input);
+    if (tok && tok.token.startsWith('nl')) showNlSuggest(input, row, tok.token || 'nl');
+  });
+
+  input.addEventListener('blur', () => setTimeout(hideNlSuggest, 120));
+}
+
 function resolveAliases(expr) {
   if (!expr) return { resolved: '', map: {} };
   const map = {};
@@ -747,6 +865,7 @@ function renderBkTable() {
       });
     };
     bindInput('.inp-giaGoc',   'giaGoc',   recalcBKRates);
+    setupGiaGocNlAssist(rowEl.querySelector('.inp-giaGoc'), r);
     // Thu / Đổi mutually exclusive: nhập ô này → xóa ô kia
     rowEl.querySelector('.inp-tyLeThu').addEventListener('input', e => {
       r.tyLeThu = e.target.value;
