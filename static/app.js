@@ -396,11 +396,15 @@ const PREFERRED_NL_ALIASES = {
   '585':  'Vàng 585 (14K)',
   '416':  'Vàng 416 (10K)',
   '9999': 'Vàng nữ trang 999.9',
+  '99':   'Vàng nữ trang 99',
+  '999':  'Vàng nữ trang 999',
+  '9000': 'Platin 9000',
+  '9250': 'Platin 9250',
 };
 
 function aliasDigitsFromGoldName(name) {
   const s = String(name || '').trim();
-  const m = s.match(/^Vàng(?:\s+nữ\s+trang)?\s+(\d+(?:[.,]\d+)?)/i);
+  const m = s.match(/^(?:Vàng(?:\s+nữ\s+trang)?|Platin)\s+(\d+(?:[.,]\d+)?)/i);
   if (!m) return null;
   return m[1].replace(/[^\d]/g, '');
 }
@@ -408,6 +412,7 @@ function aliasDigitsFromGoldName(name) {
 function aliasPriority(locName, goldName) {
   const loc = String(locName || '').toLowerCase();
   const name = String(goldName || '').toLowerCase();
+  if (name.startsWith('platin') || loc.includes('platin')) return 110;
   if (name.startsWith('vàng nữ trang')) return 100;
   if (name.startsWith('vàng ')) return 90;
   if (loc.includes('nữ trang')) return 80;
@@ -452,7 +457,7 @@ function buildGoldAliasIndex() {
 // Tách biểu thức theo ± rồi replace trong từng term để biết sign context.
 function nlSuggestionItems() {
   const aliasIndex = buildGoldAliasIndex();
-  const preferredOrder = ['nl750', 'nl585', 'nl416', 'nl9999'];
+  const preferredOrder = ['nl750', 'nl585', 'nl416', 'nl9999', 'nl99', 'nl999', 'nl9000', 'nl9250'];
   const entries = Object.entries(aliasIndex);
 
   if (!entries.length) {
