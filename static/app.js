@@ -621,6 +621,22 @@ function safeEval(expr) {
   }
 }
 
+function safeEvalDecimalExpr(expr) {
+  if (expr == null) return { val: 0, ok: true, clean: '', raw: '' };
+  return safeEval(String(expr).replace(/,/g, '.'));
+}
+
+function evalStrictNumber(expr) {
+  const strict = String(expr || '').replace(/,/g, '').replace(/\s+/g, '');
+  if (!strict || !/^[\d.+\-*/()]+$/.test(strict)) return NaN;
+  try {
+    const v = new Function('return (' + strict + ')')();
+    return typeof v === 'number' && isFinite(v) ? v : NaN;
+  } catch (_) {
+    return NaN;
+  }
+}
+
 function formatRate(v) {
   if (v == null) return '—';
   if (v === 'NONE') return '✗';
@@ -643,14 +659,15 @@ function rateShortText(r) {
 function detectGiaGocTerms(strict) {
   if (!strict) return [];
   const out = [];
-  // Regex: (leading? dấu) (optional space) (a) * (b)
-  // Bắt tất cả term có dạng [±]num*num (num có thể có dấu .)
-  const re = /([+\-]?)\s*([\d.]+)\s*\*\s*([\d.]+)/g;
+  // Bắt term dạng [±]biểu-thức*biểu-thức, ví dụ 0.089/2*nl750 sau resolve.
+  const re = /([+\-]?)([^+\-]*\*[^+\-]*)/g;
   let m, first = true;
   while ((m = re.exec(strict)) !== null) {
     const sign = m[1] || (first ? '' : '+');
-    const a = parseFloat(m[2]);
-    const b = parseFloat(m[3]);
+    const body = m[2];
+    const star = body.indexOf('*');
+    const a = evalStrictNumber(body.slice(0, star));
+    const b = evalStrictNumber(body.slice(star + 1));
     if (isNaN(a) || isNaN(b)) continue;
     let kind;
     if (sign === '-') kind = 'haoHut';
@@ -852,7 +869,7 @@ function renderBkTable() {
       <td class="col-small"><input class="inp-rotDa num-col" value="${escapeHtml(r.rotDa)}" placeholder="0"></td>
       <td class="col-small"><input class="inp-phiKhac num-col" value="${escapeHtml(r.phiKhac)}" placeholder="0"></td>
       <td class="num-col out-cuoi">—</td>
-      <td class="col-tl hidden"><input class="inp-tlGoc num-col" value="${escapeHtml(r.tlGoc)}" placeholder="phân"></td>
+      <td class="col-tl hidden"><input class="inp-tlGoc num-col" value="${escapeHtml(r.tlGoc)}" placeholder="VD: 5.26/2"></td>
       <td class="col-tl hidden num-col out-tlSau">—</td>
       <td><button class="btn-del" title="Xóa dòng (giữ ô trống)">⟲</button></td>
     </tr>
@@ -944,7 +961,8 @@ function recalcRow(rowId) {
   const terms = detectGiaGocTerms(g.clean);
   const hhSumPhan = terms.filter(t => t.kind === 'haoHut').reduce((s, t) => s + t.phan, 0);
   const thuaSumPhan = terms.filter(t => t.kind === 'thuaTL').reduce((s, t) => s + t.phan, 0);
-  const tlGoc = parseFloat(String(r.tlGoc).replace(',', '.'));
+  const tlGocEval = safeEvalDecimalExpr(r.tlGoc);
+  const tlGoc = tlGocEval.val;
   const tlGocOK = isFinite(tlGoc) && tlGoc > 0;
   const hasWeightDelta = hasWeightDeltaTerms(terms);
   const needTlGoc = hasWeightDelta && !tlGocOK;
