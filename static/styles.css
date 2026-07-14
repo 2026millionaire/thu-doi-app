@@ -390,6 +390,49 @@ html[data-brand="CAO"] .list .li.active { background: #0e7c5e; }
   white-space: nowrap;
 }
 
+.rate-suggest {
+  position: fixed;
+  z-index: 3000;
+  display: none;
+  max-height: 260px;
+  overflow-y: auto;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: 0 10px 24px rgba(15, 23, 42, .18);
+  padding: .35em;
+}
+.rate-suggest.show { display: block; }
+.rate-sg-row {
+  display: grid;
+  grid-template-columns: minmax(92px, 1fr) 46px 46px;
+  gap: .45em;
+  align-items: center;
+  padding: .25em;
+}
+.rate-sg-label {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-weight: 600;
+}
+.rate-suggest button {
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--chip);
+  color: var(--accent);
+  cursor: pointer;
+  font-weight: 700;
+  padding: .4em 0;
+  font-variant-numeric: tabular-nums;
+}
+.rate-suggest button:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
 .picked {
   padding: .8em; background: var(--hl); border-radius: var(--radius); margin-bottom: .8em;
   display: flex; justify-content: space-between; align-items: center; font-size: 13px;

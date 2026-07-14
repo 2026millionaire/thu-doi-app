@@ -501,6 +501,7 @@ function hideNlSuggest() {
 }
 
 function showNlSuggest(input, row, filter = 'nl') {
+  hideRateSuggest();
   let box = $('#nl-suggest');
   if (!box) {
     box = document.createElement('div');
@@ -571,6 +572,128 @@ function setupGiaGocNlAssist(input, row) {
   });
 
   input.addEventListener('blur', () => setTimeout(hideNlSuggest, 120));
+}
+
+const RATE_PRESETS = [
+  { label: 'TS vàng', thu: '0.7', doi: '0.8' },
+  { label: 'TS KC', thu: '0.8', doi: '0.9' },
+  { label: 'TS vỏ', thu: '0.8', doi: '0.85' },
+  { label: 'VS1 <5', thu: '0.93', doi: '0.95' },
+  { label: 'VS1 5.x', thu: '0.93', doi: '0.97' },
+  { label: 'KCR 6-8.6', thu: '0.95', doi: '0.98' },
+];
+
+function rateLabel(v) {
+  return String(Math.round(Number(v) * 100));
+}
+
+function parseExprNumber(raw) {
+  const s = String(raw || '').trim();
+  if (!s) return NaN;
+  if (/^\d+[,.]\d{1,3}$/.test(s)) return Number(s.replace(',', '.'));
+  return Number(s.replace(/[^\d]/g, ''));
+}
+
+function exprSegmentAround(text, start, end) {
+  let left = start;
+  while (left > 0 && !/[+\-()]/.test(text[left - 1])) left--;
+  let right = end;
+  while (right < text.length && !/[+\-()]/.test(text[right])) right++;
+  return text.slice(left, right);
+}
+
+function isLikelyNlPriceInProduct(text, tokenStart, tokenEnd) {
+  const segment = exprSegmentAround(text, tokenStart, tokenEnd);
+  if (!segment.includes('*')) return false;
+  const nums = [...segment.matchAll(/\d[\d.,]*/g)].map(m => parseExprNumber(m[0])).filter(Number.isFinite);
+  const large = nums.filter(n => n >= 100000);
+  const small = nums.filter(n => n > 0 && n < 1000);
+  return large.length === 1 && small.length >= 1;
+}
+
+function hasInvoiceLikeValue(expr) {
+  const text = String(expr || '');
+  for (const m of text.matchAll(/\d[\d.,]*/g)) {
+    const val = parseExprNumber(m[0]);
+    if (!Number.isFinite(val) || val < 100000) continue;
+    if (isLikelyNlPriceInProduct(text, m.index, m.index + m[0].length)) continue;
+    return true;
+  }
+  return false;
+}
+
+function rowHasManualRate(row) {
+  return !!(String(row.tyLeThu || '').trim() || String(row.tyLeDoi || '').trim());
+}
+
+function shouldShowRateSuggest(row) {
+  return !rowHasManualRate(row) && hasInvoiceLikeValue(row.giaGoc);
+}
+
+function hideRateSuggest() {
+  const box = $('#rate-suggest');
+  if (box) box.classList.remove('show');
+}
+
+function showRateSuggest(input, row) {
+  hideNlSuggest();
+  if (!shouldShowRateSuggest(row)) {
+    hideRateSuggest();
+    return;
+  }
+
+  let box = $('#rate-suggest');
+  if (!box) {
+    box = document.createElement('div');
+    box.id = 'rate-suggest';
+    box.className = 'rate-suggest';
+    document.body.appendChild(box);
+  }
+
+  box.innerHTML = RATE_PRESETS.map(p => `
+    <div class="rate-sg-row">
+      <span class="rate-sg-label">${escapeHtml(p.label)}</span>
+      <button type="button" data-mode="thu" data-value="${p.thu}">${rateLabel(p.thu)}</button>
+      <button type="button" data-mode="doi" data-value="${p.doi}">${rateLabel(p.doi)}</button>
+    </div>
+  `).join('');
+
+  const rect = input.getBoundingClientRect();
+  box.style.left = `${rect.left}px`;
+  box.style.top = `${rect.bottom + 4}px`;
+  box.style.minWidth = `${Math.max(rect.width, 280)}px`;
+  box.classList.add('show');
+
+  box.querySelectorAll('button[data-mode]').forEach(btn => {
+    btn.addEventListener('mousedown', e => {
+      e.preventDefault();
+      const rowEl = document.querySelector(`#row-${row.id}`);
+      if (!rowEl) return;
+      if (btn.dataset.mode === 'thu') {
+        row.tyLeThu = btn.dataset.value;
+        row.tyLeDoi = '';
+      } else {
+        row.tyLeDoi = btn.dataset.value;
+        row.tyLeThu = '';
+      }
+      rowEl.querySelector('.inp-tyLeThu').value = row.tyLeThu;
+      rowEl.querySelector('.inp-tyLeDoi').value = row.tyLeDoi;
+      recalcRow(row.id);
+      recalcBKRates();
+      hideRateSuggest();
+    });
+  });
+}
+
+function scheduleRateSuggest(input, row) {
+  clearTimeout(row._rateSuggestTimer);
+  row._rateSuggestTimer = setTimeout(() => showRateSuggest(input, row), 900);
+}
+
+function setupGiaGocRateAssist(input, row) {
+  input.addEventListener('input', () => scheduleRateSuggest(input, row));
+  input.addEventListener('focus', () => scheduleRateSuggest(input, row));
+  input.addEventListener('blur', () => setTimeout(hideRateSuggest, 140));
 }
 
 function resolveAliases(expr) {
@@ -888,6 +1011,7 @@ function renderBkTable() {
     };
     bindInput('.inp-giaGoc',   'giaGoc',   recalcBKRates);
     setupGiaGocNlAssist(rowEl.querySelector('.inp-giaGoc'), r);
+    setupGiaGocRateAssist(rowEl.querySelector('.inp-giaGoc'), r);
     // Thu / Đổi mutually exclusive: nhập ô này → xóa ô kia
     rowEl.querySelector('.inp-tyLeThu').addEventListener('input', e => {
       r.tyLeThu = e.target.value;
@@ -895,6 +1019,7 @@ function renderBkTable() {
         r.tyLeDoi = '';
         rowEl.querySelector('.inp-tyLeDoi').value = '';
       }
+      hideRateSuggest();
       recalcRow(r.id); recalcBKRates();
     });
     rowEl.querySelector('.inp-tyLeDoi').addEventListener('input', e => {
@@ -903,6 +1028,7 @@ function renderBkTable() {
         r.tyLeThu = '';
         rowEl.querySelector('.inp-tyLeThu').value = '';
       }
+      hideRateSuggest();
       recalcRow(r.id); recalcBKRates();
     });
     bindInput('.inp-rotDa',    'rotDa');
