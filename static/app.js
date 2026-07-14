@@ -500,7 +500,12 @@ function hideNlSuggest() {
   if (box) box.classList.remove('show');
 }
 
+function cancelRateSuggest(row) {
+  clearTimeout(row?._rateSuggestTimer);
+}
+
 function showNlSuggest(input, row, filter = 'nl') {
+  cancelRateSuggest(row);
   hideRateSuggest();
   let box = $('#nl-suggest');
   if (!box) {
@@ -551,6 +556,7 @@ function setupGiaGocNlAssist(input, row) {
   input.addEventListener('keydown', e => {
     if (e.key !== '*') return;
     e.preventDefault();
+    cancelRateSuggest(row);
     const start = input.selectionStart ?? input.value.length;
     const end = input.selectionEnd ?? start;
     input.setRangeText('*nl', start, end, 'end');
@@ -562,13 +568,19 @@ function setupGiaGocNlAssist(input, row) {
 
   input.addEventListener('input', () => {
     const tok = currentNlToken(input);
-    if (tok && tok.token.startsWith('nl')) showNlSuggest(input, row, tok.token || 'nl');
+    if (tok && tok.token.startsWith('nl')) {
+      cancelRateSuggest(row);
+      showNlSuggest(input, row, tok.token || 'nl');
+    }
     else hideNlSuggest();
   });
 
   input.addEventListener('keyup', () => {
     const tok = currentNlToken(input);
-    if (tok && tok.token.startsWith('nl')) showNlSuggest(input, row, tok.token || 'nl');
+    if (tok && tok.token.startsWith('nl')) {
+      cancelRateSuggest(row);
+      showNlSuggest(input, row, tok.token || 'nl');
+    }
   });
 
   input.addEventListener('blur', () => setTimeout(hideNlSuggest, 120));
@@ -580,7 +592,7 @@ const RATE_PRESETS = [
   { label: 'TS vỏ', thu: '0.8', doi: '0.85' },
   { label: 'VS1 <5', thu: '0.93', doi: '0.95' },
   { label: 'VS1 5.x', thu: '0.93', doi: '0.97' },
-  { label: 'KCR 6-8.6', thu: '0.95', doi: '0.98' },
+  { label: 'VS1 6-8.6', thu: '0.95', doi: '0.98' },
 ];
 
 function rateLabel(v) {
@@ -661,7 +673,7 @@ function showRateSuggest(input, row) {
   const rect = input.getBoundingClientRect();
   box.style.left = `${rect.left}px`;
   box.style.top = `${rect.bottom + 4}px`;
-  box.style.minWidth = `${Math.max(rect.width, 280)}px`;
+  box.style.minWidth = '';
   box.classList.add('show');
 
   box.querySelectorAll('button[data-mode]').forEach(btn => {
@@ -687,6 +699,10 @@ function showRateSuggest(input, row) {
 
 function scheduleRateSuggest(input, row) {
   clearTimeout(row._rateSuggestTimer);
+  if (currentNlToken(input)?.token.startsWith('nl')) {
+    hideRateSuggest();
+    return;
+  }
   row._rateSuggestTimer = setTimeout(() => showRateSuggest(input, row), 900);
 }
 

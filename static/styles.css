@@ -394,6 +394,8 @@ html[data-brand="CAO"] .list .li.active { background: #0e7c5e; }
   position: fixed;
   z-index: 3000;
   display: none;
+  width: max-content;
+  min-width: 0;
   max-height: 260px;
   overflow-y: auto;
   background: var(--panel);
@@ -405,7 +407,7 @@ html[data-brand="CAO"] .list .li.active { background: #0e7c5e; }
 .rate-suggest.show { display: block; }
 .rate-sg-row {
   display: grid;
-  grid-template-columns: minmax(92px, 1fr) 46px 46px;
+  grid-template-columns: max-content 46px 46px;
   gap: .45em;
   align-items: center;
   padding: .25em;
