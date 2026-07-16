@@ -455,7 +455,7 @@ function buildGoldAliasIndex() {
 //   - Term có dấu `-` (hao hụt)  → giá BÁN
 //   - Term lead hoặc dấu `+`     → giá MUA
 // Tách biểu thức theo ± rồi replace trong từng term để biết sign context.
-function nlSuggestionItems() {
+function nlSuggestionItems(side = 'mua') {
   const aliasIndex = buildGoldAliasIndex();
   const preferredOrder = ['nl750', 'nl585', 'nl416', 'nl9999', 'nl99', 'nl999', 'nl9000', 'nl9250'];
   const entries = Object.entries(aliasIndex);
@@ -482,7 +482,7 @@ function nlSuggestionItems() {
     .map(([alias, hit]) => ({
       alias,
       goldName: hit.gold?.name || '',
-      price: apiToPerPhan(hit.gold?.gia_mua),
+      price: apiToPerPhan(side === 'ban' ? hit.gold?.gia_ban : hit.gold?.gia_mua),
     }));
 }
 
@@ -493,6 +493,14 @@ function currentNlToken(input) {
   if (!m) return null;
   const tokenStart = pos - m[1].length;
   return { start: tokenStart, end: pos, token: m[1].toLowerCase() };
+}
+
+// Đồng bộ giá hiển thị trong dropdown với resolveAliases():
+// alias thuộc hạng tử sau dấu "-" là hao hụt → giá BÁN; còn lại → giá MUA.
+function nlSuggestionSide(input, token) {
+  const beforeToken = String(input.value || '').slice(0, token?.start ?? 0);
+  const term = beforeToken.match(/(^|[+\-])[^+\-]*$/);
+  return term?.[1] === '-' ? 'ban' : 'mua';
 }
 
 function hideNlSuggest() {
@@ -516,7 +524,9 @@ function showNlSuggest(input, row, filter = 'nl') {
   }
 
   const q = String(filter || 'nl').toLowerCase();
-  const items = nlSuggestionItems()
+  const token = currentNlToken(input);
+  const side = nlSuggestionSide(input, token);
+  const items = nlSuggestionItems(side)
     .filter(it => it.alias.startsWith(q))
     .slice(0, 12);
   if (!items.length) {
