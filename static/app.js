@@ -989,6 +989,13 @@ function reverseDiscount(finalValue, discount) {
   return finalValue / (1 - discount.rate);
 }
 
+function getDiscountValue(base, discount) {
+  if (!discount?.ok) return NaN;
+  if (discount.kind === 'amount') return discount.amount;
+  if (!isFinite(base) || base <= 0) return NaN;
+  return base * discount.rate;
+}
+
 function setText(sel, value, suffix = '') {
   const el = $(sel);
   if (!el) return;
@@ -1011,6 +1018,10 @@ function calcSplitDiamond() {
   const vienRate = parseRateSimple($('#split-vien-doi')?.value) ?? parseRateSimple($('#split-vien-thu')?.value) ?? 1;
   const voBk = voFinal * voRate;
   const vienBk = vienFinal * vienRate;
+  const voDiscValue = getDiscountValue(voGoc, voDisc);
+  const vienDiscValue = getDiscountValue(vienGoc, vienDisc);
+  const summedDiscValue = [voDiscValue, vienDiscValue].reduce((sum, value) => sum + (isFinite(value) ? value : 0), 0);
+  const hasExplicitDiscountValue = [voDiscValue, vienDiscValue].some(value => isFinite(value));
 
   setText('.out-split-vo-goc', voGoc);
   setText('.out-split-vien-final', vienFinal);
@@ -1022,7 +1033,9 @@ function calcSplitDiamond() {
 
   const totalDiscEl = $('.out-split-total-discount');
   if (totalDiscEl) {
-    if (isFinite(totalDiscValue)) {
+    if (hasExplicitDiscountValue) {
+      totalDiscEl.textContent = fmt(summedDiscValue);
+    } else if (isFinite(totalDiscValue)) {
       totalDiscEl.textContent = fmt(totalDiscValue);
     } else {
       totalDiscEl.textContent = '—';
@@ -1053,10 +1066,16 @@ function setupSplitDiamondCalc() {
   });
 
   const ids = [
-    '#split-vien-goc', '#split-total-final', '#split-vo-discount', '#split-vien-discount',
+    '#split-vien-goc', '#split-total-final',
     '#split-vo-thu', '#split-vo-doi', '#split-vien-thu', '#split-vien-doi',
   ];
   ids.forEach(sel => $(sel)?.addEventListener('input', calcSplitDiamond));
+  ['#split-vo-discount', '#split-vien-discount'].forEach(sel => {
+    const input = $(sel);
+    input?.addEventListener('input', () => {
+      calcSplitDiamond();
+    });
+  });
   [
     ['#split-vo-thu', '#split-vo-doi'],
     ['#split-vien-thu', '#split-vien-doi'],
