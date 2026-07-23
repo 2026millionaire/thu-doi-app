@@ -123,6 +123,7 @@ function setupBrandToggle() {
       const truoc = document.querySelector('input[name="moc"][value="truoc"]');
       if (truoc) truoc.checked = true;
     }
+    hideRateSuggest();
     // Re-render list tab items + bk rates
     if (typeof _itemsRenderFn === 'function') _itemsRenderFn();
     if (typeof recalcBKRates === 'function') recalcBKRates();
@@ -596,7 +597,7 @@ function setupGiaGocNlAssist(input, row) {
   input.addEventListener('blur', () => setTimeout(hideNlSuggest, 120));
 }
 
-const RATE_PRESETS = [
+const PNJ_RATE_PRESETS = [
   { label: 'TS vàng', thu: '0.7', doi: '0.8' },
   { label: 'TS KC', thu: '0.8', doi: '0.9' },
   { label: 'TS vỏ', thu: '0.8', doi: '0.85' },
@@ -604,6 +605,21 @@ const RATE_PRESETS = [
   { label: 'VS1 5.x', thu: '0.93', doi: '0.97' },
   { label: 'VS1 6-8.6', thu: '0.95', doi: '0.98' },
 ];
+
+const CAO_RATE_PRESETS = [
+  { label: 'TS Ý/Trơn/Pearl', thu: '0.5', doi: '0.6' },
+  { label: 'TS Vỏ/Đá/CZ', thu: '0.7', doi: '0.8' },
+  { label: 'TS Kim cương', thu: '0.75', doi: '0.85' },
+  { label: 'I3-SI1 Fancy', thu: '0.75', doi: '0.8' },
+  { label: 'Màu / VS1 Fancy', thu: '0.8', doi: '0.9' },
+  { label: 'VS1 <5ly', thu: '0.93', doi: '0.95' },
+  { label: 'VS1 5.x', thu: '0.93', doi: '0.97' },
+  { label: 'VS1 6-8.6', thu: '0.95', doi: '0.98' },
+];
+
+function ratePresetsForBrand() {
+  return state.thuongHieu === 'CAO' ? CAO_RATE_PRESETS : PNJ_RATE_PRESETS;
+}
 
 function rateLabel(v) {
   return String(Math.round(Number(v) * 100));
@@ -672,7 +688,7 @@ function showRateSuggest(input, row) {
     document.body.appendChild(box);
   }
 
-  box.innerHTML = RATE_PRESETS.map(p => `
+  box.innerHTML = ratePresetsForBrand().map(p => `
     <div class="rate-sg-row">
       <span class="rate-sg-label">${escapeHtml(p.label)}</span>
       <button type="button" data-mode="thu" data-value="${p.thu}">${rateLabel(p.thu)}</button>
