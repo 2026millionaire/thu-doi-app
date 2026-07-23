@@ -925,14 +925,56 @@ function parseDiscountFlexible(s) {
   const raw = String(s || '').trim();
   if (!raw) return { kind: 'percent', raw: 0, rate: 0, amount: 0, ok: true };
   const isPercent = raw.includes('%');
-  const clean = raw.replace('%', '').replace(',', '.').trim();
-  const looksThousand = /[.,]\d{3}($|[.,])/.test(raw);
-  const n = Number(clean);
-  if (isPercent || (!looksThousand && isFinite(n) && n >= 0 && n <= 100)) {
-    return { kind: 'percent', raw: n, rate: n / 100, amount: 0, ok: isFinite(n) };
+  const isAmount = raw.includes('$');
+  const clean = raw.replace(/[%$\s]/g, '');
+  const separators = clean.match(/[.,]/g) || [];
+  const decimal = separators.length <= 1
+    ? Number(clean.replace(',', '.'))
+    : NaN;
+
+  if (isPercent) {
+    const ok = isFinite(decimal) && decimal >= 0 && decimal <= 100;
+    return { kind: 'percent', raw: decimal, rate: decimal / 100, amount: 0, ok };
+  }
+  if (!isAmount) {
+    if (separators.length === 0 && isFinite(decimal) && decimal >= 0 && decimal <= 100) {
+      return { kind: 'percent', raw: decimal, rate: decimal / 100, amount: 0, ok: true };
+    }
+    // Một dấu phân cách với giá trị thập phân dưới 100 luôn là %:
+    // 4.5 / 4,5 / 4.500 / 4,500 đều được hiểu là 4,5%.
+    if (separators.length === 1 && isFinite(decimal) && decimal >= 0 && decimal < 100) {
+      return { kind: 'percent', raw: decimal, rate: decimal / 100, amount: 0, ok: true };
+    }
   }
   const amount = parseMoney(raw);
   return { kind: 'amount', raw: amount, rate: 0, amount, ok: amount >= 0 };
+}
+
+function normalizeSplitMoneyInput(input) {
+  if (!input?.value) return;
+  const normalized = String(input.value).replace(/[^\d]/g, '');
+  if (input.value !== normalized) input.value = normalized;
+}
+
+function syncSplitDiscountAmount(input, counterpart) {
+  const discount = parseDiscountFlexible(input?.value);
+  const inputId = input?.id || '';
+  const counterpartWasAutoFilled = counterpart?.dataset?.splitDiscountSource === inputId;
+  if (input?.dataset?.splitDiscountSource) delete input.dataset.splitDiscountSource;
+
+  if (discount.kind !== 'amount' || discount.amount <= 100) {
+    if (counterpartWasAutoFilled) {
+      counterpart.value = '';
+      delete counterpart.dataset.splitDiscountSource;
+    }
+    return;
+  }
+  const normalized = String(discount.amount);
+  input.value = normalized;
+  if (counterpart) {
+    counterpart.value = normalized;
+    counterpart.dataset.splitDiscountSource = inputId;
+  }
 }
 
 function applyDiscount(base, discount) {
@@ -980,8 +1022,8 @@ function calcSplitDiamond() {
 
   const totalDiscEl = $('.out-split-total-discount');
   if (totalDiscEl) {
-    if (isFinite(totalDiscValue) && totalGoc > 0) {
-      totalDiscEl.textContent = `${fmt(totalDiscValue)} (${(totalDiscValue / totalGoc * 100).toFixed(2)}%)`;
+    if (isFinite(totalDiscValue)) {
+      totalDiscEl.textContent = fmt(totalDiscValue);
     } else {
       totalDiscEl.textContent = '—';
     }
@@ -995,6 +1037,21 @@ function calcSplitDiamond() {
 }
 
 function setupSplitDiamondCalc() {
+  [
+    '#split-vien-goc', '#split-total-final',
+  ].forEach(sel => {
+    const input = $(sel);
+    input?.addEventListener('input', () => normalizeSplitMoneyInput(input));
+  });
+
+  [
+    ['#split-vo-discount', '#split-vien-discount'],
+    ['#split-vien-discount', '#split-vo-discount'],
+  ].forEach(([sourceSel, targetSel]) => {
+    const source = $(sourceSel), target = $(targetSel);
+    source?.addEventListener('input', () => syncSplitDiscountAmount(source, target));
+  });
+
   const ids = [
     '#split-vien-goc', '#split-total-final', '#split-vo-discount', '#split-vien-discount',
     '#split-vo-thu', '#split-vo-doi', '#split-vien-thu', '#split-vien-doi',
