@@ -497,7 +497,11 @@ def api_gia_vang_snapshot():
 
 
 def _append_platin(data: dict) -> dict:
-    """Thêm 1 'location' ảo chứa Platin: giá = giá vàng NT 999.9 × tuổi platin."""
+    """Thêm bảng giá Platin suy ra từ giá vàng 999.9 hiện tại.
+
+    Giá mua Platin dùng đơn giá chuẩn cố định 700.000 đ/phân. Giá bán
+    (dùng cho hạng tử hao hụt) vẫn bám theo giá bán vàng 999.9 hiện tại.
+    """
     if any(loc.get("name") == "Platin (tự tính)" for loc in data.get("locations", [])):
         return data
 
@@ -524,17 +528,34 @@ def _append_platin(data: dict) -> dict:
         n = round(v)
         return f"{n:,.0f}".replace(",", ".")
 
-    mua = _num(base.get("gia_mua", 0))
-    ban = _num(base.get("gia_ban", 0))
+    # API dùng đơn vị nghìn đồng/lượng; 1 đơn vị API = 10 đ/phân.
+    ban_per_phan = _num(base.get("gia_ban", 0)) * 10
+    platin_buy_per_phan = float(getattr(config, "PLATIN_BUY_PER_PHAN", 700_000))
+
+    default_ages = [
+        {"name": "Platin 9000", "ratio": 0.9000},
+        {"name": "Platin 9250", "ratio": 0.9250},
+        {"name": "Platin 9500", "ratio": 0.9500},
+    ]
+    configured = {p.get("name"): p for p in getattr(config, "PLATIN_AGES", [])}
+    platin_ages = [configured.get(p["name"], p) for p in default_ages]
 
     platin_types = []
-    for p in config.PLATIN_AGES:
+    for p in platin_ages:
+        ratio = float(p["ratio"])
+        # Giá đều dương; dùng quy tắc nửa lên để tránh banker’s rounding của round().
+        mua_per_phan = int(platin_buy_per_phan * ratio + 0.5)
+        ban_per_phan_for_age = int(ban_per_phan * ratio + 0.5)
         platin_types.append({
             "name": p["name"],
-            "gia_mua": _fmt_api(mua * p["ratio"]),
-            "gia_ban": _fmt_api(ban * p["ratio"]),
+            # Giữ field API cũ để các màn hình/nguồn cũ vẫn đọc được.
+            "gia_mua": _fmt_api(mua_per_phan / 10),
+            "gia_ban": _fmt_api(ban_per_phan_for_age / 10),
+            # Field chính xác đến đồng cho calculator.
+            "gia_mua_per_phan": mua_per_phan,
+            "gia_ban_per_phan": ban_per_phan_for_age,
             "updated_at": base.get("updated_at", ""),
-            "note": f"= {config.PLATIN_BASE_GOLD} × {p['ratio']:.4f}",
+            "note": f"Mua: 700.000 × {ratio:.4f}; hao hụt: giá bán 999.9 × {ratio:.4f}",
             "color_note": "#6b7280",
         })
 

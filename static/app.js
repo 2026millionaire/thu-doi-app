@@ -323,6 +323,11 @@ function findLocation() {
 // Calculator dùng VNĐ/chỉ (TLV đơn vị chỉ) = × 100.
 const apiRawInt = (v) => Number(String(v).replace(/[^\d]/g, ''));
 const apiToPerPhan = (v) => apiRawInt(v) * 10;
+const goldToPerPhan = (gold, side) => {
+  const exact = side === 'ban' ? gold?.gia_ban_per_phan : gold?.gia_mua_per_phan;
+  if (exact != null && isFinite(Number(exact))) return Math.round(Number(exact));
+  return apiToPerPhan(side === 'ban' ? gold?.gia_ban : gold?.gia_mua);
+};
 const apiToPerChi = (v) => apiRawInt(v) * 100;
 
 function renderGiaVang() {
@@ -369,8 +374,8 @@ function renderGvGroup(title, items) {
     <table><thead><tr><th>Loại vàng</th><th>Giá mua</th><th>Giá bán</th></tr></thead>
     <tbody>${items.map(it => `
       <tr><td>${escapeHtml(it.name)}</td>
-      <td>${fmt(apiToPerPhan(it.gia_mua))}</td>
-      <td>${fmt(apiToPerPhan(it.gia_ban))}</td></tr>
+      <td>${fmt(goldToPerPhan(it, 'mua'))}</td>
+      <td>${fmt(goldToPerPhan(it, 'ban'))}</td></tr>
     `).join('')}</tbody></table>
   </div>`;
 }
@@ -380,9 +385,9 @@ function goldPriceIndex() {
   if (!state.gv) return out;
   for (const loc of state.gv.locations) {
     for (const g of loc.gold_type) {
-      out.push({ locName: loc.name, gName: g.name, side: 'mua', perPhan: apiToPerPhan(g.gia_mua) });
-      if (apiToPerPhan(g.gia_ban) > 0)
-        out.push({ locName: loc.name, gName: g.name, side: 'ban', perPhan: apiToPerPhan(g.gia_ban) });
+      out.push({ locName: loc.name, gName: g.name, side: 'mua', perPhan: goldToPerPhan(g, 'mua') });
+      if (goldToPerPhan(g, 'ban') > 0)
+        out.push({ locName: loc.name, gName: g.name, side: 'ban', perPhan: goldToPerPhan(g, 'ban') });
     }
   }
   return out;
@@ -401,6 +406,7 @@ const PREFERRED_NL_ALIASES = {
   '999':  'Vàng nữ trang 999',
   '9000': 'Platin 9000',
   '9250': 'Platin 9250',
+  '9500': 'Platin 9500',
 };
 
 function aliasDigitsFromGoldName(name) {
@@ -458,7 +464,7 @@ function buildGoldAliasIndex() {
 // Tách biểu thức theo ± rồi replace trong từng term để biết sign context.
 function nlSuggestionItems(side = 'mua') {
   const aliasIndex = buildGoldAliasIndex();
-  const preferredOrder = ['nl750', 'nl585', 'nl416', 'nl9999', 'nl99', 'nl999', 'nl9000', 'nl9250'];
+  const preferredOrder = ['nl750', 'nl585', 'nl416', 'nl9999', 'nl99', 'nl999', 'nl9000', 'nl9250', 'nl9500'];
   const entries = Object.entries(aliasIndex);
 
   if (!entries.length) {
@@ -483,7 +489,7 @@ function nlSuggestionItems(side = 'mua') {
     .map(([alias, hit]) => ({
       alias,
       goldName: hit.gold?.name || '',
-      price: apiToPerPhan(side === 'ban' ? hit.gold?.gia_ban : hit.gold?.gia_mua),
+      price: goldToPerPhan(hit.gold, side),
     }));
 }
 
@@ -750,7 +756,7 @@ function resolveAliases(expr) {
       const hit = aliasIndex[tok.toLowerCase()];
       const g = hit?.gold;
       if (!g) return tok;
-      const price = isMinus ? apiToPerPhan(g.gia_ban) : apiToPerPhan(g.gia_mua);
+      const price = goldToPerPhan(g, isMinus ? 'ban' : 'mua');
       if (!price) return tok;
       map[tok.toLowerCase()] = {
         goldName: g.name,
@@ -1221,14 +1227,68 @@ function recalcRow(rowId) {
   }
 
   renderRowDiag(r.id, g, { tyThu, tyDoi }, { needTlGoc });
-  r._computed = { gocMua, giaTM, cuoi: g.clean ? cuoi : 0, rate, hhSumPhan, thuaSumPhan };
+  const giaGocDoi = tyDoi != null ? giaGocBeforeHaoHut(g) : null;
+  r._computed = { gocMua, giaTM, cuoi: g.clean ? cuoi : 0, rate, hhSumPhan, thuaSumPhan, giaGocDoi };
   recalcBKTotal();
   toggleTlColsVisibility();
+}
+
+function replaceHaoHutProducts(expr) {
+  let changed = false;
+  // Hỗ trợ các hạng tử hao hụt thường dùng: -a*b hoặc -a/b*b.
+  const replaced = String(expr || '').replace(
+    /-\s*(\d+(?:\.\d+)?(?:\/\d+(?:\.\d+)?)?)\*(\d+(?:\.\d+)?)/g,
+    () => { changed = true; return '-0'; },
+  );
+  return { expr: replaced, changed };
+}
+
+function outerRateOperator(expr) {
+  let depth = 0;
+  for (let i = 0; i < expr.length; i += 1) {
+    const ch = expr[i];
+    if (ch === '(') depth += 1;
+    else if (ch === ')') depth -= 1;
+    else if (ch === '*' && depth === 0) {
+      const right = expr.slice(i + 1);
+      const factor = evalStrictNumber(right);
+      if (isFinite(factor) && factor > 0 && factor <= 1) {
+        return { left: expr.slice(0, i), factor };
+      }
+    }
+  }
+  return null;
+}
+
+function giaGocBeforeHaoHut(exprRes) {
+  if (!exprRes?.ok || !exprRes.clean) return null;
+  const replaced = replaceHaoHutProducts(exprRes.clean);
+  if (!replaced.changed) {
+    const value = evalStrictNumber(exprRes.clean);
+    return isFinite(value) ? value : null;
+  }
+  // Có phần cộng tiền khác trong cùng biểu thức thì chưa đủ chắc chắn để
+  // suy ra một “giá gốc nền”; bỏ qua dòng này khỏi tổng để tránh cộng sai.
+  if (replaced.expr.includes('+')) return null;
+
+  // Nếu người dùng gõ thêm một hệ số tỷ lệ ngoài biểu thức, bỏ hệ số đó
+  // khỏi chỉ tiêu giá gốc; phép chia thực tế (/2, /3...) vẫn được giữ lại.
+  const outerRate = outerRateOperator(replaced.expr);
+  const value = outerRate
+    ? evalStrictNumber(outerRate.left)
+    : evalStrictNumber(replaced.expr);
+  return isFinite(value) ? value : null;
 }
 
 function recalcBKTotal() {
   const sum = state.rows.reduce((acc, r) => acc + (r._computed?.cuoi || 0), 0);
   $('#bk-total').textContent = fmt(sum);
+
+  const gocRows = state.rows
+    .map(r => r._computed?.giaGocDoi)
+    .filter(value => value != null && isFinite(value));
+  const gocEl = $('#bk-goc-doi');
+  if (gocEl) gocEl.textContent = gocRows.length ? fmt(gocRows.reduce((sum, value) => sum + value, 0)) : '—';
 }
 
 function recalcBKRates() {

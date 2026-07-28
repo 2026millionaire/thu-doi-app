@@ -23,5 +23,7 @@ LOCATION_NAMES = [
 PLATIN_AGES = [
     {"name": "Platin 9000", "ratio": 0.9000},
     {"name": "Platin 9250", "ratio": 0.9250},
+    {"name": "Platin 9500", "ratio": 0.9500},
 ]
+PLATIN_BUY_PER_PHAN = 700_000
 PLATIN_BASE_GOLD = "Vàng nữ trang 999.9"
